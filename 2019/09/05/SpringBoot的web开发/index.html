@@ -1,0 +1,291 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="SpringBoot的web开发"><meta name="keywords" content="SpringBoot的web开发"><meta name="author" content="Slike-V,undefined"><meta name="copyright" content="Slike-V"><title>SpringBoot的web开发【Slikeの后花园】</title><link rel="stylesheet" href="/css/fan.css"><link rel="stylesheet" href="/css/thirdparty/jquery.mCustomScrollbar.min.css"><link rel="icon" href="/avatar.png"><!-- script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")--><script src="/js/mathjax/mathjax.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+});
+</script><script>var isPassword = '' || false;
+if (isPassword) {
+    if (prompt('请输入文章密码') !== '') {
+        alert('密码错误！');
+        history.back();
+    }
+}</script><script>window.GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+}</script></head><body><canvas id="universe"></canvas><!--#body--><div id="sidebar"><div class="toggle-sidebar-info button-hover"><span data-toggle="文章目录">站点概览</span></div><div class="sidebar-toc"><div class="sidebar-toc-title">目录</div><div class="sidebar-toc-progress"><span class="progress-notice">您已阅读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc-progress-bar"></div></div><div class="sidebar-toc-content" id="sidebar-toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#SpringBoot的web开发"><span class="toc-number">1.</span> <span class="toc-text">SpringBoot的web开发</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><span class="toc-number">1.0.1.</span> <span class="toc-text">       前言</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#thymeleaf模板技术"><span class="toc-number">1.0.2.</span> <span class="toc-text">thymeleaf模板技术</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#登录页面的国际化-包含链接和浏览器语言实现国际化"><span class="toc-number">1.0.3.</span> <span class="toc-text">登录页面的国际化( 包含链接和浏览器语言实现国际化)</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info-avatar"><img class="author-info-avatar-img" src="/avatar.png"></div><div class="author-info-name">Slike-V</div><div class="author-info-description"></div><div class="links-buttons"><a class="links-button button-hover" href="https://github.com/fan-lv" target="_blank">GitHub<i class="icon-dot bg-color9"></i></a><a class="links-button button-hover" href="mailto:826330335@qq.com" target="_blank">E-Mail<i class="icon-dot bg-color5"></i></a><a class="links-button button-hover" href="tencent:/" target="_blank">QQ<i class="icon-dot bg-color6"></i></a></div><div class="author-info-articles"><a class="author-info-articles-archives article-meta" href="/archives"><span class="pull-top">日志</span><span class="pull-bottom">58</span></a><a class="author-info-articles-tags article-meta" href="/tags"><span class="pull-top">标签</span><span class="pull-bottom">58</span></a><a class="author-info-articles-categories article-meta" href="/categories"><span class="pull-top">分类</span><span class="pull-bottom">19</span></a></div><div class="friend-link"><a class="friend-link-text" href="/about" target="_blank">Slike-V【简介】</a><a class="friend-link-text" href="https://github.com/fan-lv" target="_blank">主题作者</a><a class="friend-link-text" href="http://kublic.coding.me" target="_blank">Kubil博客</a><a class="friend-link-text" href="http://mebieber.coding.me" target="_blank">Mebieber博客</a><a class="friend-link-text" href="https://www.ultarts.com" target="_blank">Ultarts博客</a></div></div></div><div id="main-container"><header><div id="menu-outer"><i class="menu-list-icon fas fa-bars"></i><nav id="menu-inner"><a class="menu-item" href="/">首页</a><a class="menu-item" href="/tags">标签</a><a class="menu-item" href="/categories">分类</a><a class="menu-item" href="/archives">归档</a><a class="menu-item" href="/about">关于</a></nav><div class="right-info"><a class="title-name" href="/">Slikeの后花园</a><span id="now-time"></span></div></div></header><div id="content-outer"><div id="content-inner"><article id="post"><div class="post-header"><div class="title">SpringBoot的web开发</div><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 发表于 2019-09-05 | 更新于 2021-07-28</time><!--time.button-hover.post-date #[i.fas.fa-calendar-alt.article-icon(aria-hidden="true")] #[=__('post.modified')] #[=date(page['updated'], config.date_format)]--><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/SpringBoot/">SpringBoot</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/SpringBoot的web开发/">SpringBoot的web开发</a></div></div></div><div class="main-content"><h3 id="SpringBoot的web开发"><a href="#SpringBoot的web开发" class="headerlink" title="SpringBoot的web开发"></a>SpringBoot的web开发</h3><h5 id="nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;使用SpringBoot默认是不支持jsp、html网页解析的，如果需要开发web项目就必须导入thymeleaf模板依赖</p>
+<hr>
+<a id="more"></a>
+<h5 id="thymeleaf模板技术"><a href="#thymeleaf模板技术" class="headerlink" title="thymeleaf模板技术"></a>thymeleaf模板技术</h5><ul>
+<li><p>引入 thymeleaf</p>
+<pre><code>&lt;!--START 引入 thymeleaf 的依赖 START--&gt;
+ &lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;/artifactId&gt;
+ &lt;/dependency&gt;</code></pre></li>
+</ul>
+<p><strong>注 注：如果上述引入 thymeleaf 依赖报错，就删除上面依赖引入下面的依赖。</strong></p>
+<pre><code>&lt;!-- START=== 引入 thymeleaf 依赖 ===START--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.thymeleaf&lt;/groupId&gt;
+    &lt;artifactId&gt;thymeleaf-spring5&lt;/artifactId&gt;
+&lt;/dependency&gt;</code></pre><p>必须引入以下JAR包依赖如果缺少的话，可能无法识别jsp、html等页面导致查找不到返回的视图<br><img src="/images/pasted-100.png" alt="upload successful"><br><img src="/images/pasted-99.png" alt="upload successful"></p>
+<ul>
+<li><p>使用 thymeleaf 作为视图</p>
+<p>  SpringBoot 项目默认的thymeleaf视图解析器通过ThymeleafProperties 属性文件中的源码。</p>
+</li>
+</ul>
+<p><img src="/images/pasted-101.png" alt="upload successful"></p>
+<ul>
+<li><p>配置自定义thymeleaf视图解析器</p>
+<ul>
+<li><p>在application.properties配置文件中添加配置</p>
+<pre><code>spring.thymeleaf.prefix=classpath:html/
+spring.thymeleaf.suffix=.html
+//jsp如下
+spring.thymeleaf.prefix=classpath:jsp/
+  spring.thymeleaf.suffix=.jsp</code></pre></li>
+</ul>
+<ul>
+<li><p>在Controller控制器中添加代码</p>
+<p> @RequestMapping(“/success”)</p>
+<pre><code>public String success(Model model) {
+    model.addAttribute(&quot;name&quot;, &quot; 这是一个网页&quot;);
+    return &quot;success&quot;;
+}</code></pre></li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/pasted-102.png" alt="upload successful"></p>
+<ul>
+<li><p>Thymeleaf使用&amp; 语法</p>
+<ul>
+<li><p>导入 Thymeleaf 的名称空间。</p>
+<pre><code>&lt;html lang=&quot;en&quot; xmlns:th=&quot;http://www.thymeleaf.org&quot;&gt;</code></pre></li>
+</ul>
+<ul>
+<li><p>使用 thymeleaf 的语法，在页面上面输出在 Controller 中保存到作用域中的值。</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot; xmlns:th=&quot;http://www.thymeleaf.org&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+   运行成功${name}
+   &lt;br /&gt;
+   第一种取值方法：&lt;p th:text=&quot;${name}&quot;&gt;&lt;/p&gt;
+   第二种取值方法：[[${name}]]
+   跳转路径拼接参数：&lt;a th:href=&quot;@{/index/emp/}+${emp.id}&quot;/&gt;
+    在HTML上获取session参数[[${session.loginUser.name}]]
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><p><img src="/images/pasted-144.png" alt="upload successful"></p>
+<p>使用thymeleaf模板分页</p>
+<p><img src="/images/pasted-166.png" alt="upload successful"></p>
+</li>
+<li><p>使用thymeleaf语法在当前页面引入其他标签</p>
+<p> 如果很多页面中出现一些重复的标签如导航条、下拉框等等一些重复的标签可以使用thymeleaf语法中的一些引入标签解决重复多余的标签使用。类似于JSP中的<code>jsp:include</code>,<code>&lt;% include=&quot;&quot;%&gt;</code></p>
+<p>1.抽取需要的公共片段。 </p>
+<p><img src="/images/pasted-143.png" alt="upload successful"></p>
+<p>2.引入bar.html中的公共片段（thymeleaf中有三种用法：）</p>
+<p><code>&lt;div th:insert=&quot;~{common/bar :: 片段名/ID名}&quot;&gt;&lt;/div&gt;</code></p>
+<p><code>&lt;div th:include=&quot;~{common/bar :: 片段名/ID名}&quot;&gt;&lt;/div&gt;</code></p>
+<p><code>&lt;div th:replace=&quot;~{common/bar :: 片段名/ID名}&quot;&gt;&lt;/div&gt;</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>常用的 th 标签如下</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">标签</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">th:insert/th:replace</td>
+<td align="center">Html 代码片段包含，类似于 jsp:include</td>
+</tr>
+<tr>
+<td align="center">th:each</td>
+<td align="center">遍历,类似于c:forEach</td>
+</tr>
+<tr>
+<td align="center">th:if/th:swtich</td>
+<td align="center">条件判断：类似于 c:if</td>
+</tr>
+<tr>
+<td align="center">th:case/th:object/th:with</td>
+<td align="center">声明变量，类似于 c:set</td>
+</tr>
+<tr>
+<td align="center">th:value/th:href/th:src</td>
+<td align="center">修改指定的属性默认值，如th:href修改a标签中的href属性。</td>
+</tr>
+<tr>
+<td align="center">ht:src</td>
+<td align="center">修改 script 中的 src 属性。</td>
+</tr>
+<tr>
+<td align="center">th:text/th:utext</td>
+<td align="center">修改标签体的内容,th:text 是 会进行转义字符串，如<code>&lt;th:text=”${name}”/&gt;</code>如果取出的值中的<code>&lt;h1&gt;</code>标签，那么在页面上展示的效果是<code>&lt;h1&gt;</code>，utext 才会解析成一级标题</td>
+</tr>
+<tr>
+<td align="center">th:fragment</td>
+<td align="center">声明 HTML 代码片段。</td>
+</tr>
+</tbody></table>
+<ul>
+<li>表达式 Simple expressions( 表达式语法 )</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">表达式</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Variable Expressions: ${…}</td>
+<td align="center">获取变量值，</td>
+</tr>
+<tr>
+<td align="center">Selection Variable Expressions: *{…}</td>
+<td align="center">选择表达式，和${}功能是一样。</td>
+</tr>
+<tr>
+<td align="center">Link URL Expressions: @{…}</td>
+<td align="center">定义 URL 链接。如<code>&lt;a href=&quot;#&quot;th:href=&quot;@{/order/details(orderId=${o.id})}&quot;&gt;view&lt;/a&gt;</code></td>
+</tr>
+<tr>
+<td align="center">Message Expressions: #{…}</td>
+<td align="center">获取国际化内容。</td>
+</tr>
+<tr>
+<td align="center">Fragment Expressions: ~{…}</td>
+<td align="center">片段引用表达式，如<code>&lt;div th:insert=&quot;~{commons :: main}&quot;&gt;...&lt;/div&gt;</code></td>
+</tr>
+<tr>
+<td align="center">数学运算</td>
+<td align="center">and,or ! , not</td>
+</tr>
+<tr>
+<td align="center">比较运算</td>
+<td align="center">&gt;,&lt;,&gt;=,&lt;= ( gt, lt, ge, le ) ==, != , ( eq, ne )</td>
+</tr>
+<tr>
+<td align="center">条件运算( 三元运算)</td>
+<td align="center">(if) ? (then)(if) ? (then) : (else)(value) ?: (defaultvalue)</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>SpringBoot的静态资源访问映射规则</p>
+<p>  在 Spring Boot 项目中关于 Spring 的 所有配置都是在 WebMvcAutoConfiguration 类中。我们到 WebMvcAutoConfiguation.java 类中找到 addResourceHandlers 方法即 添加资源处理。</p>
+</li>
+</ul>
+<p><img src="/images/pasted-107.png" alt="upload successful"></p>
+<p>上面可以看到一个webjars的格式路径。我们可以在项目中使用 webjars 引入前端框架中的静态资源</p>
+<p>关于/webjars/**的所有请求都会去 classpath:/META-INF/resources/webjars/ 找资源。</p>
+<p>（SpringBoot 项目是以 jar 包的方式引入静态资源；）</p>
+<p>网站：<a href="https://www.webjars.org/" target="_blank" rel="noopener">https://www.webjars.org/</a> 将我们常用的前端框架，如 如 jQuery 、Bootstrap  前端框以 架会以 Maven  依赖的方式供 SpringBoot  项目进行使用。</p>
+<ul>
+<li>实现对自己定义的静态资源进行访问<br>使用Ctrl+shift+R搜索<code>WebMvcAutoConfiguration.java</code>找到<code>addResourceHandlers</code>方法</li>
+</ul>
+<p>//方法中的部分代码</p>
+<pre><code>String staticPathPattern = this.mvcProperties.getStaticPathPattern();
+if (!registry.hasMappingForPattern(staticPathPattern)) {customizeResourceHandlerRegistration(registry.addResourceHandler(staticPathPattern)                        .addResourceLocations(getResourceLocations(this.resourceProperties.getStaticLocations()))                        .setCachePeriod(getSeconds(cachePeriod)).setCacheControl(cacheControl));}</code></pre><p>上述代码中，<code>registry.addResourceHandler(new String[]{staticPathPattern})</code>的意思是添加资源映射，<code>staticPathPattern</code> 为映射的路径。然后我们再点击 <code>staticPathPattern</code> 进入查看映射的路径再点击<code>.getStaticPathPattern()</code>方法再点击<code>this.staticPathPattern</code>在 44 行处我们可以看到<code>staticPathPattern</code> 的值为<code>/**</code>。即访问当前项目的任何资源，如果没有 controller 去处理，默认都是去 <code>addResourceLocations(getResourceLocations(this.resourceProperties.getStaticLocations()))，addResourceLocations</code> 方法中添加的资源位置处去访问。这时我们点击 <code>getStaticLocations()</code>方法进入查看点击进入 <code>this.staticLocations</code>，查看</p>
+<p><img src="/images/pasted-104.png" alt="upload successful"></p>
+<p>即当访问当前项目的任何资源，如果没有 controller 去处理，默认都是去类路径下面的META-INF/resources|resources|static|public 去访问资源。</p>
+<p><img src="/images/pasted-106.png" alt="upload successful"></p>
+<p>启动SpringBoot后直接在地址栏上输入METAINF/resources|resources|static|public下面的文件路径就能够访问的到相应的文件</p>
+<p><img src="/images/pasted-105.png" alt="upload successful"></p>
+<p>当然我们也可以自己修改静态资源的访问路径。在application.properties配置文件。这种配置会将 ResourceProperties 类中的 staticLocations 属性的值进行修改，原来的约定就不生效了，即原来保存到静态资源文件 resources、static、public 目录中的静态资源就无法访问了。</p>
+<pre><code>spring.resources.static-locations=classpath:/res/,classpath:/img/</code></pre><ul>
+<li><p>设置欢迎页面</p>
+<p>  我们在刚学 JSP 时，我们是在 web.xml 文件中通过<welcome-file-list>标签中定义多个欢迎页面。那么我们 SpringBoot 项目中是如何定义欢迎页面呢？</welcome-file-list></p>
+<p>  我们找到 <code>WebMvcAutoConfiguration</code>类类中找到<code>welcomePageHandlerMapping</code>方法，可以看到SpringBoot默认的访问页面是index.html。如我们可以到 resources/public 目录下创建 index.html，然后在浏览器中输入 localhost:8080 回车默认会在静态资源目录中找 index 页面。</p>
+</li>
+</ul>
+<p><img src="/images/pasted-108.png" alt="upload successful"></p>
+<pre><code>//自定义项目访问名
+server.servlet.context-path=/curd</code></pre><hr>
+<h5 id="登录页面的国际化-包含链接和浏览器语言实现国际化"><a href="#登录页面的国际化-包含链接和浏览器语言实现国际化" class="headerlink" title="登录页面的国际化( 包含链接和浏览器语言实现国际化)"></a>登录页面的国际化( 包含链接和浏览器语言实现国际化)</h5><p>实现当我们在下面登录页面中点击”中文”链接时，登录页面显示中文。当我们点击”English”时，登录页面显示英文效果。</p>
+<p><img src="/images/pasted-114.png" alt="upload successful"></p>
+<ul>
+<li><p>编写国际化配置文件，抽取页面需要显示的国际化消息</p>
+<p>  在 resources 目录下创建 i18n 目录，然后在 i18n 目录下创建 login.properties 文件，再创建 login_zh_CN.properties 中文国际化文件(zh 为语言代码，CN 为国家代码)，最后再创建login_en_US.properties 英文国际化文件。</p>
+<ul>
+<li><p>双击 login_en_US.proerpties 文件到Resource Bundle，之后添加国际化配置信息。</p>
+<p> <img src="/images/pasted-115.png" alt="upload successful"></p>
+<p>国际化配置信息如下所示。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/pasted-117.png" alt="upload successful"><br><img src="/images/pasted-116.png" alt="upload successful"></p>
+<p><img src="/images/pasted-118.png" alt="upload successful"></p>
+<ul>
+<li><p>修改 application.properties </p>
+<p>  添加如下配置。</p>
+<pre><code>//指定国际化的基础名，这里的 i18n 为国际化配置文件所在的 包名
+//login 为 国际化资源文件的基础名(即去掉了语言国家代码的，如 zh_CN、en_US)
+spring.messages.basename=i18n.login</code></pre></li>
+<li><p>去页面获取国际化的值</p>
+<p>  在 login.html 页面中使用#{}获取国际化的值，如下所示，红色字体为新增的。</p>
+</li>
+</ul>
+<p><img src="/images/pasted-119.png" alt="upload successful"></p>
+<ul>
+<li><p>重启项目并设置浏览器的语言为中文</p>
+<p>  设置浏览器语言为中文(简体)，切换国际化。在谷歌浏览器右上角—设置—高级—语言，将中文(简<br>化)移到顶部。</p>
+</li>
+</ul>
+<p><img src="/images/pasted-120.png" alt="upload successful"></p>
+<p><strong>原因：IDEA 中 properties 里面的配置信息最终都要会被转换成 ASCII,解决这个乱码我们可以 properties 文件的字符编码。</strong></p>
+<p><strong>解决方案：File—Settings—File Encodings，如下所示。最后再到 login.properties 文件中将中文乱码修改下，重启后，再刷新一下页面。</strong></p>
+<p><img src="/images/pasted-121.png" alt="upload successful"></p>
+<p>谷歌浏览器右上角设置高级语言，将 英语( 美国)移到顶部。之后再刷新一下登录页面。登录页面的实现效果如下所示。</p>
+<p><img src="/images/pasted-122.png" alt="upload successful"></p>
+<ul>
+<li><p>当点击页面底部的”中文”和”English”链接时，实现页面的国际化切换。</p>
+<p>  国际化之所以有效果，是因为有一个重要的对象就是 Locale(区域信息对象)，SpringMVC 给我们提供了获取所有 Locale 对象的组件——LocaleResolver(作用是获取区域信息对象)。而我们 SpringBoot 中也配置了区域信息解析器。Ctrl + N 搜索 localeResolver 方法，代码如下所示。</p>
+</li>
+</ul>
+<p><img src="/images/pasted-123.png" alt="upload successful"></p>
+<p>在上述代码中，如果我们使用<code>WebMvcProperties</code>指定使用<code>FixedLocaleResolver</code>区域解析器那么我们就用 使用<code>FixedLocaleResolver</code>解析器，否则我们就使用<code>AcceptHeaderLocaleResolver</code>解 析 器 ， 这 时 我们点击<code>AcceptHeaderLocaleResolver</code>找到<code>resolverLocale</code>用于解析区域信息的方法，下图中的 request.getLocale() 方法说明我们是从请求头中获取区域信息。SpringBoot 默认实现国际化的原理是：根据请求头带来的区域信息获取 Locale 区域对象信息来实现国际化。</p>
+<p><img src="/images/pasted-124.png" alt="upload successful"></p>
+<p>想要实现当点击页面底部的”中文”和”English”链接时，实现页面的国际化的切换，那么我们可以把 SpringBoot 默认配置的区域信息解析器给换掉(不使用它默认的)，换成自己自定义的区域信息解析器。</p>
+<p><img src="/images/pasted-125.png" alt="upload successful"></p>
+<ul>
+<li><p>实现的步骤如下</p>
+<ul>
+<li><p>修改 login.html 中的两个超链接的链接地址。</p>
+<pre><code> &lt;a class=&quot;btn btn-sm&quot; th:href=&quot;@{/toLogin(l=&apos;zh_CN&apos;)}&quot;&gt;中文&lt;/a&gt;
+&lt;a class=&quot;btn btn-sm&quot; th:href=&quot;@{/toLogin(l=&apos;en_US&apos;)}&quot;&gt;English&lt;/a&gt;</code></pre></li>
+</ul>
+<ul>
+<li><p>配置自定义的区域信息解析器，代码如下所示</p>
+<p> 创建 component 包，在 component 包中创建 MyLocaleResolver</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/pasted-126.png" alt="upload successful"></p>
+<p><strong>自定义的区域信息解析器实现的效果：URL 参数没带区域信息时，就使用操作系统默认的区域信息。如果 URL 参数带了区域信息，就使用指定的区域信息。</strong></p>
+<p>为了能让自定义的区域信息解析器生效，我们需要将这个解析器添加了 SpringBoot容器。创建一个 config 包，在 config 包中创建一个配置类 MyMvcConfig。</p>
+<p><img src="/images/pasted-127.png" alt="upload successful"></p>
+<p>运行时点击切换中文</p>
+<p><img src="/images/pasted-128.png" alt="upload successful"></p>
+<p>当点击English时切换英文</p>
+<p><img src="/images/pasted-129.png" alt="upload successful"></p>
+</div><div class="post-copyright"><div class="post-copyright-author"><span class="post-copyright-meta">本文作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Slike-V</a></span></div><div class="post-copyright-type"><span class="post-copyright-meta">本文链接: </span><span class="post-copyright-info"><a href="http://Slike-v.github.io/2019/09/05/SpringBoot的web开发/">http://Slike-v.github.io/2019/09/05/SpringBoot的web开发/</a></span></div><div class="post-copyright-notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Slike-v.github.io">Slikeの后花园</a>！</span></div></div></article><div id="pagination"><div class="prev-post pull-left"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/09/06/SpringBoot开启热部署/"><i class="fas fa-angle-left">&nbsp;</i><span>SpringBoot开启热部署</span></a></div><div class="next-post pull-right"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/09/05/SpringBoot知识扩展/"><span>SpringBoot知识扩展</span><span>&nbsp;</span><i class="fas fa-angle-right"></i></a></div></div><!--div!= paginator()--></div></div><div class="button-hover" id="return-top"><i class="fas fa-arrow-up" aria-hidden="true"></i></div><footer><div id="footer"><div class="button-hover" id="side-button"><i class="fas fa-arrow-right"></i></div><div class="right-content"><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fas fa-file-o"></i></span><span id="busuanzi_value_page_pv"></span><span></span></div><div class="copyright">&copy;2017 ～ 2021 By Slike-V</div></div></div></footer></div><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery-3.3.1.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/velocity.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery.mCustomScrollbar.concat.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/fan.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/canvas_bg.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/utils.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/scroll.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/sidebar.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/copy.js"></script><!--script(src=url)--></body></html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="初识MyBatis Plus"><meta name="keywords" content="初识MyBatis Plus"><meta name="author" content="Slike-V,undefined"><meta name="copyright" content="Slike-V"><title>初识MyBatis Plus【Slikeの后花园】</title><link rel="stylesheet" href="/css/fan.css"><link rel="stylesheet" href="/css/thirdparty/jquery.mCustomScrollbar.min.css"><link rel="icon" href="/avatar.png"><!-- script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")--><script src="/js/mathjax/mathjax.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+});
+</script><script>var isPassword = '' || false;
+if (isPassword) {
+    if (prompt('请输入文章密码') !== '') {
+        alert('密码错误！');
+        history.back();
+    }
+}</script><script>window.GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+}</script></head><body><canvas id="universe"></canvas><!--#body--><div id="sidebar"><div class="toggle-sidebar-info button-hover"><span data-toggle="文章目录">站点概览</span></div><div class="sidebar-toc"><div class="sidebar-toc-title">目录</div><div class="sidebar-toc-progress"><span class="progress-notice">您已阅读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc-progress-bar"></div></div><div class="sidebar-toc-content" id="sidebar-toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#初识MyBatis-Plus"><span class="toc-number">1.</span> <span class="toc-text">初识MyBatis Plus</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><span class="toc-number">1.0.1.</span> <span class="toc-text">       前言</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#特性"><span class="toc-number">1.0.2.</span> <span class="toc-text">特性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#搭建MyBatis-plus"><span class="toc-number">1.0.3.</span> <span class="toc-text">搭建MyBatis plus</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#测试运行"><span class="toc-number">1.0.4.</span> <span class="toc-text">测试运行</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#自定义SQL语句"><span class="toc-number">1.0.5.</span> <span class="toc-text">自定义SQL语句</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info-avatar"><img class="author-info-avatar-img" src="/avatar.png"></div><div class="author-info-name">Slike-V</div><div class="author-info-description"></div><div class="links-buttons"><a class="links-button button-hover" href="https://github.com/fan-lv" target="_blank">GitHub<i class="icon-dot bg-color0"></i></a><a class="links-button button-hover" href="mailto:826330335@qq.com" target="_blank">E-Mail<i class="icon-dot bg-color2"></i></a><a class="links-button button-hover" href="tencent:/" target="_blank">QQ<i class="icon-dot bg-color5"></i></a></div><div class="author-info-articles"><a class="author-info-articles-archives article-meta" href="/archives"><span class="pull-top">日志</span><span class="pull-bottom">58</span></a><a class="author-info-articles-tags article-meta" href="/tags"><span class="pull-top">标签</span><span class="pull-bottom">58</span></a><a class="author-info-articles-categories article-meta" href="/categories"><span class="pull-top">分类</span><span class="pull-bottom">19</span></a></div><div class="friend-link"><a class="friend-link-text" href="/about" target="_blank">Slike-V【简介】</a><a class="friend-link-text" href="https://github.com/fan-lv" target="_blank">主题作者</a><a class="friend-link-text" href="http://kublic.coding.me" target="_blank">Kubil博客</a><a class="friend-link-text" href="http://mebieber.coding.me" target="_blank">Mebieber博客</a><a class="friend-link-text" href="https://www.ultarts.com" target="_blank">Ultarts博客</a></div></div></div><div id="main-container"><header><div id="menu-outer"><i class="menu-list-icon fas fa-bars"></i><nav id="menu-inner"><a class="menu-item" href="/">首页</a><a class="menu-item" href="/tags">标签</a><a class="menu-item" href="/categories">分类</a><a class="menu-item" href="/archives">归档</a><a class="menu-item" href="/about">关于</a></nav><div class="right-info"><a class="title-name" href="/">Slikeの后花园</a><span id="now-time"></span></div></div></header><div id="content-outer"><div id="content-inner"><article id="post"><div class="post-header"><div class="title">初识MyBatis Plus</div><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 发表于 2019-07-31 | 更新于 2021-07-28</time><!--time.button-hover.post-date #[i.fas.fa-calendar-alt.article-icon(aria-hidden="true")] #[=__('post.modified')] #[=date(page['updated'], config.date_format)]--><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/MyBatis-Plus框架/">MyBatis Plus框架</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/初识MyBatis-Plus/">初识MyBatis Plus</a></div></div></div><div class="main-content"><h3 id="初识MyBatis-Plus"><a href="#初识MyBatis-Plus" class="headerlink" title="初识MyBatis Plus"></a>初识MyBatis Plus</h3><h5 id="nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mybatis-Plus（MP）在 MyBatis 的基础上只做增强不做改变，简化开发、提高效率。只需简单配置，即可快速进行 CRUD 操作，从而节省大量时间。</p>
+<hr>
+<a id="more"></a>
+<h5 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h5><ul>
+<li>无侵入：只做增强不做改变，引入它不会对现有工程产生影响，如丝般顺滑</li>
+<li>损耗小：启动即会自动注入基本 CURD，性能基本无损耗，直接面向对象操作</li>
+<li>强大的 CRUD 操作：内置通用 Mapper、通用 Service，仅仅通过少量配置即可实现单表大部分 CRUD 操作，更有强大的条件构造器，满足各类使用需求</li>
+<li>支持 Lambda 形式调用：通过 Lambda 表达式，方便的编写各类查询条件，无需再担心字段写错</li>
+<li>支持主键自动生成：支持多达 4 种主键策略（内含分布式唯一 ID 生成器 - Sequence），可自由配置，完美解决主键问题</li>
+<li>支持 ActiveRecord 模式：支持 ActiveRecord 形式调用，实体类只需继承 Model 类即可进行强大的 CRUD 操作</li>
+<li>支持自定义全局通用操作：支持全局通用方法注入（ Write once, use anywhere ）</li>
+<li>内置代码生成器：采用代码或者 Maven 插件可快速生成 Mapper 、 Model 、 Service 、 Controller 层代码，支持模板引擎，更有超多自定义配置等您来使用</li>
+<li>内置分页插件：基于 MyBatis 物理分页，开发者无需关心具体操作，配置好插件之后，写分页等同于普通 List 查询</li>
+<li>分页插件支持多种数据库：支持 MySQL、MariaDB、Oracle、DB2、H2、HSQL、SQLite、Postgre、SQLServer2005、SQLServer 等多种数据库</li>
+<li>内置性能分析插件：可输出 Sql 语句以及其执行时间，建议开发测试时启用该功能，能快速揪出慢查询</li>
+<li>内置全局拦截插件：提供全表 delete 、 update 操作智能分析阻断，也可自定义拦截规则，预防误操作</li>
+</ul>
+<hr>
+<h5 id="搭建MyBatis-plus"><a href="#搭建MyBatis-plus" class="headerlink" title="搭建MyBatis plus"></a>搭建MyBatis plus</h5><p>在SpringMVC的项目</p>
+<p>1)导入jar包</p>
+<pre><code>&lt;dependency&gt;
+        &lt;groupId&gt;com.baomidou&lt;/groupId&gt;
+        &lt;artifactId&gt;mybatis-plus&lt;/artifactId&gt;
+        &lt;version&gt;3.1.2&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-orm&lt;/artifactId&gt;
+        &lt;version&gt;3.2.13.RELEASE&lt;/version&gt;
+    &lt;/dependency&gt;</code></pre><p>2)配置xml</p>
+<pre><code>&lt;!--加载配置文件--&gt;
+&lt;bean class=&quot;org.springframework.beans.factory.config.PropertyPlaceholderConfigurer&quot;&gt;
+    &lt;property name=&quot;location&quot; value=&quot;classpath:data.properties&quot;/&gt;
+&lt;/bean&gt;
+&lt;!--数据库连接配置--&gt;
+&lt;bean id=&quot;dataSource&quot; class=&quot;org.apache.commons.dbcp.BasicDataSource&quot; destroy-method=&quot;close&quot;&gt;
+    &lt;property name=&quot;driverClassName&quot; value=&quot;${driver}&quot;/&gt;
+    &lt;property name=&quot;url&quot; value=&quot;${url}&quot;/&gt;
+    &lt;property name=&quot;username&quot; value=&quot;${username}&quot;/&gt;
+    &lt;property name=&quot;password&quot; value=&quot;${password}&quot;/&gt;
+    &lt;property name=&quot;maxActive&quot; value=&quot;${maxActive}&quot;/&gt;
+    &lt;property name=&quot;maxIdle&quot; value=&quot;${maxIdle}&quot;/&gt;
+&lt;/bean&gt;
+&lt;!--装载mybatis plusJAR包中的MybatisSqlSessionFactoryBean并引用数据库连接--&gt;
+&lt;bean id=&quot;sqlSessionFactory&quot; class=&quot;com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean&quot;&gt;
+    &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;/&gt;
+&lt;/bean&gt;
+&lt;!--扫描Mapper接口--&gt;
+&lt;bean class=&quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;&gt;
+    &lt;property name=&quot;basePackage&quot; value=&quot;com.dao&quot;/&gt;
+&lt;/bean&gt;</code></pre><hr>
+<p>在SpringBoot的项目<br>1)导入jar包</p>
+<pre><code>&lt;parent&gt;
+&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+&lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+&lt;version&gt;2.1.6.RELEASE&lt;/version&gt;
+&lt;relativePath/&gt;
+&lt;/parent&gt;
+
+&lt;dependencies&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+    &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+    &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+    &lt;optional&gt;true&lt;/optional&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;com.baomidou&lt;/groupId&gt;
+    &lt;artifactId&gt;mybatis-plus-boot-starter&lt;/artifactId&gt;
+    &lt;version&gt;3.1.2&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;com.h2database&lt;/groupId&gt;
+    &lt;artifactId&gt;h2&lt;/artifactId&gt;
+    &lt;scope&gt;runtime&lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;/dependencies&gt;</code></pre><p>2)配置yml文件</p>
+<pre><code>spring:
+datasource:
+  driver-class-name: com.mysql.jdbc.Driver
+  url: jdbc:mysql://localhost:3306/test
+  username: root
+  password: root</code></pre><p>3)启动类中添加 <code>@MapperScan</code> 注解，扫描 Mapper 文件夹：</p>
+<pre><code>@SpringBootApplication
+@MapperScan(&quot;com.baomidou.mybatisplus.samples.quickstart.mapper&quot;)
+public class Application {
+
+  public static void main(String[] args) {
+      SpringApplication.run(QuickStartApplication.class, args);
+  }
+}</code></pre><hr>
+<h5 id="测试运行"><a href="#测试运行" class="headerlink" title="测试运行"></a>测试运行</h5><p>访问过程与之前MyBatis相同。唯一不同点在于Mapper的接口。没有用对应的Mapper.xml。如果编写了Mapper.xml又没有配置属性。可能会导致报错<br>控制器中编写测试代码：</p>
+<pre><code>@RunWith(SpringRunner.class)
+  @SpringBootTest
+public class SampleTest {
+
+@Autowired
+private UserMapper userMapper;
+
+@Test
+public void testSelect() {
+    System.out.println((&quot;----- selectAll method test ------&quot;));
+    List&lt;User&gt; userList = userMapper.selectList(null);
+    Assert.assertEquals(5, userList.size());
+    userList.forEach(System.out::println);
+}
+}</code></pre><p>Mapper接口中编写测试代码：</p>
+<pre><code>import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.pojo.AppInfo;
+
+import java.util.List;
+
+public interface UserMapper extends BaseMapper&lt;User&gt; {
+}</code></pre><p>通过以上几个简单的步骤，我们就实现了 User 表的 CRUD 功能，甚至连 XML 文件都不用编写！原因在于MyBatis plus的<code>BaseMapper&lt;T&gt;</code>封装了很多简单的ZXCG的SQL接口。不需要我们去做任何SQL的操作。不过如果我们需要编写过于复杂或者多表联查等SQL语句则需要自定义SQL。</p>
+<hr>
+<h5 id="自定义SQL语句"><a href="#自定义SQL语句" class="headerlink" title="自定义SQL语句"></a>自定义SQL语句</h5><p>1) 注解方式 Mapper.java</p>
+<pre><code>public interface BackendUserMapper extends BaseMapper&lt;AppInfo&gt; {
+
+  @Select(&quot;select * from app_info&quot;)
+  List&lt;AppInfo&gt; appInfoList();
+}</code></pre><p>2) XML形式 Mapper.xml</p>
+<pre><code>&lt;mapper namespace=&quot;com.dao.backenduser.BackendUserMapper&quot;&gt;
+  &lt;select id=&quot;appInfoList&quot; resultType=&quot;com.pojo.AppInfo&quot;&gt;
+      select * from app_info
+  &lt;/select&gt;
+&lt;/mapper&gt;</code></pre><p><strong>Mapper.xml形式必须保证.xml的配置文件与它指向的接口名称相同。否则会因为名称不同而不能相匹配</strong></p>
+</div><div class="post-copyright"><div class="post-copyright-author"><span class="post-copyright-meta">本文作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Slike-V</a></span></div><div class="post-copyright-type"><span class="post-copyright-meta">本文链接: </span><span class="post-copyright-info"><a href="http://Slike-v.github.io/2019/07/31/初识MyBatis-Plus/">http://Slike-v.github.io/2019/07/31/初识MyBatis-Plus/</a></span></div><div class="post-copyright-notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Slike-v.github.io">Slikeの后花园</a>！</span></div></div></article><div id="pagination"><div class="prev-post pull-left"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/07/31/lombok工具使用/"><i class="fas fa-angle-left">&nbsp;</i><span>lombok工具使用</span></a></div><div class="next-post pull-right"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/07/31/MyBatis缓存/"><span>MyBatis缓存</span><span>&nbsp;</span><i class="fas fa-angle-right"></i></a></div></div><!--div!= paginator()--></div></div><div class="button-hover" id="return-top"><i class="fas fa-arrow-up" aria-hidden="true"></i></div><footer><div id="footer"><div class="button-hover" id="side-button"><i class="fas fa-arrow-right"></i></div><div class="right-content"><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fas fa-file-o"></i></span><span id="busuanzi_value_page_pv"></span><span></span></div><div class="copyright">&copy;2017 ～ 2021 By Slike-V</div></div></div></footer></div><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery-3.3.1.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/velocity.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery.mCustomScrollbar.concat.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/fan.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/canvas_bg.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/utils.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/scroll.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/sidebar.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/copy.js"></script><!--script(src=url)--></body></html>

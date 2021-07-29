@@ -1,0 +1,142 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="Hibernate连接查询和注解"><meta name="keywords" content="Hibernate连接查询和注解"><meta name="author" content="Slike-V,undefined"><meta name="copyright" content="Slike-V"><title>Hibernate连接查询和注解【Slikeの后花园】</title><link rel="stylesheet" href="/css/fan.css"><link rel="stylesheet" href="/css/thirdparty/jquery.mCustomScrollbar.min.css"><link rel="icon" href="/avatar.png"><!-- script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")--><script src="/js/mathjax/mathjax.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+});
+</script><script>var isPassword = '' || false;
+if (isPassword) {
+    if (prompt('请输入文章密码') !== '') {
+        alert('密码错误！');
+        history.back();
+    }
+}</script><script>window.GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+}</script></head><body><canvas id="universe"></canvas><!--#body--><div id="sidebar"><div class="toggle-sidebar-info button-hover"><span data-toggle="文章目录">站点概览</span></div><div class="sidebar-toc"><div class="sidebar-toc-title">目录</div><div class="sidebar-toc-progress"><span class="progress-notice">您已阅读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc-progress-bar"></div></div><div class="sidebar-toc-content" id="sidebar-toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Hibernate连接查询和注解"><span class="toc-number">1.</span> <span class="toc-text">Hibernate连接查询和注解</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><span class="toc-number">1.0.1.</span> <span class="toc-text">       前言</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#HQL的连接查询"><span class="toc-number">1.0.2.</span> <span class="toc-text">HQL的连接查询</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#分组统计数据"><span class="toc-number">1.0.3.</span> <span class="toc-text">分组统计数据</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#子查询"><span class="toc-number">1.0.4.</span> <span class="toc-text">子查询</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#查询性能优化"><span class="toc-number">1.0.5.</span> <span class="toc-text">查询性能优化</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#注解"><span class="toc-number">1.0.6.</span> <span class="toc-text">注解</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info-avatar"><img class="author-info-avatar-img" src="/avatar.png"></div><div class="author-info-name">Slike-V</div><div class="author-info-description"></div><div class="links-buttons"><a class="links-button button-hover" href="https://github.com/fan-lv" target="_blank">GitHub<i class="icon-dot bg-color5"></i></a><a class="links-button button-hover" href="mailto:826330335@qq.com" target="_blank">E-Mail<i class="icon-dot bg-color5"></i></a><a class="links-button button-hover" href="tencent:/" target="_blank">QQ<i class="icon-dot bg-color7"></i></a></div><div class="author-info-articles"><a class="author-info-articles-archives article-meta" href="/archives"><span class="pull-top">日志</span><span class="pull-bottom">58</span></a><a class="author-info-articles-tags article-meta" href="/tags"><span class="pull-top">标签</span><span class="pull-bottom">58</span></a><a class="author-info-articles-categories article-meta" href="/categories"><span class="pull-top">分类</span><span class="pull-bottom">19</span></a></div><div class="friend-link"><a class="friend-link-text" href="/about" target="_blank">Slike-V【简介】</a><a class="friend-link-text" href="https://github.com/fan-lv" target="_blank">主题作者</a><a class="friend-link-text" href="http://kublic.coding.me" target="_blank">Kubil博客</a><a class="friend-link-text" href="http://mebieber.coding.me" target="_blank">Mebieber博客</a><a class="friend-link-text" href="https://www.ultarts.com" target="_blank">Ultarts博客</a></div></div></div><div id="main-container"><header><div id="menu-outer"><i class="menu-list-icon fas fa-bars"></i><nav id="menu-inner"><a class="menu-item" href="/">首页</a><a class="menu-item" href="/tags">标签</a><a class="menu-item" href="/categories">分类</a><a class="menu-item" href="/archives">归档</a><a class="menu-item" href="/about">关于</a></nav><div class="right-info"><a class="title-name" href="/">Slikeの后花园</a><span id="now-time"></span></div></div></header><div id="content-outer"><div id="content-inner"><article id="post"><div class="post-header"><div class="title">Hibernate连接查询和注解</div><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 发表于 2019-08-24 | 更新于 2021-07-28</time><!--time.button-hover.post-date #[i.fas.fa-calendar-alt.article-icon(aria-hidden="true")] #[=__('post.modified')] #[=date(page['updated'], config.date_format)]--><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/Hibernate框架/">Hibernate框架</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/Hibernate连接查询和注解/">Hibernate连接查询和注解</a></div></div></div><div class="main-content"><h3 id="Hibernate连接查询和注解"><a href="#Hibernate连接查询和注解" class="headerlink" title="Hibernate连接查询和注解"></a>Hibernate连接查询和注解</h3><h5 id="nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;实现HQL的连接查询和注解进行关联数据库字段</p>
+<hr>
+<a id="more"></a>
+<h5 id="HQL的连接查询"><a href="#HQL的连接查询" class="headerlink" title="HQL的连接查询"></a>HQL的连接查询</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;和SQL查询一样，HQL也支持多种连接查询，如内连接、外连接。还允许显示指定迫切内连接和迫切左外连接。迫切连接指不仅指定了连接查询方式，而且显式地指定了关联级别的查询策略。迫切连接使用fetch关键字实现，fetch关键字表明”左边“对象用来与”右边“对象关联的属性会立即被初始化。</p>
+<p>HQL支持的常用连接类型</p>
+<ol>
+<li>内连接 - inner join 或 join<pre><code>from Entity [inner] join [fetch] Entity.property</code></pre></li>
+<li>切内连接 - inner join fetch 或 join fetch</li>
+<li>左外连接 - left outer join 或 join</li>
+<li>迫切左外连接 - left outer join fetch 或 left join fetch</li>
+<li>右外连接 - right outer join 或 right join<pre><code>from Entity [left|right] [outer] join [fetch] Entity.property</code></pre></li>
+</ol>
+<ul>
+<li>等值连接</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HQL支持SQL风格的等值连接查询。等值连接适用于两个类之间没有定义任何关联时。</p>
+<pre><code>from Entity1 e1,Entity2 e2 [inner] join [fetch] e1 = e2.property</code></pre><ul>
+<li>隐式内连接</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在HQL查询语句中，对Emp类可以通过e.dept.deptName的形式访问其关联的dept对象的deptName属性。</p>
+<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fetch关键字只对inner join和left outer join有效。对于right outer join而言，由于作为关联对象容器的“左边”对象可能为null，所以无法通过fetch关键字强制Hibernate进集合填充操作。</strong></p>
+<hr>
+<h5 id="分组统计数据"><a href="#分组统计数据" class="headerlink" title="分组统计数据"></a>分组统计数据</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HQL和SQL一样，使用group by关键字对数据分组，使用having关键字对分组数据设定约束条件，从而完成对数据分组和统计。</p>
+<pre><code>[select ... ]from ...[where...][group by...[having...]][order by...]</code></pre><ul>
+<li>聚合函数<ul>
+<li>count() - 统计记录数</li>
+<li>sum() - 求和</li>
+<li>min() - 求最小值</li>
+<li>max() - 求最大值</li>
+<li>avg() - 求平均值</li>
+</ul>
+</li>
+</ul>
+<pre><code>Long count - (Long)session.createQuery(&quot;select count(id) from Dept&quot;).uniqueResult();
+
+Object [] salarys = (Object[])session.createQuery(&quot;select max(salary),min(salary),avg(salary) from Emp&quot;).uniqueResult();</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;因为聚合函数全部都是只取一行，所以使用uniqueResult()方法获取。如果一行有选取多个对象时，uniqueResult()返回一个Object数组。</p>
+<ul>
+<li>分组查询</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HQL查询语句使用group by子句进行分组查询，使用having子句筛选分组结果。</p>
+<pre><code>List&lt;Object[]&gt; list = HibernateUtil.currentSession().createQuery(&quot;select job,count(e) from Emp group by job&quot;).list();</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Query的list()方法返回的集合中包含Object[]类型的元素，每个Object[]对应查询结果中的一条记录，数据的第一个元素是职位名称，第二个元素是该职位的员工人数。having子句用于筛选分组结果。</p>
+<hr>
+<h5 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;子查询应用的HQL语句的where子句中，子查询语句需要放在()里面。</p>
+<ol>
+<li><p>子查询关键字</p>
+<ul>
+<li>all - 子查询语句返回的所有记录</li>
+<li>any - 子查询语句返回的任意一条记录</li>
+<li>some - 与any意思相同</li>
+<li>in - 与 =any意思相同</li>
+<li>exists - 子查询语句至少返回一条记录</li>
+</ul>
+</li>
+<li><p>操作集合的函数或属性</p>
+<p> HQL提供了操作集合的函数或属性</p>
+<ul>
+<li>size()或size - 获取集合中元素的数目</li>
+<li>minIndex()或minIndex - 对于建立了索引的集合，获得最小的索引</li>
+<li>maxIndex()或maxIndex - 对于建立了索引的集合，获得最大的索引</li>
+<li>minElement()或minElement - 对于包含基本类型元素的集合，获得集合中取值最小的元素</li>
+<li>maxElement()或maxElement - 对于包含基本类型元素的集合，获得集合中取值最大的元素</li>
+<li>elements() - 获取集合中所有元素</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h5 id="查询性能优化"><a href="#查询性能优化" class="headerlink" title="查询性能优化"></a>查询性能优化</h5><ul>
+<li><p>Hibernate查询优化策略</p>
+<ul>
+<li>使用迫切左外连接或迫切内连接查询策略、配置二级缓存和查询缓存等方式，减少select语句的数目，降低访问数据库的频率。</li>
+<li>使用延迟加载等方式避免加载多余的不需要访问的数据</li>
+<li>使用Query接口的iterate()方法减少select语句中的字段，降低访问数据库的数据量。结合缓存等机制减少数据库访问次数，提高查询效率。</li>
+<li>Query接口的list()和iterate()都可以执行查询，而iterate()方法能够利用延迟加载和缓存机制提高查询性能。iterate()方法执行时仅查询ID字段以节省资源，需要使用数据时在根据ID字段到缓存中检索匹配的实例，如果存在就直接使用，只有当缓存中没有需要的数据时，iterate()方法才会执行select语句根据ID字段到数据库中查询。iterate()方法更适用于查询对象开启二级缓存的情况。</li>
+</ul>
+</li>
+<li><p>HQL优化</p>
+<ul>
+<li><p>避免使用not。如果where子句的条件包含not关键字，那么执行该字段的索引失效。这些语句需要分成不同情况区别对待，如果查询租金不多于1800的租房信息HQL语句为</p>
+<pre><code>from House as h where not (h.price&gt;1800)</code></pre></li>
+<li><p>避免like的特殊形式。某些情况下，会在where子句条件中使用like。如果like以一个%或)开始即前模糊，则该字段的索引不起作用。</p>
+</li>
+<li><p>避免having子句。在分组的查询语句中，可在两个位置指定条件，一是在where子句中，而是在having子句中。要尽可能的在where子句中而不是having子句中指定条件。having是在检索出所有记录后才对结果集进行过滤，这个处理需要一定的开销，而where子句限制记录数据，能减少这方面的开销。</p>
+</li>
+<li><p>避免使用distinct。指定distinct会导致在结果中删除重复的行，这会对处理时间造成一定的影响。</p>
+</li>
+<li><p>对字段使用函数，该字段的索引将不起作用。</p>
+</li>
+<li><p>对字段进行计算，该字段的索引将不起作用。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HQL优化是Hibernate程序优化的一个方面，HQL语法与SQL非常类似。HQL是基于SQL的，只有增加了面向对象的封装。如果抛开HQL同Hibernate本身一些缓存机制的关联，HQL的优化技巧同SQL的优化技巧一样。</p>
+<hr>
+<h5 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hibernate提供了注解来进行对象关系映射，它可以代替大量的hbm.xml文件，使Hibernate程序的文件数量大大精简。</p>
+<ol>
+<li><p>使用注解配置持久化类及对象关联关系</p>
+</li>
+<li><p>在Hibernate配置文件(hibernate.cfg.xml)中声明持久化类</p>
+<pre><code>&lt;mapping class=&quot;持久化类完整限定名&quot;/&gt;</code></pre></li>
+<li><p>配置持久化类的常用注解</p>
+<ul>
+<li>@Entity - 将一个类声明为一个持久化类</li>
+<li>@Table - 为持久化类映射指定表(table)、目录(catalog)、schema名称</li>
+<li>@Id - 声明持久化类的标识属性(主键)</li>
+<li>@GeneratedValue - 定义表示属性值的生成策略</li>
+<li>@UniqueConstraint - 定义表的唯一约束</li>
+<li>@Lob - 表示属性将被持久化为Blob或者Clob类型</li>
+<li>@Column - 将属性映射到数据字段</li>
+<li>@Transient - 指定可以忽略的属性，不用持久化到数据库</li>
+</ul>
+</li>
+</ol>
+<p>使用Hibernate注解需要导入javax.persistence包。</p>
+<p>使用注解配置关联关系</p>
+<ul>
+<li>@OneToOne - 建立持久化类之间的一对一关联关系</li>
+<li>@OneToMany - 建立持久化类之间的一对多关联关系</li>
+<li>@ManyToOne - 建立持久化类之间的多对一关联关系</li>
+<li>@ManyToMany - 建立持久化类之间的多对多关联关系</li>
+<li>@JoinColumn - 建立连接后关系指明自己在对方类型中的属性名</li>
+<li>@JoinColumns - 建立多对多关系指明自己的字段和关联字段</li>
+</ul>
+</div><div class="post-copyright"><div class="post-copyright-author"><span class="post-copyright-meta">本文作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Slike-V</a></span></div><div class="post-copyright-type"><span class="post-copyright-meta">本文链接: </span><span class="post-copyright-info"><a href="http://Slike-v.github.io/2019/08/24/Hibernate连接查询和注解/">http://Slike-v.github.io/2019/08/24/Hibernate连接查询和注解/</a></span></div><div class="post-copyright-notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Slike-v.github.io">Slikeの后花园</a>！</span></div></div></article><div id="pagination"><div class="prev-post pull-left"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/08/28/响应式布局/"><i class="fas fa-angle-left">&nbsp;</i><span>响应式布局</span></a></div><div class="next-post pull-right"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/08/19/QBC查询语法/"><span>QBC查询语法</span><span>&nbsp;</span><i class="fas fa-angle-right"></i></a></div></div><!--div!= paginator()--></div></div><div class="button-hover" id="return-top"><i class="fas fa-arrow-up" aria-hidden="true"></i></div><footer><div id="footer"><div class="button-hover" id="side-button"><i class="fas fa-arrow-right"></i></div><div class="right-content"><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fas fa-file-o"></i></span><span id="busuanzi_value_page_pv"></span><span></span></div><div class="copyright">&copy;2017 ～ 2021 By Slike-V</div></div></div></footer></div><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery-3.3.1.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/velocity.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery.mCustomScrollbar.concat.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/fan.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/canvas_bg.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/utils.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/scroll.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/sidebar.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/copy.js"></script><!--script(src=url)--></body></html>

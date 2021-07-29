@@ -1,0 +1,130 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="Hibernate关系映射"><meta name="keywords" content="Hibernate关系映射"><meta name="author" content="Slike-V,undefined"><meta name="copyright" content="Slike-V"><title>Hibernate关系映射【Slikeの后花园】</title><link rel="stylesheet" href="/css/fan.css"><link rel="stylesheet" href="/css/thirdparty/jquery.mCustomScrollbar.min.css"><link rel="icon" href="/avatar.png"><!-- script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")--><script src="/js/mathjax/mathjax.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+});
+</script><script>var isPassword = '' || false;
+if (isPassword) {
+    if (prompt('请输入文章密码') !== '') {
+        alert('密码错误！');
+        history.back();
+    }
+}</script><script>window.GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+}</script></head><body><canvas id="universe"></canvas><!--#body--><div id="sidebar"><div class="toggle-sidebar-info button-hover"><span data-toggle="文章目录">站点概览</span></div><div class="sidebar-toc"><div class="sidebar-toc-title">目录</div><div class="sidebar-toc-progress"><span class="progress-notice">您已阅读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc-progress-bar"></div></div><div class="sidebar-toc-content" id="sidebar-toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Hibernate关系映射"><span class="toc-number">1.</span> <span class="toc-text">Hibernate关系映射</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><span class="toc-number">1.0.1.</span> <span class="toc-text">       前言</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#建立单向多对一关联关系"><span class="toc-number">1.0.2.</span> <span class="toc-text">建立单向多对一关联关系</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info-avatar"><img class="author-info-avatar-img" src="/avatar.png"></div><div class="author-info-name">Slike-V</div><div class="author-info-description"></div><div class="links-buttons"><a class="links-button button-hover" href="https://github.com/fan-lv" target="_blank">GitHub<i class="icon-dot bg-color2"></i></a><a class="links-button button-hover" href="mailto:826330335@qq.com" target="_blank">E-Mail<i class="icon-dot bg-color4"></i></a><a class="links-button button-hover" href="tencent:/" target="_blank">QQ<i class="icon-dot bg-color3"></i></a></div><div class="author-info-articles"><a class="author-info-articles-archives article-meta" href="/archives"><span class="pull-top">日志</span><span class="pull-bottom">58</span></a><a class="author-info-articles-tags article-meta" href="/tags"><span class="pull-top">标签</span><span class="pull-bottom">58</span></a><a class="author-info-articles-categories article-meta" href="/categories"><span class="pull-top">分类</span><span class="pull-bottom">19</span></a></div><div class="friend-link"><a class="friend-link-text" href="/about" target="_blank">Slike-V【简介】</a><a class="friend-link-text" href="https://github.com/fan-lv" target="_blank">主题作者</a><a class="friend-link-text" href="http://kublic.coding.me" target="_blank">Kubil博客</a><a class="friend-link-text" href="http://mebieber.coding.me" target="_blank">Mebieber博客</a><a class="friend-link-text" href="https://www.ultarts.com" target="_blank">Ultarts博客</a></div></div></div><div id="main-container"><header><div id="menu-outer"><i class="menu-list-icon fas fa-bars"></i><nav id="menu-inner"><a class="menu-item" href="/">首页</a><a class="menu-item" href="/tags">标签</a><a class="menu-item" href="/categories">分类</a><a class="menu-item" href="/archives">归档</a><a class="menu-item" href="/about">关于</a></nav><div class="right-info"><a class="title-name" href="/">Slikeの后花园</a><span id="now-time"></span></div></div></header><div id="content-outer"><div id="content-inner"><article id="post"><div class="post-header"><div class="title">Hibernate关系映射</div><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 发表于 2019-08-28 | 更新于 2021-07-28</time><!--time.button-hover.post-date #[i.fas.fa-calendar-alt.article-icon(aria-hidden="true")] #[=__('post.modified')] #[=date(page['updated'], config.date_format)]--><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/Hibernate框架/">Hibernate框架</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/Hibernate关系映射/">Hibernate关系映射</a></div></div></div><div class="main-content"><h3 id="Hibernate关系映射"><a href="#Hibernate关系映射" class="headerlink" title="Hibernate关系映射"></a>Hibernate关系映射</h3><h5 id="nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;类与类直接最普通的关系就是关联关系，而且关联是有方向的。部门和员工为例 - 一个部门下有多个员工，而一个员工只属于一个部门。Emp到Dept的关联或Dept到Emp的关联，称为单向关联。如果同时包含两种关联，称为双向关联。</p>
+<hr>
+<a id="more"></a>
+<h5 id="建立单向多对一关联关系"><a href="#建立单向多对一关联关系" class="headerlink" title="建立单向多对一关联关系"></a>建立单向多对一关联关系</h5><ul>
+<li>配置单向多对一关联 使用<code>&lt;many-to-one&gt;</code>元素关联</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dept类的所有属性和DEPT表的字段一一对应，因此Dept类映射到DEPT表中。而Emp类中，dept属性是Dept类，和EMP表的外键DEPTNO对应。但在Hibernate框架中的配置映射需要</p>
+<ol>
+<li><p>在Emp类中创建一个关联对象：</p>
+<pre><code>private Dept dept;</code></pre></li>
+<li><p>配置文件中配置：</p>
+<pre><code>&lt;many-to-one name=&quot;dept&quot; column=&quot;DEPTNO&quot; class=&quot;cn.pojo.Dept&quot; /&gt;</code></pre></li>
+</ol>
+<ul>
+<li>配置双向一对多关联</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当类与类之间建立了关联，就可以方便地从一个对象导航到另一个对象，或者通过集合导航到一组对象。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在使用面向对象语言编写的程序中，通过关联关系从一个对象导航到另一个对象显然比通过编码到数据库中查询要更加自然，无需额外编码。并且，基于关联关系，在增删改操作中还可以对相关对象实现自动化的级联处理，同样减少了编码工作量，提高了开发效率。因此可以为Dept和Emp建立双向一对多关联。</p>
+<ol>
+<li><p>因为是双向的关联关系，两个类中都需要进行设置相关的类型。</p>
+<pre><code>//Emp类中对Dept是多对一
+private Dept dept;
+//Dept类对Emp是一对多
+private Set&lt;Emp&gt; emps = new HashSet&lt;Emp&gt;();</code></pre></li>
+<li><p>关联的XML中进行设置相关配置</p>
+<pre><code>&lt;many-to-one name=&quot;dept&quot; cloumn=&quot;DEPTNO&quot; class=&quot;cn.pojo.Dept&quot;/&gt;
+&lt;set name=&quot;emps&quot;&gt;
+    &lt;key column=&quot;DEPTNO&quot;&gt;&lt;/key&gt;
+    &lt;one-to-many class=&quot;cn.pojo.Emp&quot;/&gt;
+&lt;/set&gt;</code></pre></li>
+</ol>
+<ul>
+<li><p>配置双向一对一关联</p>
+<ul>
+<li><p>双向的关联关系需要配置两个类中进行搭建</p>
+<pre><code>//类
+ private Dept dept;
+ private Emp emp;</code></pre></li>
+<li><p>XML配置文件中的搭建</p>
+<pre><code> //相互关系关联
+ &lt;many-to-one name=&quot;type&quot; column=&quot;TYPE_ID&quot; class=&quot;com.pojo.Type&quot;/&gt;
+
+&lt;one-to-one name=&quot;house&quot; class=&quot;com.pojo.House&quot;/&gt;</code></pre></li>
+</ul>
+</li>
+<li><p>双向关联关系下的增删改操作</p>
+</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;基于关联关系除了可以通过对象间导航实现相关对象的自动检索外，还可以在对象的增删改操作中，对相关实现自动化的级联处理。</p>
+<ol>
+<li><p>cascade属性</p>
+<p> 在配置好双向关联的映射配置上配置属性cascade，可选参数</p>
+<pre><code>none - 当Session操纵当前对象时，忽略其他关联的对象。它是cascade属性的默认值。
+save-update - 当通过Session的save、update、saveOrUpdate方法时，级联保存所有关联的瞬时状态的对象，并且级联更新所有关联的游离状态的对象
+delete - 当通过Session的delete方法删除当前对象时，会级联删除所有关联的对象
+all - 包含save-update、delete行为</code></pre></li>
+</ol>
+<p>2.<code>&lt;set&gt;</code>元素的inverse属性</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inverse直译为反转。Hibernate中，inverse属性指定了关联关系中的方向。参数为true或false。默认为false。inverse=”false”的为主动方，主动方会负责维护关联关系。</p>
+<ul>
+<li><p>建立多对多关联关系<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一对多关系通常仅涉及两张表，”多”方表通过外键引用”一”方表的主键来实现一对多的关联。多对多关系除了两张”多”方的表之外，还需要一张额外的表，通过外键分别引用两张”多方表的主键来实现多对多的关联。</p>
+</li>
+<li><p>配置双向多对多关联</p>
+</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. 对于双向多对多关联，需要把其中一端的<code>&lt;set&gt;</code>元素的inverse属性设置为”true”。使用双向多对多关联完成持久化操作。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. 可以将直接多对多的关联改为多个一对多关联关系通过一张”中间表”来进行关联。比如：员工表与项目表就是多对多的关系。</p>
+<pre><code>//表 --员工(Emp)多 对 --项目(多) --中间表(ProEmp)|改成多个一对多关系
+//Emp表中
+private Set&lt;ProEmp&gt; proEmp=new HashSet&lt;ProEmp&gt;();
+//Project表中
+private Set&lt;ProEmp&gt; proEmp=new HashSet&lt;ProEmp&gt;();
+//ProEmp表中
+private Emp emp;
+private Dept dept;
+//XML配置中Emp表
+&lt;set name=&quot;proEmp&quot; cascade=&quot;save-update&quot; inverse=&quot;true&quot;&gt;
+    &lt;key column=&quot;R_EMP_ID&quot;&gt;&lt;/key&gt;
+    &lt;one-to-many class=&quot;com.pojo.ProEmp&quot;/&gt;
+&lt;/set&gt;
+//XML配置中Project表
+&lt;set name=&quot;proEmp&quot; cascade=&quot;save-update&quot; inverse=&quot;true&quot;&gt;
+    &lt;key column=&quot;R_PRO_ID&quot;&gt;&lt;/key&gt;
+    &lt;one-to-many class=&quot;com.pojo.ProEmp&quot;/&gt;
+&lt;/set&gt;
+//XML配置中ProEmp表
+&lt;one-to-many name=&quot;emp&quot; class=&quot;cn.pojo.Emp&quot; column=&quot;R_EMP_ID&quot;/&gt;
+&lt;one-to-many name=&quot;pro&quot; class=&quot;cn.pojo.Project&quot; column=&quot;R_PRO_ID&quot;/&gt;</code></pre><ul>
+<li>类级别的查询策略</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;类级别可选的加载策略包括立即加载和延迟加载。默认延迟加载。如果<class>元素的lazy=true，表示延迟加载;反之false表示立即加载。</class></p>
+<ul>
+<li>一对多和多对多关联的查询策略</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在映射文件中，用<set>元素的lazy属性来配置一对多及多对多关联关系的加载策略。</set></p>
+<pre><code>&lt;set&gt;元素中的lazy值：
+true - 默认，延迟加载
+false - 立即加载
+extra  - 增强延迟加载</code></pre><ul>
+<li><p>多对一关联的查询策略</p>
+<pre><code>在映射文件中，用&lt;many-to-one&gt;元素用来设置多对一关联关系。
+&lt;many-to-one&gt;元素的lazy属性值：
+proxy - 默认，延迟加载
+no-proxy - 无代理延迟加载
+false - 立即加载</code></pre></li>
+<li><p>延迟加载</p>
+<p>  通过关联关系可以在程序中方便地获取关联对象的数据，但如果从数据中加载Dept对象时，同时自动加载所有关联的Emp对象，而程序仅仅需要访问Dept对象，那么这些关联的Emp对象就浪费内存空间。Hibernate查询Dept对象时立即查询并加载与之关联的Emp对象，这种查询策略称为立即加载。</p>
+<p>  立即加载的不足：</p>
+<pre><code>1.会执行不必要的查询语句，影响性能。
+2.可能会加载大量不需要的对象，增加系统开销，浪费空间。</code></pre></li>
+</ul>
+</div><div class="post-copyright"><div class="post-copyright-author"><span class="post-copyright-meta">本文作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Slike-V</a></span></div><div class="post-copyright-type"><span class="post-copyright-meta">本文链接: </span><span class="post-copyright-info"><a href="http://Slike-v.github.io/2019/08/28/Hibernate关系映射/">http://Slike-v.github.io/2019/08/28/Hibernate关系映射/</a></span></div><div class="post-copyright-notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Slike-v.github.io">Slikeの后花园</a>！</span></div></div></article><div id="pagination"><div class="prev-post pull-left"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/08/28/BootStrap/"><i class="fas fa-angle-left">&nbsp;</i><span>BootStrap</span></a></div><div class="next-post pull-right"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/08/28/响应式布局/"><span>响应式布局</span><span>&nbsp;</span><i class="fas fa-angle-right"></i></a></div></div><!--div!= paginator()--></div></div><div class="button-hover" id="return-top"><i class="fas fa-arrow-up" aria-hidden="true"></i></div><footer><div id="footer"><div class="button-hover" id="side-button"><i class="fas fa-arrow-right"></i></div><div class="right-content"><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fas fa-file-o"></i></span><span id="busuanzi_value_page_pv"></span><span></span></div><div class="copyright">&copy;2017 ～ 2021 By Slike-V</div></div></div></footer></div><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery-3.3.1.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/velocity.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery.mCustomScrollbar.concat.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/fan.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/canvas_bg.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/utils.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/scroll.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/sidebar.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/copy.js"></script><!--script(src=url)--></body></html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="HQL查询语法"><meta name="keywords" content="HQL查询语法"><meta name="author" content="Slike-V,undefined"><meta name="copyright" content="Slike-V"><title>HQL查询语法【Slikeの后花园】</title><link rel="stylesheet" href="/css/fan.css"><link rel="stylesheet" href="/css/thirdparty/jquery.mCustomScrollbar.min.css"><link rel="icon" href="/avatar.png"><!-- script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")--><script src="/js/mathjax/mathjax.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+});
+</script><script>var isPassword = '' || false;
+if (isPassword) {
+    if (prompt('请输入文章密码') !== '') {
+        alert('密码错误！');
+        history.back();
+    }
+}</script><script>window.GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+}</script></head><body><canvas id="universe"></canvas><!--#body--><div id="sidebar"><div class="toggle-sidebar-info button-hover"><span data-toggle="文章目录">站点概览</span></div><div class="sidebar-toc"><div class="sidebar-toc-title">目录</div><div class="sidebar-toc-progress"><span class="progress-notice">您已阅读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc-progress-bar"></div></div><div class="sidebar-toc-content" id="sidebar-toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#HQL查询语法"><span class="toc-number">1.</span> <span class="toc-text">HQL查询语法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><span class="toc-number">1.0.1.</span> <span class="toc-text">       前言</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#编写HQL语句"><span class="toc-number">1.0.2.</span> <span class="toc-text">编写HQL语句</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#HQL语句中绑定参数"><span class="toc-number">1.0.3.</span> <span class="toc-text">HQL语句中绑定参数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#分页和投影"><span class="toc-number">1.0.4.</span> <span class="toc-text">分页和投影</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info-avatar"><img class="author-info-avatar-img" src="/avatar.png"></div><div class="author-info-name">Slike-V</div><div class="author-info-description"></div><div class="links-buttons"><a class="links-button button-hover" href="https://github.com/fan-lv" target="_blank">GitHub<i class="icon-dot bg-color2"></i></a><a class="links-button button-hover" href="mailto:826330335@qq.com" target="_blank">E-Mail<i class="icon-dot bg-color3"></i></a><a class="links-button button-hover" href="tencent:/" target="_blank">QQ<i class="icon-dot bg-color2"></i></a></div><div class="author-info-articles"><a class="author-info-articles-archives article-meta" href="/archives"><span class="pull-top">日志</span><span class="pull-bottom">58</span></a><a class="author-info-articles-tags article-meta" href="/tags"><span class="pull-top">标签</span><span class="pull-bottom">58</span></a><a class="author-info-articles-categories article-meta" href="/categories"><span class="pull-top">分类</span><span class="pull-bottom">19</span></a></div><div class="friend-link"><a class="friend-link-text" href="/about" target="_blank">Slike-V【简介】</a><a class="friend-link-text" href="https://github.com/fan-lv" target="_blank">主题作者</a><a class="friend-link-text" href="http://kublic.coding.me" target="_blank">Kubil博客</a><a class="friend-link-text" href="http://mebieber.coding.me" target="_blank">Mebieber博客</a><a class="friend-link-text" href="https://www.ultarts.com" target="_blank">Ultarts博客</a></div></div></div><div id="main-container"><header><div id="menu-outer"><i class="menu-list-icon fas fa-bars"></i><nav id="menu-inner"><a class="menu-item" href="/">首页</a><a class="menu-item" href="/tags">标签</a><a class="menu-item" href="/categories">分类</a><a class="menu-item" href="/archives">归档</a><a class="menu-item" href="/about">关于</a></nav><div class="right-info"><a class="title-name" href="/">Slikeの后花园</a><span id="now-time"></span></div></div></header><div id="content-outer"><div id="content-inner"><article id="post"><div class="post-header"><div class="title">HQL查询语法</div><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 发表于 2019-08-19 | 更新于 2021-07-28</time><!--time.button-hover.post-date #[i.fas.fa-calendar-alt.article-icon(aria-hidden="true")] #[=__('post.modified')] #[=date(page['updated'], config.date_format)]--><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/Hibernate框架/">Hibernate框架</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/HQL查询语法/">HQL查询语法</a></div></div></div><div class="main-content"><h3 id="HQL查询语法"><a href="#HQL查询语法" class="headerlink" title="HQL查询语法"></a>HQL查询语法</h3><h5 id="nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hibernate框架中独有的查询语法HQL(Hibernate Query Language)，是一种面向对象的查询语言，其中没有表和字段的概念。只有类、对象和属性的概念。</p>
+<hr>
+<a id="more"></a>
+<h5 id="编写HQL语句"><a href="#编写HQL语句" class="headerlink" title="编写HQL语句"></a>编写HQL语句</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HQL语句中映射的查询名称首先对应的是Java类中的属性名。其次是数据库中的字段名。</p>
+<ol>
+<li><p>from子句</p>
+<p> Hibernate中最简单的HQL语句形式：</p>
+<p>   (1)from cn.hibernatedemo.entity.Dept </p>
+<p>(2)from Dept as dept </p>
+<p>(3)from Dept dept</p>
+</li>
+<li><p>select子句</p>
+<p> select子句用于选取对象和属性：</p>
+<p>(1)select dept.deptName from Dept as dept</p>
+<p>(2)select dept from Dept as dept</p>
+</li>
+<li><p>where子句</p>
+<p>   where子句用于表达查询的限制条件：from Dept where deptName = ‘SALES’</p>
+</li>
+<li><p>使用表达式</p>
+<p> 表达式一般用在where子句中。以下两个HQL语句在where子句中分别使用了lower()函数和year()函数</p>
+<p> from Dept dept where lower(dept.deptName) = ‘sales’ ：这条HQL语句用于查询名称sales的部门不区分大小写。</p>
+<p> from Emp where year(hireDate) = 1980 ：用于查询1980入职的员工</p>
+</li>
+<li><p>order by子句</p>
+<p> form Emp order by hirDate asc </p>
+<p> from Emp order by hireDate salay desc</p>
+</li>
+<li><p>执行HQL语句</p>
+</li>
+</ol>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HQL语句准备好以后，执行HQL语句需使用代码构建Query对象</p>
+<pre><code>//定义HQL语句
+String hql = &quot;from Emp&quot;;
+//构建Query对象
+Query query = session.createQuery(hql);
+
+Query对象构建好后，两种方式执行查询语句并获取查询结果。list()、iterate()</code></pre><hr>
+<h5 id="HQL语句中绑定参数"><a href="#HQL语句中绑定参数" class="headerlink" title="HQL语句中绑定参数"></a>HQL语句中绑定参数</h5><ol>
+<li><p>参数绑定形式</p>
+<ul>
+<li><p>按参数位置绑定</p>
+<pre><code>Query query = session.createQuery(&quot;from Emp where job = ? and salary &gt; ?&quot;); 
+通过setXXX()方法绑定参数第一个参数下标位置为0;
+query.setString(0,job);
+query.setDouble(1,salary);</code></pre></li>
+<li><p>按参数名称绑定</p>
+<p>  在HQL语句中可以定义命名参数，命名参数以:开头</p>
+<pre><code>Query query = sesison.createQuery(&quot;from Emp where job = :empJob and salary &gt; :empSalery&quot;); 
+通过setXXX()方法的重载绑定通过对应参数名进行绑定
+query.setString(&quot;empJob&quot;,job);
+query.setDouble(&quot;empSalery&quot;,salary);</code></pre></li>
+<li><p>绑定各种类型的参数</p>
+<p>  1.Query接口提供的绑定不同数据类型参数的方法</p>
+<pre><code>setBoolean()
+setByte()
+setDouble()
+setDate()
+setString()
+
+//用于绑定任意参数使用Object类
+setParameter()</code></pre></li>
+<li><p>实现动态查询</p>
+<p>在查询条件很多的情况下，传递过多的参数很不方便。可以吧参数封装在对象中，使用Query接口的setProperties()方法为HQL中的命名参数赋值。setProperties()方法会把对象的属性匹配到命名参数上。命名参数名称要与Java对象的属性匹配。</p>
+<p>当只需要返回一个值的时候可以使用uniqueResult()方法获取唯一结果</p>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h5 id="分页和投影"><a href="#分页和投影" class="headerlink" title="分页和投影"></a>分页和投影</h5><ol>
+<li>实现数据分页查询</li>
+</ol>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hibernate提供了简便的方法实现分页，即通过使用Query接口的setFirstResult(int firstResult)方法和setMaxResults(int maxResults)方法实现。</p>
+<pre><code> Query query = session.createQuery(hql);
+query.setFirstResult(firstResult).setMaxResults(maxResults).list();</code></pre><ol start="2">
+<li><p>使用投影查询<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;有时候数据展示并不需要获取对象的全部属性，而是只需要对象的某个属性，或需要通过表达式、聚合函数等方式得到某些结果、此时可以使用投影查询。投影查询需要使用HQL的select子句。</p>
+<ul>
+<li>每条查询结果仅包含一个结果列</li>
+<li>每条查询结果包含不止一个结果列</li>
+<li>将每条查询结果通过构造方法封装成对象</li>
+</ul>
+</li>
+</ol>
+</div><div class="post-copyright"><div class="post-copyright-author"><span class="post-copyright-meta">本文作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Slike-V</a></span></div><div class="post-copyright-type"><span class="post-copyright-meta">本文链接: </span><span class="post-copyright-info"><a href="http://Slike-v.github.io/2019/08/19/HQL查询语法/">http://Slike-v.github.io/2019/08/19/HQL查询语法/</a></span></div><div class="post-copyright-notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Slike-v.github.io">Slikeの后花园</a>！</span></div></div></article><div id="pagination"><div class="prev-post pull-left"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/08/19/QBC查询语法/"><i class="fas fa-angle-left">&nbsp;</i><span>QBC查询语法</span></a></div><div class="next-post pull-right"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/08/16/Oracle账号问题/"><span>Oracle数据库密码问题</span><span>&nbsp;</span><i class="fas fa-angle-right"></i></a></div></div><!--div!= paginator()--></div></div><div class="button-hover" id="return-top"><i class="fas fa-arrow-up" aria-hidden="true"></i></div><footer><div id="footer"><div class="button-hover" id="side-button"><i class="fas fa-arrow-right"></i></div><div class="right-content"><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fas fa-file-o"></i></span><span id="busuanzi_value_page_pv"></span><span></span></div><div class="copyright">&copy;2017 ～ 2021 By Slike-V</div></div></div></footer></div><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery-3.3.1.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/velocity.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery.mCustomScrollbar.concat.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/fan.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/canvas_bg.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/utils.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/scroll.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/sidebar.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/copy.js"></script><!--script(src=url)--></body></html>

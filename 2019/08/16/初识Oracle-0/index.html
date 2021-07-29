@@ -1,0 +1,263 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="PL/SQL编程"><meta name="keywords" content="PL/SQL编程"><meta name="author" content="Slike-V,undefined"><meta name="copyright" content="Slike-V"><title>PL/SQL编程【Slikeの后花园】</title><link rel="stylesheet" href="/css/fan.css"><link rel="stylesheet" href="/css/thirdparty/jquery.mCustomScrollbar.min.css"><link rel="icon" href="/avatar.png"><!-- script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")--><script src="/js/mathjax/mathjax.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+});
+</script><script>var isPassword = '' || false;
+if (isPassword) {
+    if (prompt('请输入文章密码') !== '') {
+        alert('密码错误！');
+        history.back();
+    }
+}</script><script>window.GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+}</script></head><body><canvas id="universe"></canvas><!--#body--><div id="sidebar"><div class="toggle-sidebar-info button-hover"><span data-toggle="文章目录">站点概览</span></div><div class="sidebar-toc"><div class="sidebar-toc-title">目录</div><div class="sidebar-toc-progress"><span class="progress-notice">您已阅读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc-progress-bar"></div></div><div class="sidebar-toc-content" id="sidebar-toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#PL-SQL编程"><span class="toc-number">1.</span> <span class="toc-text">PL/SQL编程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><span class="toc-number">1.0.1.</span> <span class="toc-text">       前言</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#PL-SQL编程的特点"><span class="toc-number">1.0.2.</span> <span class="toc-text">PL/SQL编程的特点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#PL-SQL体系结构"><span class="toc-number">1.0.3.</span> <span class="toc-text">PL/SQL体系结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#PL-SQL数据类型"><span class="toc-number">1.0.4.</span> <span class="toc-text">PL/SQL数据类型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#异常处理"><span class="toc-number">1.0.5.</span> <span class="toc-text">异常处理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#游标"><span class="toc-number">1.0.6.</span> <span class="toc-text">游标</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info-avatar"><img class="author-info-avatar-img" src="/avatar.png"></div><div class="author-info-name">Slike-V</div><div class="author-info-description"></div><div class="links-buttons"><a class="links-button button-hover" href="https://github.com/fan-lv" target="_blank">GitHub<i class="icon-dot bg-color7"></i></a><a class="links-button button-hover" href="mailto:826330335@qq.com" target="_blank">E-Mail<i class="icon-dot bg-color3"></i></a><a class="links-button button-hover" href="tencent:/" target="_blank">QQ<i class="icon-dot bg-color5"></i></a></div><div class="author-info-articles"><a class="author-info-articles-archives article-meta" href="/archives"><span class="pull-top">日志</span><span class="pull-bottom">58</span></a><a class="author-info-articles-tags article-meta" href="/tags"><span class="pull-top">标签</span><span class="pull-bottom">58</span></a><a class="author-info-articles-categories article-meta" href="/categories"><span class="pull-top">分类</span><span class="pull-bottom">19</span></a></div><div class="friend-link"><a class="friend-link-text" href="/about" target="_blank">Slike-V【简介】</a><a class="friend-link-text" href="https://github.com/fan-lv" target="_blank">主题作者</a><a class="friend-link-text" href="http://kublic.coding.me" target="_blank">Kubil博客</a><a class="friend-link-text" href="http://mebieber.coding.me" target="_blank">Mebieber博客</a><a class="friend-link-text" href="https://www.ultarts.com" target="_blank">Ultarts博客</a></div></div></div><div id="main-container"><header><div id="menu-outer"><i class="menu-list-icon fas fa-bars"></i><nav id="menu-inner"><a class="menu-item" href="/">首页</a><a class="menu-item" href="/tags">标签</a><a class="menu-item" href="/categories">分类</a><a class="menu-item" href="/archives">归档</a><a class="menu-item" href="/about">关于</a></nav><div class="right-info"><a class="title-name" href="/">Slikeの后花园</a><span id="now-time"></span></div></div></header><div id="content-outer"><div id="content-inner"><article id="post"><div class="post-header"><div class="title">PL/SQL编程</div><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 发表于 2019-08-16 | 更新于 2021-07-28</time><!--time.button-hover.post-date #[i.fas.fa-calendar-alt.article-icon(aria-hidden="true")] #[=__('post.modified')] #[=date(page['updated'], config.date_format)]--><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/数据库/">数据库</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/PL-SQL编程/">PL/SQL编程</a></div></div></div><div class="main-content"><h3 id="PL-SQL编程"><a href="#PL-SQL编程" class="headerlink" title="PL/SQL编程"></a>PL/SQL编程</h3><h5 id="nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;结合了Oracle过程语言的结构化查询语言的一种扩展语言。使用PL/SQL可以具有很多高级功能的程序，虽然通过多个SQL语句也能实现，但相比而言，PL/SQL具有更为明显的优点。</p>
+<hr>
+<a id="more"></a>
+<h5 id="PL-SQL编程的特点"><a href="#PL-SQL编程的特点" class="headerlink" title="PL/SQL编程的特点"></a>PL/SQL编程的特点</h5><ol>
+<li>PL/SQL具有编程语言的特点，能把一组SQL语句放到一个模块中，使其更具模块化程序的特点。</li>
+<li>PL/SQL可以采用过程性语言控制程序的结构，也就是，我们可以在PL/SQL中增加逻辑结构。如判断、循环等结构。</li>
+<li>同其他的编程语言一样，PL/SQL可以对中的错误进行自动处理，使程序能够遇到错误时不会中断，即它的异常处理机制。</li>
+<li>PL/SQL程序块具有更好的可移植性，可以移植到另一个Oracle数据库中。</li>
+<li>PL/SQL程序减少了网络的交互，有助于提高程序性能。</li>
+</ol>
+<hr>
+<h5 id="PL-SQL体系结构"><a href="#PL-SQL体系结构" class="headerlink" title="PL/SQL体系结构"></a>PL/SQL体系结构</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PL/SQL引擎用来编译和执行PL/SQL块或子程序，该引擎驻留在Oracle服务器中。PL/SQL引擎仅执行过程语句，而将SQL语句发送给Oracle服务器上的SQL语句执行器，有SQL语句执行器执行这些SQL语句。</p>
+<ul>
+<li>PL/SQL块简介</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PL/SQL是一种块结构的语言，它将一组语句放在一个块中。PL/SQL块将逻辑上相关的声明和语句组合在一起。匿名块是一个未在数据库中命名的PL/SQL块，在运行时被传递到PL/SQL引擎以便执行。在PL/SQL块中可以使用SELECT、INSERT、UPDATE、DELETE等DML语句。事务控制器语句及SQL函数等。PL/SQL块中不允许直接使用CREATE、DROP或ALTER等DDL语句，但可以通过动态SQL来执行它们。</p>
+<p>一个PL/SQL块由三部分组成</p>
+<pre><code>[DECLARE]
+声明部分：声明PL/SQL用到的变量、类型及游标，以及局部的存储过程和函数
+BEGIN
+执行部分：过程及SQL语句，及程序的主要部分
+[EXCEPTION]
+异常处理部分：错误处理
+END;</code></pre><ul>
+<li><p>运算符和表达式</p>
+<ul>
+<li><p>关系运算符</p>
+<pre><code>= --等于
+&lt;&gt;,!=,~=,^= --不等于
+&lt; --小于
+&gt; --大于
+&lt;= --小于或等于
+&gt;= --大于或等于</code></pre></li>
+<li><p>一般运算符</p>
+<pre><code>+ --加
+- --减
+* --乘
+/ --除
+:= --赋值
+=&gt; --关系
+.. --范围运算符
+|| --字符连接符</code></pre></li>
+<li><p>逻辑运算符</p>
+<pre><code>is null --是空值
+between and --介于两者之间
+in --在一列值中间
+and --逻辑与
+or --逻辑或
+not --取反、is not null、not in</code></pre></li>
+</ul>
+</li>
+<li><p>常量和变量声明</p>
+</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在PL/SQL块的可执行部分引用变量和常量前，必须先对其进行声明。变量和常量在PL/SQL块的部分声明，在PL/SQL块的可执行部分被使用。</p>
+<p>语法：</p>
+<pre><code>variable_name data_type[(size)][:=init_value];</code></pre><p> variable_name：变量名称</p>
+<p> data_type：变量的SQL或PL/SQL数据类型</p>
+<p> size：变量的范围</p>
+<p> init_value：变量的初始化</p>
+<pre><code>variable_name constant data_type :=value;</code></pre><p>PL/SQL程序设计中的标识符定义与SQL的标识符定义的要求相同。</p>
+<p>标识符名不能超过30个字符。</p>
+<ol>
+<li>第一个字符必须为字母</li>
+<li>不区分大小写</li>
+<li>不能用”-“(减号)</li>
+<li>不能是SQL保留字</li>
+</ol>
+<hr>
+<h5 id="PL-SQL数据类型"><a href="#PL-SQL数据类型" class="headerlink" title="PL/SQL数据类型"></a>PL/SQL数据类型</h5><ul>
+<li><p>标量数据类型<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;包含单个值，没有内部组件。标量数据类型包括数字、字符、布尔值和日期时间。</p>
+<ul>
+<li><p>属性类型</p>
+<p>属性用于引用变量或数据库列的数据类型，以及表示表中一行的记录类型。PL/SQL支持两种属性类型。</p>
+<p>1) %TYPE</p>
+<p>定义一个变量，其数据类型与已经定义的某个数据变量(尤其是表的某一列)的数据类型相一致，可以使用%TYPE。</p>
+<p>优点：</p>
+<ol>
+<li>可以不必知道所引用的数据库列的数据类型</li>
+<li>所引用的数据库列的数据类型可以实时改变，容易保持一致，不用修改PL/SQL程序。</li>
+</ol>
+<p>2) %ROWTYPE</p>
+<p>返回一个记录类型，其数据类型和数据库表的数据结构相一致，这时可以使用%ROWTYPE。</p>
+<p>优点：</p>
+<ol>
+<li>可以不必知道所引用的数据库列的个数和数据类型</li>
+<li>所引用的数据库列列的个数和数据类型可以实时改变，容易保持一致，不用修改PL/SQL程序。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>PL/SQL控制语句</p>
+</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PL/SQL提供了丰富的流程控制语句。控制结构供有三种类型、条件控制、循环控制和顺序控制</p>
+<ol>
+<li><p>条件控制</p>
+<pre><code>if&lt;布尔表达式&gt; then
+    PL/SQL 和SQL语句
+end if;
+-----------------------
+if&lt;布尔表达式&gt; then
+    PL/SQL 和SQL语句
+else
+    其他语句
+end if;
+-----------------------
+if&lt;布尔表达式&gt; then
+    PL/SQL 和SQL语句
+elsif&lt;其他布尔表达式&gt; then
+    其他语句
+else
+    其他语句
+end if;
+
+case 条件表达式
+    when 表达式结果1 then
+        语句段1
+    when 表达式结果2 then
+        语句段2
+    ……
+    when 表达式结果n then
+        语句段n
+      [else 语句段]
+end case;
+-------------------------
+case
+    when 表达式结果1 then
+        语句段1
+    when 表达式结果2 then
+        语句段2
+    ……
+    when 表达式结果n then
+        语句段n
+      [else 语句段]
+end case;</code></pre></li>
+</ol>
+<p>2.循环控制</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;循环控制用于重复执行一系列语句。包括LOOP和EXIT语句，使用EXIT语句可以立即退出循环;使用EXIT WHEN语句可以根据条件结束循环。三种：LOOP、WHILE、FOR</p>
+<pre><code>LOOP循环语法
+loop
+    要执行的语句;
+    exit when&lt;条件语句&gt; --条件满足退出循环
+end loop;
+
+while循环语法
+while&lt;布尔表达式&gt; loop
+    要执行的语句;
+end loop;
+
+for循环语法
+for 循环计数器 in [REVERSE] 下限 ... 上限 loop
+    要执行的语句;
+end loop;</code></pre><p>3.顺序控制</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用于按顺序执行语句。包括null语句和goto语句。goto语句不推荐使用。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;null语句：是一个可执行语句，相当于一个占位符或不执行任何操作的空语句，可以使某些语句变得更有意义，提高程序的可读性保证其他语句结构的完整性、正确性</p>
+<hr>
+<h5 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h5><ul>
+<li>预定义异常</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;预定义异常大约24个。对于这种异常处理无须再程序中定义可由Oracle自动引发。</p>
+<pre><code>ACCESS_INTO_NULL - 在未初始化对象时出现
+CASE_NOT_FOUND - CASE语句中的选项与用户输入的数据不匹配时出现
+COLLECTION_IS_NULL - 给尚未初始化的表或数据赋值时出现
+CURSOR_ALREADY_OPEN - 在用户试图重新打开已经打开的游标时出现
+DUP_VAL_ON_INDEX - 在用户试图将重复的值存储在使用唯一索引的数据库列中出现
+INVALID_CURSOR - 在执行非法游标(如打开一个尚未打开的游标)运算时出现
+INVALID_NUMBER - 在将字符串转换成数字时出现
+LOGIN_DENIED - 在输入的用户名或密码无效时出现
+NO_DATA_FOUND - 在表中不存在请求的行时出现。
+STORAGE_ERROR - 在内存损坏或PL/SQL耗尽内存时出现
+TOO_MANY_ROWS - 在执行SELECT INTO语句后返回多行时出现
+VALUE_ERROR - 在产生大小限制错误时出现
+ZERO_DIVIDE - 以零作为除数时出现</code></pre><p>语法：</p>
+<pre><code>BEGIN
+    sequence_of_statements;
+EXCEPTION
+    WHEN &lt;exception_name&gt; then
+        sequence_of_statements;
+    WHEN OTHERS THEN
+        sequence_of_statements;
+END;</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其中，OTHERS处理程序确保不会漏过任何异常，如果没有在前面的异常处理部分显示获取命名的异常，他就可以获取其余的异常。PL/SQL块只能有一个OTHERS异常处理程序。可以使用函数SQLCODE和SQLLERRM来返回错误代码和错误文本信息。</p>
+<ul>
+<li>处理用户自定义异常</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;程序在执行过程中，出现编程人员认为的非正常情况。对于这种异常情况的处理，需要用户在程序中定义，然后显式的在程序中将其引发。用户定义的异常错误通过显式使用RAISE语句来触发。当引发一个异常错误时，控制就转到EXCEPTION块异常错误部分，执行错误处理代码。</p>
+<pre><code>1) 在PL/SQL块的定义部分定义异常情况：
+    &lt;异常情况&gt; EXCEPTION;
+2) 抛出异常情况:
+    RAISE &lt;异常情况&gt;;</code></pre><hr>
+<h5 id="游标"><a href="#游标" class="headerlink" title="游标"></a>游标</h5><ul>
+<li>游标的基本原理</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在Oracle中，在执行一个有select、insert、update、delete语句的PL/SQL块时，Oracle会在内存中为其分配一个缓冲区、将执行结果放在这个缓冲区中，而游标是指向该去的一个指针。游标为应用程序提供了一种对多行数据查询结果集中的每行数据进行单独处理的方法，是设计嵌入式SQL语句的应用程序的常用编程方式。</p>
+<ul>
+<li>游标分类</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在Oracle中提供了两种游标类型，即静态游标和动态游标。静态游标是在编译时知道明确的select语句的游标。静态游标又分为两种类型，即隐式游标和显示游标。</p>
+<ul>
+<li><p>显示游标</p>
+<p>  声明游标 -&gt; 打开游标 -&gt; 提取游标 -&gt; 空?是(关闭游标):否 </p>
+<ul>
+<li><p>声明游标</p>
+<pre><code>cursor cursor_name [(parameter[,parameter]...)]
+[return return_type] is select_statement;</code></pre><p>cursor_name：游标的名称</p>
+<p>parameter：由于为游标指定输入参数。在指定数据类型时，不能使用长度约束。</p>
+<p>return_type：用于定义游标提取的行的类型。</p>
+<p>select_statement：游标定义的查询语句</p>
+</li>
+<li><p>打开游标</p>
+<pre><code>open cursor_name[(parameters)];</code></pre></li>
+<li><p>提取游标</p>
+<pre><code>fetch cursor_name into variables;</code></pre><p>cursor_name：游标的名称</p>
+<p>variables：变量名</p>
+</li>
+<li><p>关闭游标</p>
+<pre><code>close cursor_name;</code></pre></li>
+<li><p>显示游标属性</p>
+<p>%found：只有在DML语句影响一行或多行时，返回true;</p>
+<p>%notfound：与%found相反</p>
+<p>%rowcount：返回DML语句影响的行数。没有影响任何行数返回0；</p>
+<p>%isopen：返回游标是否打开</p>
+</li>
+<li><p>使用显式游标删除或更新</p>
+<pre><code>cursor cursor_name is
+select_statement for update [of columns];</code></pre><p>for update [of columns];为更新查询，锁定选择的行。<br>当选择单表更新查询时，可以省略of子句。<br>当选择多个表更新查询，被锁定的行来源于of子句后声明的行。</p>
+</li>
+<li><p>使用循环游标简化游标的读取</p>
+<p>循环游标隐式打开游标，自动从活动集获取行，后再处理完所有行时关闭游标。</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>for record_index in cursor_name
+loop
+    executable_statements
+end loop;</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;record_index：PL/SQL声明的记录变量。%rowtype类型。作用域在for之内。</p>
+<p>特性：</p>
+<ol>
+<li>在从游标中提取了所有记录之后自动终止</li>
+<li>提取和处理游标中的每一条记录</li>
+<li>如果在提取记录之后%notfound属性返回true终止循环</li>
+<li>未返回行，不进入循环</li>
+</ol>
+</div><div class="post-copyright"><div class="post-copyright-author"><span class="post-copyright-meta">本文作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Slike-V</a></span></div><div class="post-copyright-type"><span class="post-copyright-meta">本文链接: </span><span class="post-copyright-info"><a href="http://Slike-v.github.io/2019/08/16/初识Oracle-0/">http://Slike-v.github.io/2019/08/16/初识Oracle-0/</a></span></div><div class="post-copyright-notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Slike-v.github.io">Slikeの后花园</a>！</span></div></div></article><div id="pagination"><div class="prev-post pull-left"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/08/16/Oracle分区表/"><i class="fas fa-angle-left">&nbsp;</i><span>Oracle分区表</span></a></div><div class="next-post pull-right"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/08/07/Order数据库应用/"><span>Order数据库应用</span><span>&nbsp;</span><i class="fas fa-angle-right"></i></a></div></div><!--div!= paginator()--></div></div><div class="button-hover" id="return-top"><i class="fas fa-arrow-up" aria-hidden="true"></i></div><footer><div id="footer"><div class="button-hover" id="side-button"><i class="fas fa-arrow-right"></i></div><div class="right-content"><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fas fa-file-o"></i></span><span id="busuanzi_value_page_pv"></span><span></span></div><div class="copyright">&copy;2017 ～ 2021 By Slike-V</div></div></div></footer></div><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery-3.3.1.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/velocity.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery.mCustomScrollbar.concat.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/fan.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/canvas_bg.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/utils.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/scroll.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/sidebar.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/copy.js"></script><!--script(src=url)--></body></html>

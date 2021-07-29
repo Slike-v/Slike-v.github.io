@@ -1,0 +1,212 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="初识Spring"><meta name="keywords" content="Spring"><meta name="author" content="Slike-V,undefined"><meta name="copyright" content="Slike-V"><title>初识Spring【Slikeの后花园】</title><link rel="stylesheet" href="/css/fan.css"><link rel="stylesheet" href="/css/thirdparty/jquery.mCustomScrollbar.min.css"><link rel="icon" href="/avatar.png"><!-- script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")--><script src="/js/mathjax/mathjax.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+});
+</script><script>var isPassword = '' || false;
+if (isPassword) {
+    if (prompt('请输入文章密码') !== '') {
+        alert('密码错误！');
+        history.back();
+    }
+}</script><script>window.GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+}</script></head><body><canvas id="universe"></canvas><!--#body--><div id="sidebar"><div class="toggle-sidebar-info button-hover"><span data-toggle="文章目录">站点概览</span></div><div class="sidebar-toc"><div class="sidebar-toc-title">目录</div><div class="sidebar-toc-progress"><span class="progress-notice">您已阅读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc-progress-bar"></div></div><div class="sidebar-toc-content" id="sidebar-toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#初识Spring"><span class="toc-number">1.</span> <span class="toc-text">初识Spring</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><span class="toc-number">1.0.1.</span> <span class="toc-text">       前言</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Spring概念"><span class="toc-number">1.0.2.</span> <span class="toc-text">Spring概念</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Spring-IoC"><span class="toc-number">1.0.3.</span> <span class="toc-text">Spring IoC</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Spring-依赖注入"><span class="toc-number">1.0.4.</span> <span class="toc-text">Spring 依赖注入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Spring-AOP"><span class="toc-number">1.0.5.</span> <span class="toc-text">Spring AOP</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#如何使用AOP切面"><span class="toc-number">1.0.6.</span> <span class="toc-text">如何使用AOP切面</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info-avatar"><img class="author-info-avatar-img" src="/avatar.png"></div><div class="author-info-name">Slike-V</div><div class="author-info-description"></div><div class="links-buttons"><a class="links-button button-hover" href="https://github.com/fan-lv" target="_blank">GitHub<i class="icon-dot bg-color1"></i></a><a class="links-button button-hover" href="mailto:826330335@qq.com" target="_blank">E-Mail<i class="icon-dot bg-color2"></i></a><a class="links-button button-hover" href="tencent:/" target="_blank">QQ<i class="icon-dot bg-color9"></i></a></div><div class="author-info-articles"><a class="author-info-articles-archives article-meta" href="/archives"><span class="pull-top">日志</span><span class="pull-bottom">58</span></a><a class="author-info-articles-tags article-meta" href="/tags"><span class="pull-top">标签</span><span class="pull-bottom">58</span></a><a class="author-info-articles-categories article-meta" href="/categories"><span class="pull-top">分类</span><span class="pull-bottom">19</span></a></div><div class="friend-link"><a class="friend-link-text" href="/about" target="_blank">Slike-V【简介】</a><a class="friend-link-text" href="https://github.com/fan-lv" target="_blank">主题作者</a><a class="friend-link-text" href="http://kublic.coding.me" target="_blank">Kubil博客</a><a class="friend-link-text" href="http://mebieber.coding.me" target="_blank">Mebieber博客</a><a class="friend-link-text" href="https://www.ultarts.com" target="_blank">Ultarts博客</a></div></div></div><div id="main-container"><header><div id="menu-outer"><i class="menu-list-icon fas fa-bars"></i><nav id="menu-inner"><a class="menu-item" href="/">首页</a><a class="menu-item" href="/tags">标签</a><a class="menu-item" href="/categories">分类</a><a class="menu-item" href="/archives">归档</a><a class="menu-item" href="/about">关于</a></nav><div class="right-info"><a class="title-name" href="/">Slikeの后花园</a><span id="now-time"></span></div></div></header><div id="content-outer"><div id="content-inner"><article id="post"><div class="post-header"><div class="title">初识Spring</div><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 发表于 2019-08-02 | 更新于 2021-07-28</time><!--time.button-hover.post-date #[i.fas.fa-calendar-alt.article-icon(aria-hidden="true")] #[=__('post.modified')] #[=date(page['updated'], config.date_format)]--><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/Spring框架/">Spring框架</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/Spring/">Spring</a></div></div></div><div class="main-content"><h3 id="初识Spring"><a href="#初识Spring" class="headerlink" title="初识Spring"></a>初识Spring</h3><h5 id="nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Spring框架是由于软件开发的复杂性而创建的。Spring使用的是基本的JavaBean来完成以前只可能由EJB完成的事情。然而，Spring的用途不仅仅限于服务器端的开发。从简单性、可测试性和松耦合性角度而言，绝大部分Java应用都可以从Spring中受益。是一个轻量级框架,大大简化Java企业级开发。</p>
+<hr>
+<a id="more"></a>
+<h5 id="Spring概念"><a href="#Spring概念" class="headerlink" title="Spring概念"></a>Spring概念</h5><ul>
+<li><p>设计理念</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Spring是面向Bean(组件)的编程。将各种类型可以装配成Bean。并将之实例化。不需要程序员自己在代码上进行实例化。</p>
+</li>
+<li><p>优点</p>
+<ul>
+<li>低侵入式设计</li>
+<li>独立于各种应用服务器</li>
+<li>依赖注入特性将组件关系透明化,降低了耦合度</li>
+<li>面向切面编程特性允许将通用任务进行集中式处理</li>
+<li>与第三方框架的良好整合</li>
+</ul>
+</li>
+<li><p>思想：</p>
+</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;不在依赖自身的代码去获得所依赖的具体DAO对象,而是把这一工作交给了”第三方” - UserDaoFactory,从而避免了和具体实现类直接的耦合。</p>
+<p>(1) 下载Spring并添加到项目中、如果使用Maven项目可直接引入依赖JAR包。</p>
+<p>Spring官网的地址：<code>http://repo.spring.io/release/org/springframework/spring/</code>下载所需要的版本Spring资源。</p>
+<p>docs：该文件夹下包含Spring的相关文档,包括API参考文档、开发手册</p>
+<p>libs：该文件夹存放Spring各个模块的jar文件。</p>
+<p>schema：配置Spring的某些功能时需要用到的schema文件</p>
+<p>(2) 编写Spring配置文件。</p>
+<p>Spring的配置文件</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xsi:schemaLocation://http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.2.xsd&quot;&gt;
+    &lt;!--通过bean元素声明需要Spring创建的实例。该实例的类型通过class属性指定,
+        并通过id属性为该实例指定一个名称,以便于访问--&gt;
+    &lt;bean id&quot;helloSpring&quot; class=cn.springdemo.HelloSpring&quot;&gt;
+        &lt;!--property元素用来为实例的属性赋值,此处实际是调用setWho()方法实现赋值--&gt;
+        &lt;property name=&quot;who&quot;&gt;
+            &lt;!--此处将字符串&quot;Spring&quot;赋值给who属性--&gt;
+            &lt;value&gt;Spring&lt;/value&gt;
+        &lt;/property&gt;
+    &lt;/bean&gt;
+&lt;/beans&gt;    </code></pre><p>(3) 编写代码通过Spring获取实例。</p>
+<hr>
+<h5 id="Spring-IoC"><a href="#Spring-IoC" class="headerlink" title="Spring IoC"></a>Spring IoC</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;控制反转(Inversion of Control , IoC),也称为依赖注入(Dependency Injection , DI),是面向对象编程中的一种设计理念,用来降低程序代码之间的耦合度。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;控制权：Spring框架拥有创建类实例的权力 - 将创建类实例的权力反转到了Spring手里</p>
+<hr>
+<h5 id="Spring-依赖注入"><a href="#Spring-依赖注入" class="headerlink" title="Spring 依赖注入"></a>Spring 依赖注入</h5><p>setter访问器注入：</p>
+<pre><code>&lt;bean id=&quot;唯一标识&quot; class=&quot;类&quot;&gt;
+        &lt;property name=&quot;属性&quot; value=&quot;值&quot; index=&quot;下标&quot;/&gt;
+&lt;/bean&gt;</code></pre><p>构造注入：</p>
+<pre><code>&lt;bean id=&quot;&quot; class=&quot;&quot;&gt;
+    &lt;constructor-arg ref=&quot;引用其他bean&quot; index=&quot;下标&quot; type=&quot;参数类型&quot;/&gt;
+&lt;/bean&gt;</code></pre><p>注入不同数据类型：<br>使用<code>&lt;value&gt;</code>标签 注意特殊字符的处理</p>
+<p>引用Bean：使用ref 注意bean属性和local属性的区别使用内部bean：在<code>&lt;property&gt;</code>标签中在添加一个<code>&lt;bean&gt;</code>，使用权局限</p>
+<p>注入list集合：</p>
+<pre><code>&lt;property name=&quot;list&quot;&gt;
+    &lt;list&gt;
+        &lt;value&gt;值&lt;/value&gt;
+        &lt;value&gt;值&lt;/value&gt;
+    &lt;/list&gt;
+&lt;/property&gt;</code></pre><p>注入array数组：</p>
+<pre><code>&lt;property name=&quot;array&quot;&gt;
+    &lt;array&gt;
+        &lt;value&gt;值&lt;/value&gt;
+        &lt;value&gt;值&lt;/value&gt;
+    &lt;/array&gt;
+&lt;/property&gt;</code></pre><p>注入set集合：</p>
+<pre><code>&lt;property name=&quot;set&quot;&gt;
+    &lt;set&gt;
+        &lt;value&gt;值&lt;/value&gt;
+        &lt;value&gt;值&lt;/value&gt;
+    &lt;/set&gt;
+&lt;/property&gt;</code></pre><p>注入map集合：</p>
+<pre><code>&lt;property name=&quot;map&quot;&gt;
+    &lt;map&gt;
+        &lt;entry&gt;
+            &lt;key&gt;&lt;value&gt;key&lt;/value&gt;&lt;/key&gt;
+             &lt;value&gt;值&lt;/value&gt;
+        &lt;/entry&gt;
+    &lt;/map&gt;
+&lt;/property&gt;</code></pre><p>注入properties：</p>
+<pre><code>&lt;property&gt;
+    &lt;props&gt;
+        &lt;prop key=&quot;key&quot;&gt;值&lt;/prop&gt;
+    &lt;/props&gt;
+&lt;/property&gt;</code></pre><p>注入null和空字符串：</p>
+<pre><code>&lt;null/&gt;</code></pre><p>特殊字符转义：</p>
+<pre><code>amp&lt;![CDATA[转义的字符]]&gt;</code></pre><p>配置文件中 XSD | DTD</p>
+<pre><code>ApplicationContext atx = 
+    new ClassPathXmlApplicationContext(&quot;applicationContext.xml&quot;);
+ atx.getBean();</code></pre><hr>
+<h5 id="Spring-AOP"><a href="#Spring-AOP" class="headerlink" title="Spring AOP"></a>Spring AOP</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;面向切面编程(Aspect Oriented Programming,AOP)软件编程思想发展到一定阶段的产物是对面向对象编程(Object Oriented Programming,OOP)的有益补充。<br>AOP一般适用于具有横切逻辑的场合,如访问控制、事务管理、性能监测等。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;面向对象编程(Object Oriented Programming,OOP)补充。适用于具有横切逻辑的场合。</p>
+<ul>
+<li><p>横切逻辑</p>
+<p>  一个典型的业务处理方法。日志、异常、事务、等都是一个健壮的业务系统必须的。但是为了保证系统健壮可用在众多业务方法中反复编写类似代码,使原本就很复杂的业务处理变得更复杂。业务功能的开发者还要关注这些”额外”代码是否处理正确,是否遗漏的地方。导致业务代码频繁而大量的修改。</p>
+<p>  业务中,一些散落,参透到系统各处且不得不处理的事情,这些穿插的既定业务中的操作就是所谓的”横切逻辑”,也称为切面。面向切面编程,简单的说是在不改变原程序基础上为代码段增加新的功能,对代码段进行增强处理。</p>
+</li>
+<li><p>面向切面编程的基本概念</p>
+<ul>
+<li>切面(Aspect):一个模块化的横切逻辑(或称横切关注点),可能会横切多个对象。</li>
+<li>连接点(Join Point):程序执行中的某个具体的执行点。</li>
+<li>增强处理(Advice):切面在某个特定连接点上的代码逻辑。</li>
+<li>切入点(Pointcut):对连接点的特征进行描述,可以使用正则表达式。增强处理和一个切入点表达式关联,并在与这个切入点匹配的某个连接点上运行。</li>
+<li>目标对象(Target object):被一个或多个切面增强的对象。</li>
+<li>AOP代理(AOP proxy):由AOP框架所创建的对象,实现执行增强处理方法等功能。</li>
+<li>织入(Weaving):将增强处理连接到应用程序中的类型或对象上的过程。</li>
+</ul>
+</li>
+<li><p>增强处理类型：</p>
+<ul>
+<li>前置增强 - 在指定方法前织入方法</li>
+<li>后置增强 - 在指定方法后织入方法</li>
+<li>环绕增强 - 在目标方法的前后都可以织入增强处理。功能最强大的增强处理。环绕增强处理中,能获取或修改目标方法的参数、返回值,可以对它进行异常处理,甚至可以决定目标方法是否被执行。</li>
+<li>抛出增强 - 在方法抛出异常时织入方法</li>
+<li>最终增强 - 最终执行的方法,无论目标方法执行什么结果都会执行最终增强,类似finally作用,一般用于释放资源。可以为各个功能模块提供统一可以拔插的处理方案</li>
+</ul>
+</li>
+</ul>
+<p><strong>切面可以理解为由增强处理和切入点组成,包含了横切逻辑定义也包含了连接点的定义。面向切面编程主要关系两个问题,即在什么位置,执行什么功能。</strong></p>
+<hr>
+<h5 id="如何使用AOP切面"><a href="#如何使用AOP切面" class="headerlink" title="如何使用AOP切面"></a>如何使用AOP切面</h5><ul>
+<li>在xml配置文件中导入命名空间</li>
+</ul>
+<pre><code>xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;
+http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-cop-3.2.xsd</code></pre><ul>
+<li>定义标签</li>
+</ul>
+<pre><code>&lt;aop:config&gt;
+    &lt;aop:pointcut id=&quot;ID&quot; expression=&quot;expression(public * show(com.entity.User))&quot; /&gt; - 切入点标签
+    &lt;aop:aspect ref=&quot;bean&quot;&gt; - 引用指定的增强方法的bean
+        &lt;aop:before method=&quot;方法名&quot; pointcut-ref=&quot;切点ID&quot;&gt;&lt;/aop:before&gt; - 将方法定义为前置增强并引用至切入点
+        &lt;aop:after-returning method=&quot;方法名&quot; pointcut-ref=&quot;切入点ID&quot; returning=&quot;&quot; /&gt; - 将方法定义为后置增强并引用至切入点,通过returning属性指定参数注入返回值
+    &lt;/aop:aspect&gt;    
+    &lt;aop:after-throwing method=&quot;方法名&quot; pointcut-ref=&quot;切入点ID&quot; throwing=&quot;e&quot; /&gt; - 抛出异常时织入的指定方法引用至切入点,throwing指定参数名称
+    &lt;aop:after method=&quot;方法名&quot; pointcut-ref=&quot;切入点ID&quot; /&gt; - 方法定义最终增强并引用至切入点
+    &lt;aop:around method=&quot;方法名&quot; pointcut-ref=&quot;切入点ID&quot; /&gt; - 方法定义环绕增强引用至切入点
+&lt;/aop:config&gt;</code></pre><ul>
+<li><p>使用注解方式定义切面</p>
+<ul>
+<li>导入aspectj的jar包</li>
+<li>配置XML-导入aop命名空间，添加<code>&lt;aop:aspect-autoproxy/&gt;</code> 启用@AspectJ注解的支持。</li>
+<li>使用注解@Aspect指定切面类、在通过相关的增强注解来增强方法。</li>
+</ul>
+</li>
+</ul>
+<pre><code>@Aspect
+public class UserServiceLogger {
+    //前置增强
+    @Before(&quot;execution(* cn.Test.*.*(..))&quot;)
+    public void Before(JoinPoint jp){
+        System.out.println(&quot;前置增强正在进行装备升级……&quot;);
+    }
+
+    //环绕增强
+    @Around(&quot;execution(* com.kuge.service.UserServiceImpl.*(..))&quot;)
+    public Object around(ProceedingJoinPoint jp) throws Throwable {
+        System.out.println(&quot;调用&quot;+jp.getTarget()+&quot;的&quot;+jp.getSignature().getName()+&quot;方法。方法入参：&quot;
+        + Arrays.toString(jp.getArgs()));
+        try{
+            Object result = jp.proceed();
+            System.out.println(&quot;调用&quot;+jp.getTarget()+&quot;的&quot;+jp.getSignature().getName()+&quot;方法。方法返回值：&quot;+result);
+            return result;
+        }catch (Throwable e){
+            log.error(jp.getSignature().getName()+&quot;方法发生异常：&quot;+e);
+            throw e;
+        }finally {
+            System.out.println(jp.getSignature().getName()+&quot;方法结束执行。&quot;);
+        }
+    }
+
+    @AfterThrowing(value = &quot;execution(* com.kuge.service.UserServiceImpl.*(..))&quot;,throwing = &quot;e&quot;)
+    public void afterThrowing(JoinPoint jp, RuntimeException e){
+        log.error(jp.getSignature().getName()+&quot;方法发生异常：&quot;+e);
+    }
+
+    //后置增强
+    @AfterReturning(pointcut = &quot;pointcut()&quot;,returning = &quot;returnValue&quot;)
+    public void afterR(JoinPoint jp,Object returnValue){
+        System.out.println(&quot;后置增强被调用,返回值：&quot;+returnValue);
+        log.info(&quot;调用&quot;+jp.getTarget()+&quot;的&quot;+jp.getSignature().getName()+&quot;方法。方法返回值：&quot;+returnValue);
+    }
+
+    //最终增强
+     @After(&quot;execution(* com.kuge.service.UserServiceImpl.*(..))&quot;)
+    public void after(JoinPoint jp){
+          System.out.println(&quot;调用&quot;+jp.getTarget()+&quot;的&quot;+jp.getSignature().getName()+&quot;方法。最终增强&quot;);
+    }
+}</code></pre><p>public void *(com.entity.User) — *表示匹配所有方法名</p>
+<p>public void show(..) — ..表示匹配所有参数个数和类型</p>
+<p><em>* com.service.</em>.*(..) — 表示匹配所有com.service包下所有类所有方法</p>
+<p><em>* com.service..</em>.*(..) — 表示匹配com.service包及其子包下所有类和方法</p>
+</div><div class="post-copyright"><div class="post-copyright-author"><span class="post-copyright-meta">本文作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Slike-V</a></span></div><div class="post-copyright-type"><span class="post-copyright-meta">本文链接: </span><span class="post-copyright-info"><a href="http://Slike-v.github.io/2019/08/02/初识Spring/">http://Slike-v.github.io/2019/08/02/初识Spring/</a></span></div><div class="post-copyright-notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Slike-v.github.io">Slikeの后花园</a>！</span></div></div></article><div id="pagination"><div class="prev-post pull-left"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/08/02/Spring整合MyBatis/"><i class="fas fa-angle-left">&nbsp;</i><span>Spring整合MyBatis</span></a></div><div class="next-post pull-right"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/08/02/MyBatis的SQL映射/"><span>MyBatis的SQL映射</span><span>&nbsp;</span><i class="fas fa-angle-right"></i></a></div></div><!--div!= paginator()--></div></div><div class="button-hover" id="return-top"><i class="fas fa-arrow-up" aria-hidden="true"></i></div><footer><div id="footer"><div class="button-hover" id="side-button"><i class="fas fa-arrow-right"></i></div><div class="right-content"><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fas fa-file-o"></i></span><span id="busuanzi_value_page_pv"></span><span></span></div><div class="copyright">&copy;2017 ～ 2021 By Slike-V</div></div></div></footer></div><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery-3.3.1.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/velocity.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery.mCustomScrollbar.concat.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/fan.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/canvas_bg.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/utils.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/scroll.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/sidebar.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/copy.js"></script><!--script(src=url)--></body></html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="SpringBoot详解"><meta name="keywords" content="SpringBoot详解"><meta name="author" content="Slike-V,undefined"><meta name="copyright" content="Slike-V"><title>SpringBoot详解【Slikeの后花园】</title><link rel="stylesheet" href="/css/fan.css"><link rel="stylesheet" href="/css/thirdparty/jquery.mCustomScrollbar.min.css"><link rel="icon" href="/avatar.png"><!-- script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")--><script src="/js/mathjax/mathjax.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+});
+</script><script>var isPassword = '' || false;
+if (isPassword) {
+    if (prompt('请输入文章密码') !== '') {
+        alert('密码错误！');
+        history.back();
+    }
+}</script><script>window.GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+}</script></head><body><canvas id="universe"></canvas><!--#body--><div id="sidebar"><div class="toggle-sidebar-info button-hover"><span data-toggle="文章目录">站点概览</span></div><div class="sidebar-toc"><div class="sidebar-toc-title">目录</div><div class="sidebar-toc-progress"><span class="progress-notice">您已阅读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc-progress-bar"></div></div><div class="sidebar-toc-content" id="sidebar-toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#SpringBoot详解"><span class="toc-number">1.</span> <span class="toc-text">SpringBoot详解</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><span class="toc-number">1.0.1.</span> <span class="toc-text">       前言</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#微服务"><span class="toc-number">1.0.2.</span> <span class="toc-text">微服务</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#SpringBoot"><span class="toc-number">1.0.3.</span> <span class="toc-text">SpringBoot</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#SpringBoot快速搭建"><span class="toc-number">1.0.4.</span> <span class="toc-text">SpringBoot快速搭建</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info-avatar"><img class="author-info-avatar-img" src="/avatar.png"></div><div class="author-info-name">Slike-V</div><div class="author-info-description"></div><div class="links-buttons"><a class="links-button button-hover" href="https://github.com/fan-lv" target="_blank">GitHub<i class="icon-dot bg-color2"></i></a><a class="links-button button-hover" href="mailto:826330335@qq.com" target="_blank">E-Mail<i class="icon-dot bg-color5"></i></a><a class="links-button button-hover" href="tencent:/" target="_blank">QQ<i class="icon-dot bg-color7"></i></a></div><div class="author-info-articles"><a class="author-info-articles-archives article-meta" href="/archives"><span class="pull-top">日志</span><span class="pull-bottom">58</span></a><a class="author-info-articles-tags article-meta" href="/tags"><span class="pull-top">标签</span><span class="pull-bottom">58</span></a><a class="author-info-articles-categories article-meta" href="/categories"><span class="pull-top">分类</span><span class="pull-bottom">19</span></a></div><div class="friend-link"><a class="friend-link-text" href="/about" target="_blank">Slike-V【简介】</a><a class="friend-link-text" href="https://github.com/fan-lv" target="_blank">主题作者</a><a class="friend-link-text" href="http://kublic.coding.me" target="_blank">Kubil博客</a><a class="friend-link-text" href="http://mebieber.coding.me" target="_blank">Mebieber博客</a><a class="friend-link-text" href="https://www.ultarts.com" target="_blank">Ultarts博客</a></div></div></div><div id="main-container"><header><div id="menu-outer"><i class="menu-list-icon fas fa-bars"></i><nav id="menu-inner"><a class="menu-item" href="/">首页</a><a class="menu-item" href="/tags">标签</a><a class="menu-item" href="/categories">分类</a><a class="menu-item" href="/archives">归档</a><a class="menu-item" href="/about">关于</a></nav><div class="right-info"><a class="title-name" href="/">Slikeの后花园</a><span id="now-time"></span></div></div></header><div id="content-outer"><div id="content-inner"><article id="post"><div class="post-header"><div class="title">SpringBoot详解</div><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 发表于 2019-09-04 | 更新于 2021-07-28</time><!--time.button-hover.post-date #[i.fas.fa-calendar-alt.article-icon(aria-hidden="true")] #[=__('post.modified')] #[=date(page['updated'], config.date_format)]--><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/SpringBoot/">SpringBoot</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/SpringBoot详解/">SpringBoot详解</a></div></div></div><div class="main-content"><h3 id="SpringBoot详解"><a href="#SpringBoot详解" class="headerlink" title="SpringBoot详解"></a>SpringBoot详解</h3><h5 id="nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;之前做过一次SpringBoot的入门博客，这次主要在之前的基础上进行一个深入了解下SpringBoot。</p>
+<hr>
+<a id="more"></a>
+<h5 id="微服务"><a href="#微服务" class="headerlink" title="微服务"></a>微服务</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;微服务是一种架构风格，一个大型的复杂项目，由一个或多个小型服务组成。系统中的各个小型服务可以独立部署，松耦合，并且这些小型服务之间以轻量级的通信协作(http)作为基础进行通信，这样的微服务器架构独立性更强、粒度更细、性能更高、安全性、可扩展性、可重用性都更高。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;传统的项目架构是由浏览器发送请求、不管是任何请求都是直接发送到一个部署的项目当中，然后进行相关的操作并通过一个数据库返回参数。如果在一个项目中其中的一个功能出现问题整个项目可能会面临崩溃。亦或者一个项目中的功能模块很多，如：用户、订单、产品，而用户的功能模块访问量太大其他的访问量却很少，但仅仅是为了防止用户的功能模块因为使用量过多而出现服务器瘫痪或，延迟卡顿，需要扩建服务器。但是扩建的服务器上其他的功能模块却没有任何使用。很显然就等于浪费了很多资源了。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;微服务的项目架构与传统的项目不同之处就是：每一个模块为一个项目、每一个项目有独立的服务器、独立的数据库。相互使用通信协作(HTTP)进行通信关联。即使其中有一个模块项目崩溃也不会影响到其他的项目。如果用户服务访问量太大，需要横向扩展，只需针对用户服务增加服务器数量，扩展集群，其它服务也不受影响。</p>
+<p><img src="/images/pasted-61.png" alt="upload successful"></p>
+<p><strong>注意：并不是用了 Spring Boot 就表示实现了微服务架构，Spring Boot只是让我们更加方便地构建项目，真正的微服务需要架构上的支持。即使使用普通的框架也能搭建出微服务架构。</strong></p>
+<hr>
+<h5 id="SpringBoot"><a href="#SpringBoot" class="headerlink" title="SpringBoot"></a>SpringBoot</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pivotal（原 Spring 团队）公司开发的框架，采用“规约大于配置”的原则，整合其他以 Spring 为核心的框架集，是框架的框架。</p>
+<ul>
+<li><p>SpringBoot的四大好处</p>
+<ul>
+<li><p>让编码更简单</p>
+<p>SpringBoot封装了Spring以及相关的框架，并将相关的依赖分类打包成了 44 个应用 starter、1 个产品 starter、6 个替代性技术 starter。每个 starter 是相关 jar 包的集合，自动引入。</p>
+</li>
+<li><p>让配置更简单</p>
+<p>  SpringBoot配置参数只需要通过一个或多个application.properties文件即可。而且不需要编写多余的XML文件减少了很多代码量编写。</p>
+</li>
+<li><p>让部署更简单</p>
+<p>  随着 DevOps 的普及，软件的开发阶段和运维阶段的联系越来越紧密，开发要为运维服务，运维要为开发支撑。目前行业内采用 Docker 等容器进行虚拟化的部署。采用SpringBoot 的项目（即使是 web 项目）打包后只有一个 jar 包，非常 方便云上部署。</p>
+</li>
+<li><p>让监控更简单</p>
+<p>  基于 SpringBoot 开发的软件自带监控接口，非常方便运维和开发人员在线诊断。</p>
+</li>
+</ul>
+</li>
+<li><p>SpringBoot代码结构</p>
+</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SpringBoot有一个主类（启动类）。SpringBoot入口启动、@SpringBootApplication注解往往放在你的主类。SpringBoot最好按照Java规范定义package。否则的话可能会出现一系列问题。@SpringBootApplication注释的主类必须与其他package同级存在。</p>
+<p><img src="/images/pasted-62.png" alt="upload successful"></p>
+<ul>
+<li>主应用程序类</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;被@SpringBootApplication注释的类，就是整个SpringBoot的主类。它隐含地定义为某些项目一基地“搜索包”。如果不想使用@SpringBootApplication，它导入的@EnableAutoConfiguration 和@ComponentScan注释会定义该行为，因此也可以使用它。</p>
+<p><img src="/images/pasted-63.png" alt="upload successful"></p>
+<p><img src="/images/pasted-64.png" alt="upload successful"></p>
+<ul>
+<li><p>自动配置</p>
+<p>  SpringBoot 能简化配置，很大原因是遵循“约定大于配置”的思想。Spring Boot自动配置尝试根据添加的jar依赖项自动配置Spring应用程序。@EnableAutoConfiguration 的注解，表示你希望 SpringBoot 开启自动配置功能。@EnableAutoConfiguration 不仅支持 SpringBoot 官方的 starter，还支持第三方常用的一些 jar。</p>
+<p>  打开 SpringBoot 自动配置的 jar 包中 spring.factories 文件可以看到默认支持自动配置的框架、类库等。使用了@EnableAutoConfiguration 注解后，等于打开了 SpringBoot“ “的 按依赖的 jar  帮你自置 动配置 Bean ”的开关。如果自己开发的 jar 需要自动配置，只需在你的项目的 META-INF 目录也提供一个 spring.factories 文件，参考官方配置即可。</p>
+</li>
+<li><p>集成开关</p>
+</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SpringBoot 对其它框架、类库、中间件的支持，提供了一系列名为@Enable系列的注解。建议采用@Enable*系列的注解来开启某方面的功能。</p>
+<p><img src="/images/pasted-68.png" alt="upload successful"></p>
+<ul>
+<li>自定义 Bean</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过在类上添加@Configuration注解标识一个类是配置类。等价于一个Spring.xml配置文件</p>
+<p><img src="/images/pasted-69.png" alt="upload successful"></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果觉得这样在 Java 代码中把配置硬编码不利于维护，也可以把配置放在application.properties 中，需要利用 Spring 的 Environment 类来注入。</p>
+<p><img src="/images/pasted-70.png" alt="upload successful"></p>
+<p><img src="/images/pasted-71.png" alt="upload successful"></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果自定义 Bean 的类代码是自己写的，可以在类中用@Value 注解直接指定配<br>置的 key，从 properties 文件注入更方便：</p>
+<p><img src="/images/pasted-72.png" alt="upload successful"></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果你用@Configuration 注解把配置写在不同的类中，可以使用@Import 注解<br>导入这些类，或者使用@ComponentScan 注解扫描进来：</p>
+<p><img src="/images/pasted-73.png" alt="upload successful"></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SpringBoot 仍然支持基于 XML 的配置方式，但是 不推荐使用，除非情况特殊。可以使用@Configuration 和@ImportResource 注解导入xml配置文件</p>
+<p><img src="/images/pasted-74.png" alt="upload successful"></p>
+<hr>
+<h5 id="SpringBoot快速搭建"><a href="#SpringBoot快速搭建" class="headerlink" title="SpringBoot快速搭建"></a>SpringBoot快速搭建</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;使用Idea开发工具中创建项目中选择Spring Initializr项目。这个项目封装了SpringBoot模板，通过<br>Default指定的路径访问到Spring官网进行下载模板。</p>
+<p><img src="/images/pasted-75.png" alt="upload successful"></p>
+<p>过程与之前所发布的<a href="http://slike-v.coding.me/2019/08/01/%E5%88%9D%E8%AF%86SpringBoot/" target="_blank" rel="noopener">初识SpringBoot</a>相同。</p>
+<ul>
+<li>配置属性文件</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在SpringBoot项目的配置文件中常用的的配置文件格式有.properties、.yaml(yml)。xml文件也是可以支持但在SpringBoot中并不怎么使用。</p>
+<ul>
+<li><p>在yml配置文件中自定义Bean注入参数</p>
+<p>  在配置文件中为Bean属性注入值。</p>
+</li>
+</ul>
+<p><img src="/images/pasted-77.png" alt="upload successful"><br><img src="/images/pasted-76.png" alt="upload successful"></p>
+<p>然后在SpringBootTest测试类中执行以下代码，通过IOC控制反转从Bean中得到相应的参数。</p>
+<p><img src="/images/pasted-78.png" alt="upload successful"></p>
+<ul>
+<li><p>在properties配置文件中使用@Value注解自定义Bean注入参数</p>
+<p>  在application.properties文件中添加我们自定义的属性：</p>
+</li>
+</ul>
+<p><img src="/images/pasted-79.png" alt="upload successful"></p>
+<p>   在HelloController中使用@Value注解注入参数</p>
+<p><img src="/images/pasted-80.png" alt="upload successful"></p>
+<p><img src="/images/pasted-81.png" alt="upload successful"><br><strong>如果在使用注入Bean时出现以下错误：Could not resolve placeholder ‘’ in value “${}”可能是应为你的配置文件并没有被编译成功。解决方案：在pom文件中编写以下代码将同名后缀的配置文件进行强制编译</strong></p>
+<p><img src="/images/pasted-82.png" alt="upload successful"></p>
+</div><div class="post-copyright"><div class="post-copyright-author"><span class="post-copyright-meta">本文作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Slike-V</a></span></div><div class="post-copyright-type"><span class="post-copyright-meta">本文链接: </span><span class="post-copyright-info"><a href="http://Slike-v.github.io/2019/09/04/SpringBoot详解/">http://Slike-v.github.io/2019/09/04/SpringBoot详解/</a></span></div><div class="post-copyright-notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Slike-v.github.io">Slikeの后花园</a>！</span></div></div></article><div id="pagination"><div class="prev-post pull-left"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/09/05/SpringBoot知识扩展/"><i class="fas fa-angle-left">&nbsp;</i><span>SpringBoot知识扩展</span></a></div><div class="next-post pull-right"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/09/04/Bootstrap中javascript插件/"><span>Bootstrap中javascript插件</span><span>&nbsp;</span><i class="fas fa-angle-right"></i></a></div></div><!--div!= paginator()--></div></div><div class="button-hover" id="return-top"><i class="fas fa-arrow-up" aria-hidden="true"></i></div><footer><div id="footer"><div class="button-hover" id="side-button"><i class="fas fa-arrow-right"></i></div><div class="right-content"><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fas fa-file-o"></i></span><span id="busuanzi_value_page_pv"></span><span></span></div><div class="copyright">&copy;2017 ～ 2021 By Slike-V</div></div></div></footer></div><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery-3.3.1.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/velocity.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery.mCustomScrollbar.concat.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/fan.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/canvas_bg.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/utils.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/scroll.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/sidebar.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/copy.js"></script><!--script(src=url)--></body></html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="pagehelper插件使用"><meta name="keywords" content="pagehelper插件使用"><meta name="author" content="Slike-V,undefined"><meta name="copyright" content="Slike-V"><title>pagehelper插件使用【Slikeの后花园】</title><link rel="stylesheet" href="/css/fan.css"><link rel="stylesheet" href="/css/thirdparty/jquery.mCustomScrollbar.min.css"><link rel="icon" href="/avatar.png"><!-- script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")--><script src="/js/mathjax/mathjax.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+});
+</script><script>var isPassword = '' || false;
+if (isPassword) {
+    if (prompt('请输入文章密码') !== '') {
+        alert('密码错误！');
+        history.back();
+    }
+}</script><script>window.GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+}</script></head><body><canvas id="universe"></canvas><!--#body--><div id="sidebar"><div class="toggle-sidebar-info button-hover"><span data-toggle="文章目录">站点概览</span></div><div class="sidebar-toc"><div class="sidebar-toc-title">目录</div><div class="sidebar-toc-progress"><span class="progress-notice">您已阅读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc-progress-bar"></div></div><div class="sidebar-toc-content" id="sidebar-toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#pagehelper插件使用"><span class="toc-number">1.</span> <span class="toc-text">pagehelper插件使用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><span class="toc-number">1.0.1.</span> <span class="toc-text">       前言</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#pagehelper简介"><span class="toc-number">1.0.2.</span> <span class="toc-text">pagehelper简介</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#pagehelper插件使用-1"><span class="toc-number">1.0.3.</span> <span class="toc-text">pagehelper插件使用</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info-avatar"><img class="author-info-avatar-img" src="/avatar.png"></div><div class="author-info-name">Slike-V</div><div class="author-info-description"></div><div class="links-buttons"><a class="links-button button-hover" href="https://github.com/fan-lv" target="_blank">GitHub<i class="icon-dot bg-color7"></i></a><a class="links-button button-hover" href="mailto:826330335@qq.com" target="_blank">E-Mail<i class="icon-dot bg-color7"></i></a><a class="links-button button-hover" href="tencent:/" target="_blank">QQ<i class="icon-dot bg-color1"></i></a></div><div class="author-info-articles"><a class="author-info-articles-archives article-meta" href="/archives"><span class="pull-top">日志</span><span class="pull-bottom">58</span></a><a class="author-info-articles-tags article-meta" href="/tags"><span class="pull-top">标签</span><span class="pull-bottom">58</span></a><a class="author-info-articles-categories article-meta" href="/categories"><span class="pull-top">分类</span><span class="pull-bottom">19</span></a></div><div class="friend-link"><a class="friend-link-text" href="/about" target="_blank">Slike-V【简介】</a><a class="friend-link-text" href="https://github.com/fan-lv" target="_blank">主题作者</a><a class="friend-link-text" href="http://kublic.coding.me" target="_blank">Kubil博客</a><a class="friend-link-text" href="http://mebieber.coding.me" target="_blank">Mebieber博客</a><a class="friend-link-text" href="https://www.ultarts.com" target="_blank">Ultarts博客</a></div></div></div><div id="main-container"><header><div id="menu-outer"><i class="menu-list-icon fas fa-bars"></i><nav id="menu-inner"><a class="menu-item" href="/">首页</a><a class="menu-item" href="/tags">标签</a><a class="menu-item" href="/categories">分类</a><a class="menu-item" href="/archives">归档</a><a class="menu-item" href="/about">关于</a></nav><div class="right-info"><a class="title-name" href="/">Slikeの后花园</a><span id="now-time"></span></div></div></header><div id="content-outer"><div id="content-inner"><article id="post"><div class="post-header"><div class="title">pagehelper插件使用</div><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 发表于 2019-09-17 | 更新于 2021-07-28</time><!--time.button-hover.post-date #[i.fas.fa-calendar-alt.article-icon(aria-hidden="true")] #[=__('post.modified')] #[=date(page['updated'], config.date_format)]--><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/工具/">工具</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/pagehelper插件使用/">pagehelper插件使用</a></div></div></div><div class="main-content"><h3 id="pagehelper插件使用"><a href="#pagehelper插件使用" class="headerlink" title="pagehelper插件使用"></a>pagehelper插件使用</h3><h5 id="nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pagehelper分页插件，用于对集合数据进行分页处理。</p>
+<hr>
+<a id="more"></a>
+<h5 id="pagehelper简介"><a href="#pagehelper简介" class="headerlink" title="pagehelper简介"></a>pagehelper简介</h5><p><a href="https://pagehelper.github.io/" target="_blank" rel="noopener">官方网址</a></p>
+<p>MyBatis 分页插件 PageHelper。</p>
+<ul>
+<li><p>物理分页</p>
+<p>  支持12种数据库Oracle,MySql,MariaDB,SQLite,DB2,PostgreSQL,SqlServer 等</p>
+</li>
+<li><p>支持多种分页方式</p>
+<p>  支持常见的RowBounds(PageRowBounds)，PageHelper.startPage 方法调用，Mapper 接口参数调用</p>
+</li>
+<li><p>QueryInterceptor 规范</p>
+<p>  使用 QueryInterceptor 规范，开发插件更轻松。</p>
+</li>
+</ul>
+<hr>
+<h5 id="pagehelper插件使用-1"><a href="#pagehelper插件使用-1" class="headerlink" title="pagehelper插件使用"></a>pagehelper插件使用</h5><ul>
+<li><p>引入分页插件</p>
+<p>  版本可以在Maven仓库中进行下载或在官方来查看最新版本。如果引入版本与现在使用的框架版本相差太大会产生错误信息。导致项目运行问题。</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;com.github.pagehelper&lt;/groupId&gt;
+    &lt;artifactId&gt;pagehelper&lt;/artifactId&gt;
+    &lt;version&gt;最新版本&lt;/version&gt;
+&lt;/dependency&gt;
+----------------------------------
+//在SpringBoot中使用可以引入以下依赖，其中包括了上面的依赖，而上面的依赖不需要再引用
+&lt;dependency&gt;
+      &lt;groupId&gt;com.github.pagehelper&lt;/groupId&gt;
+      &lt;artifactId&gt;pagehelper-spring-boot-starter&lt;/artifactId&gt;
+      &lt;version&gt;1.2.12&lt;/version&gt;
+  &lt;/dependency&gt;</code></pre></li>
+<li><p>配置拦截器插件</p>
+<p>  特别注意，新版拦截器是 com.github.pagehelper.PageInterceptor。 com.github.pagehelper.PageHelper 现在是一个特殊的 dialect 实现类，是分页插件的默认实现类，提供了和以前相同的用法。</p>
+<p>  <img src="/images/pasted-169.png" alt="upload successful"></p>
+<p> Spring中配置文件</p>
+<pre><code>      &lt;bean id=&quot;sqlSessionFactory&quot; class=&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;&gt;
+  &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;/&gt;
+  &lt;property name=&quot;mapperLocations&quot;&gt;
+    &lt;array&gt;
+      &lt;value&gt;classpath:mapper/*.xml&lt;/value&gt;
+    &lt;/array&gt;
+  &lt;/property&gt;
+  &lt;property name=&quot;typeAliasesPackage&quot; value=&quot;com.isea533.ssm.model&quot;/&gt;
+  &lt;property name=&quot;plugins&quot;&gt;
+    &lt;array&gt;
+      &lt;bean class=&quot;com.github.pagehelper.PageHelper&quot;&gt;
+        &lt;property name=&quot;properties&quot;&gt;
+          &lt;value&gt;
+            dialect=hsqldb
+            reasonable=true
+          &lt;/value&gt;
+        &lt;/property&gt;
+      &lt;/bean&gt;
+    &lt;/array&gt;
+  &lt;/property&gt;
+&lt;/bean&gt;</code></pre><p> SpringBoot中配置</p>
+<p>  <img src="/images/pasted-170.png" alt="upload successful"></p>
+<p> 常用的基本参数设置</p>
+<pre><code>&lt;plugins&gt;
+ &lt;!-- com.github.pagehelper为PageHelper类所在包名 --&gt;
+ &lt;plugin interceptor=&quot;com.github.pagehelper.PageHelper&quot;&gt;
+     &lt;property name=&quot;dialect&quot; value=&quot;mysql&quot;/&gt;
+     &lt;!-- 该参数默认为false --&gt;
+     &lt;!-- 设置为true时，会将RowBounds第一个参数offset当成pageNum页码使用 --&gt;
+     &lt;!-- 和startPage中的pageNum效果一样--&gt;
+     &lt;property name=&quot;offsetAsPageNum&quot; value=&quot;true&quot;/&gt;
+     &lt;!-- 该参数默认为false --&gt;
+     &lt;!-- 设置为true时，使用RowBounds分页会进行count查询 --&gt;
+     &lt;property name=&quot;rowBoundsWithCount&quot; value=&quot;true&quot;/&gt;
+     &lt;!-- 设置为true时，如果pageSize=0或者RowBounds.limit = 0就会查询出全部的结果 --&gt;
+     &lt;!-- （相当于没有执行分页查询，但是返回结果仍然是Page类型）--&gt;
+     &lt;property name=&quot;pageSizeZero&quot; value=&quot;true&quot;/&gt;
+     &lt;!-- 3.3.0版本可用 - 分页参数合理化，默认false禁用 --&gt;
+     &lt;!-- 启用合理化时，如果pageNum&lt;1会查询第一页，如果pageNum&gt;pages会查询最后一页 --&gt;
+     &lt;!-- 禁用合理化时，如果pageNum&lt;1或pageNum&gt;pages会返回空数据 --&gt;
+     &lt;property name=&quot;reasonable&quot; value=&quot;true&quot;/&gt;
+ &lt;/plugin&gt;
+ &lt;/plugins&gt;</code></pre><ul>
+<li>增加dialect属性，使用时必须指定该属性，可选值为oracle,mysql,mariadb,sqlite,hsqldb,postgresql,没有默认值，必须指定该属性。</li>
+<li>增加offsetAsPageNum属性，默认值为false，使用默认值时不需要增加该配置，需要设为true时，需要配置该参数。当该参数设置为true时，使用RowBounds分页时，会将offset参数当成pageNum使用，可以用页码和页面大小两个参数进行分页。</li>
+<li>增加rowBoundsWithCount属性，默认值为false，使用默认值时不需要增加该配置，需要设为true时，需要配置该参数。当该参数设置为true时，使用RowBounds分页会进行count查询。</li>
+<li>增加pageSizeZero属性，默认值为false，使用默认值时不需要增加该配置，需要设为true时，需要配置该参数。当该参数设置为true时，如果pageSize=0或者RowBounds.limit = 0就会查询出全部的结果（相当于没有执行分页查询，但是返回结果仍然是Page类型）。</li>
+<li>增加reasonable属性，默认值为false，使用默认值时不需要增加该配置，需要设为true时，需要配置该参数。具体作用请看上面配置文件中的注释内容。</li>
+</ul>
+</li>
+<li><p>如何在代码中使用</p>
+<p>  配置完成后再调用类中配置分页属性：</p>
+<pre><code>//查询所需数据条件
+List&lt;TbItem&gt; list = ibItemMapper.selectByExample(new TbItemExample());
+//设置分页信息(第几页，每页数量)
+PageHelper.startPage(pageNum, pageSize);
+//取记录总条数
+PageInfo&lt;TbItem&gt; pageInfo = new PageInfo&lt;&gt;(list); 
+long sum = pageInfo.getTotal();</code></pre></li>
+</ul>
+<pre><code>其他几种查询方法：
+
+   //第一种，RowBounds方式的调用
+  List&lt;Country&gt; list = sqlSession.selectList(&quot;x.y.selectIf&quot;, null, new RowBounds(0, 10));
+
+  //第二种，Mapper接口方式的调用，推荐这种使用方式。
+  PageHelper.startPage(1, 10);
+  List&lt;Country&gt; list = countryMapper.selectIf(1);
+
+  //第三种，Mapper接口方式的调用，推荐这种使用方式。
+  PageHelper.offsetPage(1, 10);
+  List&lt;Country&gt; list = countryMapper.selectIf(1);
+
+  //第四种，参数方法调用
+  //存在以下 Mapper 接口方法，你不需要在 xml 处理后两个参数
+  public interface CountryMapper {
+      List&lt;Country&gt; selectByPageNumSize(
+              @Param(&quot;user&quot;) User user,
+              @Param(&quot;pageNum&quot;) int pageNum,
+              @Param(&quot;pageSize&quot;) int pageSize);
+  }
+  //配置supportMethodsArguments=true
+  //在代码中直接调用：
+  List&lt;Country&gt; list = countryMapper.selectByPageNumSize(user, 1, 10);
+
+  //第五种，参数对象
+  //如果 pageNum 和 pageSize 存在于 User 对象中，只要参数有值，也会被分页
+  //有如下 User 对象
+  public class User {
+      //其他fields
+      //下面两个参数名和 params 配置的名字一致
+      private Integer pageNum;
+      private Integer pageSize;
+  }
+  //存在以下 Mapper 接口方法，你不需要在 xml 处理后两个参数
+  public interface CountryMapper {
+      List&lt;Country&gt; selectByPageNumSize(User user);
+  }
+  //当 user 中的 pageNum!= null &amp;&amp; pageSize!= null 时，会自动分页
+  List&lt;Country&gt; list = countryMapper.selectByPageNumSize(user);
+
+  //第六种，ISelect 接口方式
+  //jdk6,7用法，创建接口
+  Page&lt;Country&gt; page = PageHelper.startPage(1, 10).doSelectPage(new ISelect() {
+      @Override
+      public void doSelect() {
+          countryMapper.selectGroupBy();
+      }
+  });
+  //jdk8 lambda用法
+  Page&lt;Country&gt; page = PageHelper.startPage(1, 10).doSelectPage(()-&gt; countryMapper.selectGroupBy());
+
+  //也可以直接返回PageInfo，注意doSelectPageInfo方法和doSelectPage
+  pageInfo = PageHelper.startPage(1, 10).doSelectPageInfo(new ISelect() {
+      @Override
+      public void doSelect() {
+          countryMapper.selectGroupBy();
+      }
+  });
+  //对应的lambda用法
+  pageInfo = PageHelper.startPage(1, 10).doSelectPageInfo(() -&gt; countryMapper.selectGroupBy());
+
+  //count查询，返回一个查询语句的count数
+  long total = PageHelper.count(new ISelect() {
+      @Override
+      public void doSelect() {
+          countryMapper.selectLike(country);
+      }
+  });
+  //lambda
+  total = PageHelper.count(()-&gt;countryMapper.selectLike(country));</code></pre></div><div class="post-copyright"><div class="post-copyright-author"><span class="post-copyright-meta">本文作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Slike-V</a></span></div><div class="post-copyright-type"><span class="post-copyright-meta">本文链接: </span><span class="post-copyright-info"><a href="http://Slike-v.github.io/2019/09/17/pagehelper插件使用/">http://Slike-v.github.io/2019/09/17/pagehelper插件使用/</a></span></div><div class="post-copyright-notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Slike-v.github.io">Slikeの后花园</a>！</span></div></div></article><div id="pagination"><div class="prev-post pull-left"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/09/18/Shiro权限框架/"><i class="fas fa-angle-left">&nbsp;</i><span>Shiro权限框架</span></a></div><div class="next-post pull-right"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/09/15/JPA/"><span>JPA</span><span>&nbsp;</span><i class="fas fa-angle-right"></i></a></div></div><!--div!= paginator()--></div></div><div class="button-hover" id="return-top"><i class="fas fa-arrow-up" aria-hidden="true"></i></div><footer><div id="footer"><div class="button-hover" id="side-button"><i class="fas fa-arrow-right"></i></div><div class="right-content"><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fas fa-file-o"></i></span><span id="busuanzi_value_page_pv"></span><span></span></div><div class="copyright">&copy;2017 ～ 2021 By Slike-V</div></div></div></footer></div><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery-3.3.1.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/velocity.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery.mCustomScrollbar.concat.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/fan.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/canvas_bg.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/utils.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/scroll.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/sidebar.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/copy.js"></script><!--script(src=url)--></body></html>

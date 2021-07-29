@@ -1,0 +1,171 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="lombok工具使用"><meta name="keywords" content="Lombok"><meta name="author" content="Slike-V,undefined"><meta name="copyright" content="Slike-V"><title>lombok工具使用【Slikeの后花园】</title><link rel="stylesheet" href="/css/fan.css"><link rel="stylesheet" href="/css/thirdparty/jquery.mCustomScrollbar.min.css"><link rel="icon" href="/avatar.png"><!-- script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")--><script src="/js/mathjax/mathjax.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+});
+</script><script>var isPassword = '' || false;
+if (isPassword) {
+    if (prompt('请输入文章密码') !== '') {
+        alert('密码错误！');
+        history.back();
+    }
+}</script><script>window.GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+}</script></head><body><canvas id="universe"></canvas><!--#body--><div id="sidebar"><div class="toggle-sidebar-info button-hover"><span data-toggle="文章目录">站点概览</span></div><div class="sidebar-toc"><div class="sidebar-toc-title">目录</div><div class="sidebar-toc-progress"><span class="progress-notice">您已阅读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc-progress-bar"></div></div><div class="sidebar-toc-content" id="sidebar-toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#lombok工具使用"><span class="toc-number">1.</span> <span class="toc-text">lombok工具使用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><span class="toc-number">1.0.1.</span> <span class="toc-text">       前言</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Data"><span class="toc-number">1.0.2.</span> <span class="toc-text">@Data</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Getter-Setter"><span class="toc-number">1.0.3.</span> <span class="toc-text">@Getter/@Setter</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#NonNull"><span class="toc-number">1.0.4.</span> <span class="toc-text">@NonNull</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Cleanup"><span class="toc-number">1.0.5.</span> <span class="toc-text">@Cleanup</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#EqualsAndHashCode"><span class="toc-number">1.0.6.</span> <span class="toc-text">@EqualsAndHashCode</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ToString"><span class="toc-number">1.0.7.</span> <span class="toc-text">@ToString</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#NoArgsConstructor-RequiredArgsConstructor-and-AllArgsConstructor"><span class="toc-number">1.0.8.</span> <span class="toc-text">@NoArgsConstructor, @RequiredArgsConstructor and @AllArgsConstructor</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Lombok部署安装"><span class="toc-number">1.0.9.</span> <span class="toc-text">Lombok部署安装</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Lombok工作原理分析"><span class="toc-number">1.0.10.</span> <span class="toc-text">Lombok工作原理分析</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Lombok的优缺点"><span class="toc-number">1.0.11.</span> <span class="toc-text">Lombok的优缺点</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info-avatar"><img class="author-info-avatar-img" src="/avatar.png"></div><div class="author-info-name">Slike-V</div><div class="author-info-description"></div><div class="links-buttons"><a class="links-button button-hover" href="https://github.com/fan-lv" target="_blank">GitHub<i class="icon-dot bg-color8"></i></a><a class="links-button button-hover" href="mailto:826330335@qq.com" target="_blank">E-Mail<i class="icon-dot bg-color2"></i></a><a class="links-button button-hover" href="tencent:/" target="_blank">QQ<i class="icon-dot bg-color8"></i></a></div><div class="author-info-articles"><a class="author-info-articles-archives article-meta" href="/archives"><span class="pull-top">日志</span><span class="pull-bottom">58</span></a><a class="author-info-articles-tags article-meta" href="/tags"><span class="pull-top">标签</span><span class="pull-bottom">58</span></a><a class="author-info-articles-categories article-meta" href="/categories"><span class="pull-top">分类</span><span class="pull-bottom">19</span></a></div><div class="friend-link"><a class="friend-link-text" href="/about" target="_blank">Slike-V【简介】</a><a class="friend-link-text" href="https://github.com/fan-lv" target="_blank">主题作者</a><a class="friend-link-text" href="http://kublic.coding.me" target="_blank">Kubil博客</a><a class="friend-link-text" href="http://mebieber.coding.me" target="_blank">Mebieber博客</a><a class="friend-link-text" href="https://www.ultarts.com" target="_blank">Ultarts博客</a></div></div></div><div id="main-container"><header><div id="menu-outer"><i class="menu-list-icon fas fa-bars"></i><nav id="menu-inner"><a class="menu-item" href="/">首页</a><a class="menu-item" href="/tags">标签</a><a class="menu-item" href="/categories">分类</a><a class="menu-item" href="/archives">归档</a><a class="menu-item" href="/about">关于</a></nav><div class="right-info"><a class="title-name" href="/">Slikeの后花园</a><span id="now-time"></span></div></div></header><div id="content-outer"><div id="content-inner"><article id="post"><div class="post-header"><div class="title">lombok工具使用</div><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 发表于 2019-07-31 | 更新于 2021-07-28</time><!--time.button-hover.post-date #[i.fas.fa-calendar-alt.article-icon(aria-hidden="true")] #[=__('post.modified')] #[=date(page['updated'], config.date_format)]--><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/工具/">工具</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/Lombok/">Lombok</a></div></div></div><div class="main-content"><h3 id="lombok工具使用"><a href="#lombok工具使用" class="headerlink" title="lombok工具使用"></a>lombok工具使用</h3><h5 id="nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lombok通过增加一些“处理程序”，可以让java变得简洁、快速。能以简单的注解形式来简化java代码，提高开发人员的开发效率。</p>
+<hr>
+<a id="more"></a>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;开发中经常需要写的javabean，都需要花时间去添加相应的getter/setter，也许还要去写构造器、equals等方法，而且需要维护，当属性多时会出现大量的getter/setter方法，这些显得很冗长也没有太多技术含量，一旦修改属性，就容易出现忘记修改对应方法的失误。<br>Lombok能通过注解的方式，在编译时自动为属性生成构造器、getter/setter、equals、hashcode、toString方法。出现的神奇就是在源码中没有getter和setter方法，但是在编译生成的字节码文件中有getter和setter方法。这样就省去了手动重建这些代码的麻烦，使代码看起来更简洁些。</p>
+<h5 id="Data"><a href="#Data" class="headerlink" title="@Data"></a>@Data</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Data注解在类上，会为类的所有属性自动生成setter/getter、equals、canEqual、hashCode、toString方法，如为final属性，则不会为该属性生成setter方法。官方代码:</p>
+<pre><code>@Data 
+public class DataExample {
+    private final String name;
+    @Setter(AccessLevel.PACKAGE) private int age;
+    private double score;
+    private String[] tags;
+ @ToString(includeFieldNames=true)
+
+    @Data(staticConstructor=&quot;of&quot;)
+    public static class Exercise&lt;T&gt; {
+      private final String name;
+      private final T value;
+    }
+}</code></pre><hr>
+<h5 id="Getter-Setter"><a href="#Getter-Setter" class="headerlink" title="@Getter/@Setter"></a>@Getter/@Setter</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;因为@Data集合了@ToString、@EqualsAndHashCode、@Getter/@Setter、@RequiredArgsConstructor的所有特性、不够精细，可以使用@Getter/@Setter注解，此注解在属性上，可以为相应的属性自动生成Getter/Setter方法</p>
+<hr>
+<h5 id="NonNull"><a href="#NonNull" class="headerlink" title="@NonNull"></a>@NonNull</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;该注解用在属性或构造器上，Lombok会生成一个非空的声明，可用于校验参数，能帮助避免空指针。</p>
+<pre><code>public class NonNullExample extends Something {
+    private String name;
+
+  public NonNullExample(@NonNull Person person) {
+    super(&quot;Hello&quot;);
+    this.name = person.getName();
+  }
+}</code></pre><hr>
+<h5 id="Cleanup"><a href="#Cleanup" class="headerlink" title="@Cleanup"></a>@Cleanup</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;该注解能帮助我们自动调用close()方法，很大的简化了代码。如一些需要使用close()方法的类。</p>
+<pre><code>public class CleanupExample {
+  public static void main(String[] args) throws IOException {
+    @Cleanup InputStream in = new FileInputStream(args[0]);
+    @Cleanup OutputStream out = new FileOutputStream(args[1]);
+    byte[] b = new byte[10000];
+    while (true) {
+      int r = in.read(b);
+      if (r == -1) break;
+      out.write(b, 0, r);
+    }
+  }
+}</code></pre><hr>
+<h5 id="EqualsAndHashCode"><a href="#EqualsAndHashCode" class="headerlink" title="@EqualsAndHashCode"></a>@EqualsAndHashCode</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;默认情况下，会使用所有非静态（non-static）和非瞬态（non-transient）属性来生成equals和hasCode，也能通过exclude注解来排除一些属性。</p>
+<pre><code>@EqualsAndHashCode(exclude={&quot;id&quot;, &quot;shape&quot;})</code></pre><p>  public class EqualsAndHashCodeExample {<br>    private transient int transientVar = 10;<br>    private String name;<br>    private double score;<br>    private Shape shape = new Square(5, 10);<br>    private String[] tags;<br>    private int id;</p>
+<pre><code>public String getName() {
+  return this.name;
+}
+
+@EqualsAndHashCode(callSuper=true)
+public static class Square extends Shape {
+    private final int width, height;
+
+    public Square(int width, int height) {
+      this.width = width;
+        this.height = height;
+      }
+    }
+  }</code></pre><hr>
+<h5 id="ToString"><a href="#ToString" class="headerlink" title="@ToString"></a>@ToString</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;类使用@ToString注解，Lombok会生成一个toString()方法，默认情况下，会输出类名、所有属性（会按照属性定义顺序），用逗号来分割。通过将includeFieldNames参数设为true，就能明确的输出toString()属性。</p>
+<pre><code>  @ToString(exclude=&quot;id&quot;)
+public class ToStringExample {
+  private static final int STATIC_VAR = 10;
+  private String name;
+  private Shape shape = new Square(5, 10);
+  private String[] tags;
+  private int id;
+
+public String getName() {
+  return this.getName();
+}
+
+@ToString(callSuper=true, includeFieldNames=true)
+public static class Square extends Shape {
+      private final int width, height;
+
+      public Square(int width, int height) {
+        this.width = width;
+        this.height = height;
+      }
+    }
+  }</code></pre><hr>
+<h5 id="NoArgsConstructor-RequiredArgsConstructor-and-AllArgsConstructor"><a href="#NoArgsConstructor-RequiredArgsConstructor-and-AllArgsConstructor" class="headerlink" title="@NoArgsConstructor, @RequiredArgsConstructor and @AllArgsConstructor"></a>@NoArgsConstructor, @RequiredArgsConstructor and @AllArgsConstructor</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;无参构造器、部分参数构造器、全参构造器。Lombok没法实现多种参数构造器的重载。</p>
+<pre><code>@RequiredArgsConstructor(staticName = &quot;of&quot;)
+@AllArgsConstructor(access = AccessLevel.PROTECTED)
+public class ConstructorExample&lt;T&gt; {
+  private int x, y;
+  @NonNull private T description;
+
+  @NoArgsConstructor
+  public static class NoArgsExample {
+    @NonNull private String field;
+  }
+}</code></pre><hr>
+<h5 id="Lombok部署安装"><a href="#Lombok部署安装" class="headerlink" title="Lombok部署安装"></a>Lombok部署安装</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;idea中怎样部署安装lombok？<br>1)Maven导入jar包</p>
+<pre><code>&lt;dependency&gt;
+   &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+      &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+      &lt;version&gt;1.16.10&lt;/version&gt;
+   &lt;/dependency&gt;</code></pre><p>2)如果idea中没有安装lombok插件需要进行以下步骤(默认没有安装)：</p>
+<p><img src="/images/pasted-41.png" alt="upload successful"></p>
+<hr>
+<h5 id="Lombok工作原理分析"><a href="#Lombok工作原理分析" class="headerlink" title="Lombok工作原理分析"></a>Lombok工作原理分析</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在Lombok使用的过程中，只需要添加相应的注解，无需再为此写任何代码。自动生成的代码到底是如何产生的呢？</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;核心之处就是对于注解的解析上。JDK5引入了注解的同时，也提供了两种解析方式。</p>
+<ul>
+<li>运行时解析</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;运行时能够解析的注解，必须将@Retention设置为RUNTIME，这样就可以通过反射拿到该注解。java.lang.reflect反射包中提供了一个接口AnnotatedElement，该接口定义了获取注解信息的几个方法，Class、Constructor、Field、Method、Package等都实现了该接口，对反射熟悉的朋友应该都会很熟悉这种解析方式。</p>
+<ul>
+<li>编译时解析</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;编译时解析有两种机制，分别简单描述下：</p>
+<p>1）Annotation Processing Tool</p>
+<p>apt自JDK5产生，JDK7已标记为过期，不推荐使用，JDK8中已彻底删除，自JDK6开始，可以使用Pluggable Annotation Processing API来替换它，apt被替换主要有2点原因：</p>
+<ul>
+<li><p>api都在com.sun.mirror非标准包下</p>
+</li>
+<li><p>没有集成到javac中，需要额外运行</p>
+</li>
+</ul>
+<p>2）Pluggable Annotation Processing API</p>
+<p>JSR 269自JDK6加入，作为apt的替代方案，它解决了apt的两个问题，javac在执行的时候会调用实现了该API的程序，这样我们就可以对编译器做一些增强，这时javac执行的过程如下： </p>
+<p><img src="/images/pasted-42.png" alt="upload successful"></p>
+<p>Lombok本质上就是一个实现了“JSR 269 API”的程序。在使用javac的过程中，它产生作用的具体流程如下：</p>
+<ul>
+<li><p>javac对源代码进行分析，生成了一棵抽象语法树（AST）</p>
+</li>
+<li><p>运行过程中调用实现了“JSR 269 API”的Lombok程序</p>
+</li>
+<li><p>此时Lombok就对第一步骤得到的AST进行处理，找到@Data注解所在类对应的语法树（AST），然后修改该语法树（AST），增加getter和setter方法定义的相应树节点</p>
+</li>
+<li><p>javac使用修改后的抽象语法树（AST）生成字节码文件，即给class增加新的节点（代码块）</p>
+</li>
+</ul>
+<p>通过读Lombok源码，发现对应注解的实现都在HandleXXX中，比如@Getter注解的实现在HandleGetter.handle()。还有一些其它类库使用这种方式实现，比如Google Auto、Dagger等等。</p>
+<hr>
+<h5 id="Lombok的优缺点"><a href="#Lombok的优缺点" class="headerlink" title="Lombok的优缺点"></a>Lombok的优缺点</h5><p>优点：</p>
+<ul>
+<li><p>能通过注解的形式自动生成构造器、getter/setter、equals、hashcode、toString等方法，提高了一定的开发效率</p>
+</li>
+<li><p>让代码变得简洁，不用过多的去关注相应的方法</p>
+</li>
+<li><p>属性做修改时，也简化了维护为这些属性所生成的getter/setter方法等</p>
+</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>不支持多种参数构造器的重载</li>
+<li>虽然省去了手动创建getter/setter方法的麻烦，但大大降低了源代码的可读性和完整性，降低了阅读源代码的舒适度</li>
+</ul>
+<hr>
+<p>Lombok虽然有很多优点，但Lombok更类似于一种IDE插件，项目也需要依赖相应的jar包。Lombok依赖jar包是因为编译时要用它的注解，为什么说它又类似插件？因为在使用时，eclipse或IntelliJ IDEA都需要安装相应的插件，在编译器编译时通过操作AST（抽象语法树）改变字节码生成，变向的就是说它在改变java语法。它不像spring的依赖注入或者mybatis的ORM一样是运行时的特性，而是编译时的特性。</p>
+</div><div class="post-copyright"><div class="post-copyright-author"><span class="post-copyright-meta">本文作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Slike-V</a></span></div><div class="post-copyright-type"><span class="post-copyright-meta">本文链接: </span><span class="post-copyright-info"><a href="http://Slike-v.github.io/2019/07/31/lombok工具使用/">http://Slike-v.github.io/2019/07/31/lombok工具使用/</a></span></div><div class="post-copyright-notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Slike-v.github.io">Slikeの后花园</a>！</span></div></div></article><div id="pagination"><div class="prev-post pull-left"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/08/01/mysqll连接参数/"><i class="fas fa-angle-left">&nbsp;</i><span>mysql连接参数</span></a></div><div class="next-post pull-right"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/07/31/初识MyBatis-Plus/"><span>初识MyBatis Plus</span><span>&nbsp;</span><i class="fas fa-angle-right"></i></a></div></div><!--div!= paginator()--></div></div><div class="button-hover" id="return-top"><i class="fas fa-arrow-up" aria-hidden="true"></i></div><footer><div id="footer"><div class="button-hover" id="side-button"><i class="fas fa-arrow-right"></i></div><div class="right-content"><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fas fa-file-o"></i></span><span id="busuanzi_value_page_pv"></span><span></span></div><div class="copyright">&copy;2017 ～ 2021 By Slike-V</div></div></div></footer></div><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery-3.3.1.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/velocity.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery.mCustomScrollbar.concat.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/fan.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/canvas_bg.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/utils.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/scroll.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/sidebar.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/copy.js"></script><!--script(src=url)--></body></html>

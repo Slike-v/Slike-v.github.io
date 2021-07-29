@@ -1,0 +1,185 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="初识oracle"><meta name="keywords" content="oracle"><meta name="author" content="Slike-V,undefined"><meta name="copyright" content="Slike-V"><title>初识oracle【Slikeの后花园】</title><link rel="stylesheet" href="/css/fan.css"><link rel="stylesheet" href="/css/thirdparty/jquery.mCustomScrollbar.min.css"><link rel="icon" href="/avatar.png"><!-- script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")--><script src="/js/mathjax/mathjax.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+});
+</script><script>var isPassword = '' || false;
+if (isPassword) {
+    if (prompt('请输入文章密码') !== '') {
+        alert('密码错误！');
+        history.back();
+    }
+}</script><script>window.GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+}</script></head><body><canvas id="universe"></canvas><!--#body--><div id="sidebar"><div class="toggle-sidebar-info button-hover"><span data-toggle="文章目录">站点概览</span></div><div class="sidebar-toc"><div class="sidebar-toc-title">目录</div><div class="sidebar-toc-progress"><span class="progress-notice">您已阅读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc-progress-bar"></div></div><div class="sidebar-toc-content" id="sidebar-toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#初识oracle"><span class="toc-number">1.</span> <span class="toc-text">初识oracle</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><span class="toc-number">1.0.1.</span> <span class="toc-text">       前言</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Oracle数据库主要特点："><span class="toc-number">1.0.2.</span> <span class="toc-text">Oracle数据库主要特点：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Oracle基本概念"><span class="toc-number">1.0.3.</span> <span class="toc-text">Oracle基本概念</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Windows下启动数据库"><span class="toc-number">1.0.4.</span> <span class="toc-text">Windows下启动数据库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#配置数据库"><span class="toc-number">1.0.5.</span> <span class="toc-text">配置数据库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#连接数据库"><span class="toc-number">1.0.6.</span> <span class="toc-text">连接数据库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Oracle数据类型"><span class="toc-number">1.0.7.</span> <span class="toc-text">Oracle数据类型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#SQL语言简介"><span class="toc-number">1.0.8.</span> <span class="toc-text">SQL语言简介</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#SQL操作符"><span class="toc-number">1.0.9.</span> <span class="toc-text">SQL操作符</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#SQL函数"><span class="toc-number">1.0.10.</span> <span class="toc-text">SQL函数</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info-avatar"><img class="author-info-avatar-img" src="/avatar.png"></div><div class="author-info-name">Slike-V</div><div class="author-info-description"></div><div class="links-buttons"><a class="links-button button-hover" href="https://github.com/fan-lv" target="_blank">GitHub<i class="icon-dot bg-color2"></i></a><a class="links-button button-hover" href="mailto:826330335@qq.com" target="_blank">E-Mail<i class="icon-dot bg-color0"></i></a><a class="links-button button-hover" href="tencent:/" target="_blank">QQ<i class="icon-dot bg-color1"></i></a></div><div class="author-info-articles"><a class="author-info-articles-archives article-meta" href="/archives"><span class="pull-top">日志</span><span class="pull-bottom">58</span></a><a class="author-info-articles-tags article-meta" href="/tags"><span class="pull-top">标签</span><span class="pull-bottom">58</span></a><a class="author-info-articles-categories article-meta" href="/categories"><span class="pull-top">分类</span><span class="pull-bottom">19</span></a></div><div class="friend-link"><a class="friend-link-text" href="/about" target="_blank">Slike-V【简介】</a><a class="friend-link-text" href="https://github.com/fan-lv" target="_blank">主题作者</a><a class="friend-link-text" href="http://kublic.coding.me" target="_blank">Kubil博客</a><a class="friend-link-text" href="http://mebieber.coding.me" target="_blank">Mebieber博客</a><a class="friend-link-text" href="https://www.ultarts.com" target="_blank">Ultarts博客</a></div></div></div><div id="main-container"><header><div id="menu-outer"><i class="menu-list-icon fas fa-bars"></i><nav id="menu-inner"><a class="menu-item" href="/">首页</a><a class="menu-item" href="/tags">标签</a><a class="menu-item" href="/categories">分类</a><a class="menu-item" href="/archives">归档</a><a class="menu-item" href="/about">关于</a></nav><div class="right-info"><a class="title-name" href="/">Slikeの后花园</a><span id="now-time"></span></div></div></header><div id="content-outer"><div id="content-inner"><article id="post"><div class="post-header"><div class="title">初识oracle</div><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 发表于 2019-08-05 | 更新于 2021-07-28</time><!--time.button-hover.post-date #[i.fas.fa-calendar-alt.article-icon(aria-hidden="true")] #[=__('post.modified')] #[=date(page['updated'], config.date_format)]--><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/数据库/">数据库</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/oracle/">oracle</a></div></div></div><div class="main-content"><h3 id="初识oracle"><a href="#初识oracle" class="headerlink" title="初识oracle"></a>初识oracle</h3><h5 id="nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Oracle是一个数据库管理系统。是Oracle公司的核心产品。其数据安全性与完整性控制方面的优越性能，以及跨操作系统、跨硬件平台的数据互操作能力，使得越来越多的用户将Oracle作为应用数据的处理系统。与SQL Server相同，两者均为关系型数据库，均支持SQL 92标准，但Oracle是目前最流行的数据库。</p>
+<hr>
+<a id="more"></a>
+<h5 id="Oracle数据库主要特点："><a href="#Oracle数据库主要特点：" class="headerlink" title="Oracle数据库主要特点："></a>Oracle数据库主要特点：</h5><ul>
+<li>1.支持多用户、大事务量的事务处理。</li>
+<li>2.在保持数据安全性和完整性方面性能优越。</li>
+<li>3.支持分布式数据处理。将分布在不同物理位置的数据库用通信网络连接起来，在分布式数据库管理系统的控制下，组成一个逻辑上统一的数据库，完成数据处理任务。</li>
+<li>4.具有可移植性。Oracle可以在Windows、Linux等多个操作系统平台上使用，而SQL Server只能在Windows平台上运行。</li>
+</ul>
+<hr>
+<h5 id="Oracle基本概念"><a href="#Oracle基本概念" class="headerlink" title="Oracle基本概念"></a>Oracle基本概念</h5><ul>
+<li><p>1.数据库</p>
+<ul>
+<li>这里的数据库不是通常情况下我们所说的数据库，而是Oracle的一个专业名词。它是磁盘上存储数据的集合，在物理上表现为数据文件、日志文件和控制文件等，在逻辑上以表空间形式存在。使用时，必须首先创建数据库，然后才能使用Oracle。可以在安装Oracle软件的同时创建数据库，也可以在安装后单独创建数据库。</li>
+</ul>
+</li>
+<li><p>2.全局数据库名</p>
+<ul>
+<li>全局数据库名是用于区分一个数据库的标识，在安装数据库、创建新数据库、创建控制文件、修改数据库结构、利用RMAN备份时都需要使用。它由数据库名称和域名构成，类似网络中的域名，使数据库的命名在整个网络环境中唯一。如：一个网络中有两个数据库，数据库名都是orcl，若这两数据库要建立连接，则必须使用不同的域名加以区分。”orcl.prd.com” 其中 “prd.com”为域名。</li>
+</ul>
+</li>
+<li><p>3.数据库实例</p>
+<ul>
+<li>每个启动的数据库都对应一个数据库实例，由这个实例来访问数据库中的数据。如果把数据库简单地理解为硬盘上的文件，具有永久性，则数据库实例就是通过内存共享运行状态的一组服务器后台进程。</li>
+</ul>
+</li>
+<li><p>4.表空间</p>
+<ul>
+<li>每个Oracle数据库都是由若干个表空间构成的，用户在数据库中建立的所有内容都被存储到表空间中。一个表空间可由多个数据文件组成，但一个数据文件只能属于一个表空间。与数据文件这种物理结构比，表空间属于数据库的逻辑结构。在每个数据库中，都有个名为SYSTEM的表空间，即系统表空间，还会有SYSAUX、TEMP、UNDO、USERS等，这些都是在创建数据库时自动创建。管理员可以创建自定义的表空间并分配给用户，也可以为表空间增加或删除数据文件。</li>
+</ul>
+</li>
+<li><p>5.数据文件</p>
+<ul>
+<li>通常，数据文件的扩展名时.dbf，是用于存储数据库数据的文件，如存储数据库表中的记录、索引、存储过程、视图、数据字典定义等。对于数据库操作中产生的一些临时数据，以及为保证事务重做所必需的数据有专门的数据文件负责存储。</li>
+</ul>
+</li>
+<li><p>6.控制文件</p>
+<ul>
+<li>控制文件的扩展名时.ctl，是一个二进制文件。控制文件中存储的信息很多，包括数据文件和日志文件的名称和位置。控制文件是数据库启动即运行所必需的文件。当Oracle读写数据时，要根据控制文件的信息查找数据文件。</li>
+</ul>
+</li>
+<li><p>7.日志文件</p>
+<ul>
+<li>日志文件的扩展名时.log，它记录了数据的所有更改信息，并提供了一种数据恢复机制，确保系统崩溃或其他意外重新恢复数据库。Oracle的日志是成组使用的，每个日志文件组可以有一个或多个。工作过程中，多个日志文件组之间循环使用，但一个日志文件组写满后，会转向下一个。</li>
+</ul>
+</li>
+<li><p>8.模式和模式对象</p>
+<ul>
+<li>模式是数据库对象的集合。Oracle会为每个数据库用户创建一个模式，此模式为当前用户所拥有，和用户具有相同的名称。</li>
+</ul>
+<hr>
+<h5 id="Windows下启动数据库"><a href="#Windows下启动数据库" class="headerlink" title="Windows下启动数据库"></a>Windows下启动数据库</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Windows操作系统，Oracle服务的启动和关闭是以后台服务的方式来管理。Oracle每个实例都作为一项服务来启动。</p>
+</li>
+<li><p>OracleServiceSID服务：Oracle数据库服务。对应名为SID的数据库实例创建的，其中SID是在安装Oracle11g时输入的数据库名称。默认自动启动。如果此服务未启动，数据库客户端应用程序，如SQL*Plus连接数据库服务器时就会出错。</p>
+</li>
+<li><p>OracleOraDB11g_home1TNSListener服务：监听服务。Oracle服务器端的监听程序。远程连接数据库服务器，客户端必须先连接驻留在数据库服务器上的监听进程。监听器接收从客户端发出的请求，然后将请求传递给数据库服务。一旦建立了连接，客户端与数据库服务就能直接通信。监听器监听并接收来自客户端应用程序的连接请求。该服务只有在数据库需要远程访问时才需要。</p>
+</li>
+<li><p>OracleDBConsoleSID服务：数据库控制台服务。EMC(企业管理控制台)的服务程序(SID随安装的数据库而不同)，用于使用Oracle企业管理区的程序。</p>
+</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果数据库安装在本地，使用自带SQL<em>Plus访问，只需启动OracleServiceSID服务。并且使用SQL</em>Plus连接不能使用@。这种连接被视为本地连接。Oracle存在默认数据库服务名，本地连接时会自动连接该默认的数据库服务。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果使用第三方工具来访问数据库，无论数据库安装在本地都必须启动OracleOraDB11g_home1TNSListener服务，Oracle会将第三方工具视为远程连接。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果进入基于Web形式企业管理控制平台，必须启动OracleDBConsoleSID服务。</p>
+<hr>
+<h5 id="配置数据库"><a href="#配置数据库" class="headerlink" title="配置数据库"></a>配置数据库</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Oracle安装完之后，客户端需要进行数据库服务器连接访问数据，必须进行网络配置。网络配置包括服务器端配置和客户端配置，Oracle提供了“NetManager”工具。当数据库用户连接到数据库服务器时，就成为该数据的一个客户端。客户端和服务器可以在同台机器上，也可以通过网络连接不同操作系统。</p>
+<p>1) 在Oracle服务器端配置监听器(LISTENER)</p>
+<p>2) 客户端需要配置一个本地网络服务名(TNSNAME)</p>
+<p>3) Oracle客户端与服务端连接是通过客户端发出连接请求，由服务器端监听器对客户端的连接请求进行合法检查，请求有效连接，否则拒绝连接。</p>
+<hr>
+<h5 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;创建一个新数据库时，Oracle将创建一些默认数据库用户，如Sys、System、Scott等，可以使用这些用户连接数据库。Sys和System用户都是Oracle的系统用户，而Scott是Oracle数据库的一个测试账户，包含一些测试样例表。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;想要连接数据库，可以使用Oracle自带的SQL*Plus和SQL Developer工具或第三方工具。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SQL<em>Plus工具：与Oracle数据库进行交互的客户端工具。在SQL</em>Plus中，可以运行SQL*Plus命令和SQL语句。Create、Select、Drop、Grant、Revoke等SQL语句在执行完后，都可以保存在一个被称为SQL BUFFER的内存区域中，并且只能保存一条最近执行的SQL。</p>
+<h5 id="Oracle数据类型"><a href="#Oracle数据类型" class="headerlink" title="Oracle数据类型"></a>Oracle数据类型</h5><ul>
+<li><p>字符数据类型</p>
+<ul>
+<li>CHAR数据类型</li>
+<li>VARCHAR2数据类型</li>
+<li>NCHAR数据类型</li>
+</ul>
+</li>
+<li><p>数值数据类型</p>
+<ul>
+<li>NUMBER数据类型</li>
+</ul>
+</li>
+<li><p>日期时间数据类型</p>
+<ul>
+<li>DATE数据类型</li>
+<li>TIMESTAMP数据类型</li>
+</ul>
+</li>
+</ul>
+<p><strong>系统环境变量配置日期时间问题:新建环境变量 -&gt; 变量名：nls_date_format/值：YYYY-MM-DD HH24:MI:SS</strong></p>
+<ul>
+<li>LOB数据类型<ul>
+<li>称为”大对象”数据类型。可以存储多达4GB的非结构化信息。LOB允许对数据进行高效、随机、分段访问。LOB可以是外部的或内部的，取决于它相对于数据库的位置。</li>
+<li>CLOB：能存储大量字符数据。该数据类型可以存储单字节字符数据和多字节字符数据。</li>
+<li>BLOB：存储较大的二进制对象，如图形或视频。</li>
+<li>NCLOB：存储大的NCHAR字符数据。</li>
+</ul>
+</li>
+</ul>
+<p>Oracle中的表可以有多个LOB列，每个LOB列可以是不同的LOB类型。</p>
+<ul>
+<li>Oracle中的伪列<ul>
+<li>相当于Oracle中的一个表列，实际并未存储在表中。伪列可以从表中查询，不能插入、更新、删除它们的值。</li>
+<li>ROWID：数据库每行都有一个行地址，ROWID伪列返回该行地址。可以使ROWID值来定位表中一行。<pre><code>能以最快的方式访问表中的一行
+能显示表的行是如何存储的。
+可以作为表中行的唯一标识</code></pre></li>
+<li>ROWNUM<ul>
+<li>对于一个查询返回的每行，ROWNUM伪列返回一个数值代表行的次序。返回的第一行的ROWNUM值为1第二行值为2……。</li>
+<li>ROWNUM等于某值的查询条件：如果希望找员工第一条信息，使用ROWNUM=1.如果找员工第二条信息，ROWNUM=2则查不到。</li>
+<li>ROWNUM大于某值的查询条件：如果想找第二行记录以后的记录。使用ROWNUM&gt;2得不到。原因ROWNUM是一个总是从1开始。Oracle认为ROWNUM&gt;n这种条件依旧不成立。</li>
+<li>ROWNUM小于某值的查询条件：想找第11条以前的记录使用ROWNUM&lt;11能找到。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h5 id="SQL语言简介"><a href="#SQL语言简介" class="headerlink" title="SQL语言简介"></a>SQL语言简介</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SQL语言是高级的结构化查询语言。用户使用SQL语句进行数据操作时，只需要提出”做什么”,而不必指明”怎么做”。SQL语言是数据库服务器和客户端直接的重要沟通手段，用于存取数据，查询、更新和管理关系型数据库系统。</p>
+<ul>
+<li>数据定义语言(DDL):Create、Alter、Truncate(截断)、Drop命令。<ul>
+<li>schema表示对象的所有者，即模式的名称。</li>
+<li>table表示表名称</li>
+<li>column表示列名称</li>
+<li>datatype表示数据类型及其宽度</li>
+</ul>
+</li>
+<li>数据操纵语言(DML):Insert、Select、Delete、Update命令。<ul>
+<li>事务控制语言(TCL):Commit、Savepoint(保存点)、RollBack</li>
+<li>commit表示提交事务</li>
+<li>rollback表示回滚</li>
+<li>savepoint表示事务中创建存储点</li>
+<li>rollback to<savepoint_name>将事务回滚到存储点</savepoint_name></li>
+</ul>
+</li>
+<li>数据控制语言(DCL):Grant(授予)、Revoke(回收)</li>
+</ul>
+<h5 id="SQL操作符"><a href="#SQL操作符" class="headerlink" title="SQL操作符"></a>SQL操作符</h5><ul>
+<li>算数操作符<pre><code>+ - * /</code></pre></li>
+<li>比较操作符<pre><code>= != &lt; &gt; &lt;= &gt;= between and in like is null</code></pre></li>
+<li>逻辑操作符<pre><code>and or not</code></pre></li>
+<li>集合操作符<pre><code>union(联合) union all(联合所有) intersect(交集) minus(减集)</code></pre></li>
+<li>连接操作符<pre><code>||(将两个或多个字符串或数值合并成一个)</code></pre></li>
+</ul>
+<h5 id="SQL函数"><a href="#SQL函数" class="headerlink" title="SQL函数"></a>SQL函数</h5><p>Oracle SQL提供了用于执行特定操作的专用函数。</p>
+<ul>
+<li>单行函数<ul>
+<li>字符函数</li>
+<li>日期函数</li>
+<li>数字函数</li>
+<li>转换函数(将一种类型转换为另一种)<pre><code>TO_CHAR(1234.5,&apos;$9999.9&apos;)
+TO_DATE(&apos;1995-1-1&apos;,&apos;yyyy-mm-dd&apos;)
+TO_NUMBER(&apos;1234.5&apos;)</code></pre></li>
+<li>其他函数(除字符函数、日期函数、数字函数、转换函数，还有其他一些单行函数统称其他函数)<ul>
+<li>NVL(exp1,exp2)<pre><code>如果exp1的值为Null，返回exp2的值，否则返回exp1的值</code></pre></li>
+<li>NVL2(exp1,exp2,exp3)<pre><code>如果exp1的值为Null，返回exp2的值，否则返回exp3的值</code></pre></li>
+<li>DECODE(value,if1,then1,if2,then2,…,else)<pre><code>如果value的值为if1,返回then1的值;如果value值为if2，返回then2的值，否则返回else的值</code></pre></li>
+</ul>
+</li>
+<li>聚合函数(分组函数)</li>
+<li>分析函数</li>
+</ul>
+</li>
+</ul>
+</div><div class="post-copyright"><div class="post-copyright-author"><span class="post-copyright-meta">本文作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Slike-V</a></span></div><div class="post-copyright-type"><span class="post-copyright-meta">本文链接: </span><span class="post-copyright-info"><a href="http://Slike-v.github.io/2019/08/05/初识oracle/">http://Slike-v.github.io/2019/08/05/初识oracle/</a></span></div><div class="post-copyright-notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Slike-v.github.io">Slikeの后花园</a>！</span></div></div></article><div id="pagination"><div class="prev-post pull-left"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/08/07/Order数据库应用/"><i class="fas fa-angle-left">&nbsp;</i><span>Order数据库应用</span></a></div><div class="next-post pull-right"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/08/03/Spring配置事务/"><span>Spring配置事务</span><span>&nbsp;</span><i class="fas fa-angle-right"></i></a></div></div><!--div!= paginator()--></div></div><div class="button-hover" id="return-top"><i class="fas fa-arrow-up" aria-hidden="true"></i></div><footer><div id="footer"><div class="button-hover" id="side-button"><i class="fas fa-arrow-right"></i></div><div class="right-content"><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fas fa-file-o"></i></span><span id="busuanzi_value_page_pv"></span><span></span></div><div class="copyright">&copy;2017 ～ 2021 By Slike-V</div></div></div></footer></div><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery-3.3.1.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/velocity.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery.mCustomScrollbar.concat.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/fan.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/canvas_bg.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/utils.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/scroll.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/sidebar.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/copy.js"></script><!--script(src=url)--></body></html>

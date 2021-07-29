@@ -1,0 +1,82 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="Oracle索引"><meta name="keywords" content="Oracle索引"><meta name="author" content="Slike-V,undefined"><meta name="copyright" content="Slike-V"><title>Oracle索引【Slikeの后花园】</title><link rel="stylesheet" href="/css/fan.css"><link rel="stylesheet" href="/css/thirdparty/jquery.mCustomScrollbar.min.css"><link rel="icon" href="/avatar.png"><!-- script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")--><script src="/js/mathjax/mathjax.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+});
+</script><script>var isPassword = '' || false;
+if (isPassword) {
+    if (prompt('请输入文章密码') !== '') {
+        alert('密码错误！');
+        history.back();
+    }
+}</script><script>window.GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+}</script></head><body><canvas id="universe"></canvas><!--#body--><div id="sidebar"><div class="toggle-sidebar-info button-hover"><span data-toggle="文章目录">站点概览</span></div><div class="sidebar-toc"><div class="sidebar-toc-title">目录</div><div class="sidebar-toc-progress"><span class="progress-notice">您已阅读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc-progress-bar"></div></div><div class="sidebar-toc-content" id="sidebar-toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Oracle索引"><span class="toc-number">1.</span> <span class="toc-text">Oracle索引</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><span class="toc-number">1.0.1.</span> <span class="toc-text">       前言</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Oracle索引的分类"><span class="toc-number">1.0.2.</span> <span class="toc-text">Oracle索引的分类</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Oracle索引原则"><span class="toc-number">1.0.3.</span> <span class="toc-text">Oracle索引原则</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Oracle索引注意情况"><span class="toc-number">1.0.4.</span> <span class="toc-text">Oracle索引注意情况</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Oracle索引-1"><span class="toc-number">1.0.5.</span> <span class="toc-text">Oracle索引</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info-avatar"><img class="author-info-avatar-img" src="/avatar.png"></div><div class="author-info-name">Slike-V</div><div class="author-info-description"></div><div class="links-buttons"><a class="links-button button-hover" href="https://github.com/fan-lv" target="_blank">GitHub<i class="icon-dot bg-color9"></i></a><a class="links-button button-hover" href="mailto:826330335@qq.com" target="_blank">E-Mail<i class="icon-dot bg-color7"></i></a><a class="links-button button-hover" href="tencent:/" target="_blank">QQ<i class="icon-dot bg-color8"></i></a></div><div class="author-info-articles"><a class="author-info-articles-archives article-meta" href="/archives"><span class="pull-top">日志</span><span class="pull-bottom">58</span></a><a class="author-info-articles-tags article-meta" href="/tags"><span class="pull-top">标签</span><span class="pull-bottom">58</span></a><a class="author-info-articles-categories article-meta" href="/categories"><span class="pull-top">分类</span><span class="pull-bottom">19</span></a></div><div class="friend-link"><a class="friend-link-text" href="/about" target="_blank">Slike-V【简介】</a><a class="friend-link-text" href="https://github.com/fan-lv" target="_blank">主题作者</a><a class="friend-link-text" href="http://kublic.coding.me" target="_blank">Kubil博客</a><a class="friend-link-text" href="http://mebieber.coding.me" target="_blank">Mebieber博客</a><a class="friend-link-text" href="https://www.ultarts.com" target="_blank">Ultarts博客</a></div></div></div><div id="main-container"><header><div id="menu-outer"><i class="menu-list-icon fas fa-bars"></i><nav id="menu-inner"><a class="menu-item" href="/">首页</a><a class="menu-item" href="/tags">标签</a><a class="menu-item" href="/categories">分类</a><a class="menu-item" href="/archives">归档</a><a class="menu-item" href="/about">关于</a></nav><div class="right-info"><a class="title-name" href="/">Slikeの后花园</a><span id="now-time"></span></div></div></header><div id="content-outer"><div id="content-inner"><article id="post"><div class="post-header"><div class="title">Oracle索引</div><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 发表于 2019-08-16 | 更新于 2021-07-28</time><!--time.button-hover.post-date #[i.fas.fa-calendar-alt.article-icon(aria-hidden="true")] #[=__('post.modified')] #[=date(page['updated'], config.date_format)]--><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/数据库/">数据库</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/Oracle索引/">Oracle索引</a></div></div></div><div class="main-content"><h3 id="Oracle索引"><a href="#Oracle索引" class="headerlink" title="Oracle索引"></a>Oracle索引</h3><h5 id="nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Oracle索引使用可以加快数据库搜索速度、提高数据库的性能。索引与表关联的可选结构。</p>
+<hr>
+<a id="more"></a>
+<h5 id="Oracle索引的分类"><a href="#Oracle索引的分类" class="headerlink" title="Oracle索引的分类"></a>Oracle索引的分类</h5><ul>
+<li>B树索引(标准索引)</li>
+<li>分区或非分区索引</li>
+<li>正常或反向键索引</li>
+<li>位图索引</li>
+<li>单列或组合索引</li>
+<li>唯一或非唯一索引</li>
+<li>基于函数索引</li>
+</ul>
+<hr>
+<h5 id="Oracle索引原则"><a href="#Oracle索引原则" class="headerlink" title="Oracle索引原则"></a>Oracle索引原则</h5><ol>
+<li>频繁搜索的列可以作为索引</li>
+<li>经常排序、分组的列可以作为索引</li>
+<li>经常用作连接的列(主键\外键)可作为索引</li>
+<li>将索引放在一个单独的表空间中，不要放在有回退段、临时段和表的表空间中</li>
+<li>对大型索引而言，考虑使用NOLOGGING子句创建大型索引</li>
+<li>根据业务数据发生的频率、定期重新生成或重新组织索引、并进行碎片整理</li>
+<li>仅包含几个不同值的列不可以创建为B数索引，可以根据需要创建位图索引(对于基数大的列适合建立B树索引，对于基数小的列适合简历位图索引)</li>
+<li>不要仅包含几行的表中创建索引</li>
+<li>LONG（可变长字符串数据，最长2G）和LONG RAW（可变长二进制数据，最长2G）列不能创建索引</li>
+<li>限制表中索引的数量(创建索引耗费时间，随数据量的增大而增大；索引会占用物理空间;当对表中的数据进行增、删、改的时候，索引也要动态的维护，降低数据的维护速度)</li>
+<li>列中有很多空值，但经常查询该列上非空记录时应该建立索引</li>
+</ol>
+<hr>
+<h5 id="Oracle索引注意情况"><a href="#Oracle索引注意情况" class="headerlink" title="Oracle索引注意情况"></a>Oracle索引注意情况</h5><p>1.通配符在搜索词首出现时，oracle不能使用索引、如：</p>
+<pre><code>--我们在name上创建索引；
+create index index_name on student(&apos;name&apos;);
+--下面的方式oracle不适用name索引
+select * from student where name like &apos;%wish%&apos;;
+--如果通配符出现在字符串的其他位置时，优化器能够利用索引；如下：
+select * from student where name like &apos;wish%&apos;;</code></pre><ol start="2">
+<li>不要在索引列上使用not，可以采用其他方式代替如下：（oracle碰到not会停止使用索引，而采用全表扫描）</li>
+<li>索引上使用空值比较将停止使用索引</li>
+<li>建立组合索引，但查询谓词并未使用组合索引的第一列，此处有一个INDEX SKIP SCAN概念。</li>
+<li>在索引列上使用函数时不会使用索引，如果一定要使用索引只能建立函数索引。</li>
+<li>当被索引的列进行隐式的类型转换时不会使用索引。</li>
+</ol>
+<hr>
+<h5 id="Oracle索引-1"><a href="#Oracle索引-1" class="headerlink" title="Oracle索引"></a>Oracle索引</h5><ul>
+<li><p>唯一索引：定义索引的字段列不能有重复值。</p>
+<pre><code>--添加唯一索引
+create unique index index_name on 表名(字段名);    </code></pre></li>
+<li><p>反向键索引：常规B树索引相反，在保持列顺序的同时反转索引列的字节。对于连续增长的索引列，可以将索引数据分散在多个索引块间减少I/O瓶颈发生。</p>
+<pre><code>--添加反向键索引
+  create index index_reverse_name on 表名(字段名) reverse;</code></pre></li>
+<li><p>位图索引：适用于低基数列(低基数：内容多单类型少很多重复的值)。</p>
+<pre><code>--添加位图索引
+create bitmap index index_name on 表名(字段名);</code></pre></li>
+<li><p>B树索引：也称为标准索引。顶部为根、下一级为分支块。按关键字值的升序和降序扫描所有。</p>
+<pre><code>--添加B树索引
+create index index_name on 表名(字段名);</code></pre></li>
+<li><p>创建索引:索引名必须是唯一的</p>
+<pre><code>create [unique]|[bitmap] index index_name on 表名(字段名);
+[tablespace tablespacename]</code></pre></li>
+<li><p>删除索引</p>
+<pre><code>drop index index_name;</code></pre></li>
+<li><p>重建索引</p>
+<pre><code>--将反向键索引改为正常B树索引
+alter index index_name rebuild noreverse;</code></pre></li>
+</ul>
+</div><div class="post-copyright"><div class="post-copyright-author"><span class="post-copyright-meta">本文作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Slike-V</a></span></div><div class="post-copyright-type"><span class="post-copyright-meta">本文链接: </span><span class="post-copyright-info"><a href="http://Slike-v.github.io/2019/08/16/Oracle索引/">http://Slike-v.github.io/2019/08/16/Oracle索引/</a></span></div><div class="post-copyright-notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Slike-v.github.io">Slikeの后花园</a>！</span></div></div></article><div id="pagination"><div class="prev-post pull-left"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/08/16/初识Hibernate/"><i class="fas fa-angle-left">&nbsp;</i><span>初识Hibernate</span></a></div><div class="next-post pull-right"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/08/16/Oracle分区表/"><span>Oracle分区表</span><span>&nbsp;</span><i class="fas fa-angle-right"></i></a></div></div><!--div!= paginator()--></div></div><div class="button-hover" id="return-top"><i class="fas fa-arrow-up" aria-hidden="true"></i></div><footer><div id="footer"><div class="button-hover" id="side-button"><i class="fas fa-arrow-right"></i></div><div class="right-content"><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fas fa-file-o"></i></span><span id="busuanzi_value_page_pv"></span><span></span></div><div class="copyright">&copy;2017 ～ 2021 By Slike-V</div></div></div></footer></div><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery-3.3.1.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/velocity.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery.mCustomScrollbar.concat.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/fan.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/canvas_bg.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/utils.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/scroll.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/sidebar.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/copy.js"></script><!--script(src=url)--></body></html>

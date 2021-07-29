@@ -1,0 +1,54 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="Oracle数据库密码问题"><meta name="keywords" content="Oracle数据库密码问题"><meta name="author" content="Slike-V,undefined"><meta name="copyright" content="Slike-V"><title>Oracle数据库密码问题【Slikeの后花园】</title><link rel="stylesheet" href="/css/fan.css"><link rel="stylesheet" href="/css/thirdparty/jquery.mCustomScrollbar.min.css"><link rel="icon" href="/avatar.png"><!-- script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")--><script src="/js/mathjax/mathjax.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+});
+</script><script>var isPassword = '' || false;
+if (isPassword) {
+    if (prompt('请输入文章密码') !== '') {
+        alert('密码错误！');
+        history.back();
+    }
+}</script><script>window.GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+}</script></head><body><canvas id="universe"></canvas><!--#body--><div id="sidebar"><div class="toggle-sidebar-info button-hover"><span data-toggle="文章目录">站点概览</span></div><div class="sidebar-toc"><div class="sidebar-toc-title">目录</div><div class="sidebar-toc-progress"><span class="progress-notice">您已阅读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc-progress-bar"></div></div><div class="sidebar-toc-content" id="sidebar-toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Oracle数据库密码问题"><span class="toc-number">1.</span> <span class="toc-text">Oracle数据库密码问题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><span class="toc-number">1.0.1.</span> <span class="toc-text">       前言</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Oracle系统用户"><span class="toc-number">1.0.2.</span> <span class="toc-text">Oracle系统用户</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Oracle登录"><span class="toc-number">1.0.3.</span> <span class="toc-text">Oracle登录</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info-avatar"><img class="author-info-avatar-img" src="/avatar.png"></div><div class="author-info-name">Slike-V</div><div class="author-info-description"></div><div class="links-buttons"><a class="links-button button-hover" href="https://github.com/fan-lv" target="_blank">GitHub<i class="icon-dot bg-color8"></i></a><a class="links-button button-hover" href="mailto:826330335@qq.com" target="_blank">E-Mail<i class="icon-dot bg-color4"></i></a><a class="links-button button-hover" href="tencent:/" target="_blank">QQ<i class="icon-dot bg-color5"></i></a></div><div class="author-info-articles"><a class="author-info-articles-archives article-meta" href="/archives"><span class="pull-top">日志</span><span class="pull-bottom">58</span></a><a class="author-info-articles-tags article-meta" href="/tags"><span class="pull-top">标签</span><span class="pull-bottom">58</span></a><a class="author-info-articles-categories article-meta" href="/categories"><span class="pull-top">分类</span><span class="pull-bottom">19</span></a></div><div class="friend-link"><a class="friend-link-text" href="/about" target="_blank">Slike-V【简介】</a><a class="friend-link-text" href="https://github.com/fan-lv" target="_blank">主题作者</a><a class="friend-link-text" href="http://kublic.coding.me" target="_blank">Kubil博客</a><a class="friend-link-text" href="http://mebieber.coding.me" target="_blank">Mebieber博客</a><a class="friend-link-text" href="https://www.ultarts.com" target="_blank">Ultarts博客</a></div></div></div><div id="main-container"><header><div id="menu-outer"><i class="menu-list-icon fas fa-bars"></i><nav id="menu-inner"><a class="menu-item" href="/">首页</a><a class="menu-item" href="/tags">标签</a><a class="menu-item" href="/categories">分类</a><a class="menu-item" href="/archives">归档</a><a class="menu-item" href="/about">关于</a></nav><div class="right-info"><a class="title-name" href="/">Slikeの后花园</a><span id="now-time"></span></div></div></header><div id="content-outer"><div id="content-inner"><article id="post"><div class="post-header"><div class="title">Oracle数据库密码问题</div><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 发表于 2019-08-16 | 更新于 2021-07-28</time><!--time.button-hover.post-date #[i.fas.fa-calendar-alt.article-icon(aria-hidden="true")] #[=__('post.modified')] #[=date(page['updated'], config.date_format)]--><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/数据库/">数据库</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/Oracle数据库密码问题/">Oracle数据库密码问题</a></div></div></div><div class="main-content"><h3 id="Oracle数据库密码问题"><a href="#Oracle数据库密码问题" class="headerlink" title="Oracle数据库密码问题"></a>Oracle数据库密码问题</h3><h5 id="nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Oracle数据库测试</p>
+<hr>
+<a id="more"></a>
+<h5 id="Oracle系统用户"><a href="#Oracle系统用户" class="headerlink" title="Oracle系统用户"></a>Oracle系统用户</h5><pre><code>sys：超级管理员
+system：用户管理员
+scott:测试用户    默认密码：tiger</code></pre><hr>
+<h5 id="Oracle登录"><a href="#Oracle登录" class="headerlink" title="Oracle登录"></a>Oracle登录</h5><p>cmd命令/SQL*plus登录：</p>
+<pre><code>sqlplus sys/密码 as sysdba; sqlplus system/密码@库名; sqlplus system/密码;</code></pre><p>Oracle修改密码：</p>
+<pre><code>alter user sys identified by 新密码;</code></pre><p>Oracle密码忘记：</p>
+<pre><code>1)SQL*plus登录：sqlplus/as sysdba不用密码直接回车
+2)alter user sys identified by 新密码;
+3)conn sys/密码;切换sys用户在修改其他用户密码</code></pre><p>Oracle查看当前登录的库：</p>
+<pre><code>select name from v$database;</code></pre><p>Oracle导入数据：</p>
+<pre><code>@路径</code></pre><p>分析函数</p>
+<pre><code>rank() over([分区子句][排序子句])     //分区排序、可以并列、如：1、2、3、3、5
+dense_rank() over([分区子句][排序子句])//分区排序、可以并列、如：1、2、3、3、4
+row_number() over([分区子句][排序子句])//分区排序、不可以并列、如：1、2、3、4</code></pre><p>分类</p>
+<pre><code>distinct 与 group by类似、性能更高</code></pre><p>oracle中有很多关键字在使用时查找出结果后。需要在外层的父查询中才能调用子查询中的结果进行筛选。如rownum、rank()等</p>
+<pre><code>【创建】
+    create table TestTable as   
+        select rownum as id,  
+               to_char(sysdate + rownum/24/3600, &apos;yyyy-mm-dd hh24:mi:ss&apos;) as inc_datetime,  
+               trunc(dbms_random.value(0, 100)) as random_id,  
+               dbms_random.string(&apos;x&apos;, 20) random_string  
+        from dual 
+        connect by level &lt;= 1000000;      
+
+【追加】
+    insert into TestTable  
+        (ID, INC_DATETIME,RANDOM_ID,RANDOM_STRING)  
+        select rownum as id,  
+            to_char(sysdate + rownum, &apos;yyyy-mm-dd hh24:mi:ss&apos;) as inc_datetime,  --天数依次递增
+            trunc(dbms_random.value(0, 100)) as random_id,  
+            dbms_random.string(&apos;x&apos;, 20) random_string  
+        from dual  
+    connect by level &lt;= 1000000;</code></pre></div><div class="post-copyright"><div class="post-copyright-author"><span class="post-copyright-meta">本文作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Slike-V</a></span></div><div class="post-copyright-type"><span class="post-copyright-meta">本文链接: </span><span class="post-copyright-info"><a href="http://Slike-v.github.io/2019/08/16/Oracle账号问题/">http://Slike-v.github.io/2019/08/16/Oracle账号问题/</a></span></div><div class="post-copyright-notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Slike-v.github.io">Slikeの后花园</a>！</span></div></div></article><div id="pagination"><div class="prev-post pull-left"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/08/19/HQL查询语法/"><i class="fas fa-angle-left">&nbsp;</i><span>HQL查询语法</span></a></div><div class="next-post pull-right"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/08/16/初识Hibernate/"><span>初识Hibernate</span><span>&nbsp;</span><i class="fas fa-angle-right"></i></a></div></div><!--div!= paginator()--></div></div><div class="button-hover" id="return-top"><i class="fas fa-arrow-up" aria-hidden="true"></i></div><footer><div id="footer"><div class="button-hover" id="side-button"><i class="fas fa-arrow-right"></i></div><div class="right-content"><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fas fa-file-o"></i></span><span id="busuanzi_value_page_pv"></span><span></span></div><div class="copyright">&copy;2017 ～ 2021 By Slike-V</div></div></div></footer></div><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery-3.3.1.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/velocity.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery.mCustomScrollbar.concat.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/fan.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/canvas_bg.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/utils.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/scroll.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/sidebar.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/copy.js"></script><!--script(src=url)--></body></html>

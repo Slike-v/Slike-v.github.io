@@ -1,0 +1,100 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="solr8.20用法"><meta name="keywords" content="solr8.20用法"><meta name="author" content="Slike-V,undefined"><meta name="copyright" content="Slike-V"><title>solr8.20用法【Slikeの后花园】</title><link rel="stylesheet" href="/css/fan.css"><link rel="stylesheet" href="/css/thirdparty/jquery.mCustomScrollbar.min.css"><link rel="icon" href="/avatar.png"><!-- script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")--><script src="/js/mathjax/mathjax.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+});
+</script><script>var isPassword = '' || false;
+if (isPassword) {
+    if (prompt('请输入文章密码') !== '') {
+        alert('密码错误！');
+        history.back();
+    }
+}</script><script>window.GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+}</script></head><body><canvas id="universe"></canvas><!--#body--><div id="sidebar"><div class="toggle-sidebar-info button-hover"><span data-toggle="文章目录">站点概览</span></div><div class="sidebar-toc"><div class="sidebar-toc-title">目录</div><div class="sidebar-toc-progress"><span class="progress-notice">您已阅读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc-progress-bar"></div></div><div class="sidebar-toc-content" id="sidebar-toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#solr8-20用法"><span class="toc-number">1.</span> <span class="toc-text">solr8.20用法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><span class="toc-number">1.0.1.</span> <span class="toc-text">       前言</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#solr部署"><span class="toc-number">1.0.2.</span> <span class="toc-text">solr部署</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#solr环境搭建"><span class="toc-number">1.0.3.</span> <span class="toc-text">solr环境搭建</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#solr引入数据"><span class="toc-number">1.0.4.</span> <span class="toc-text">solr引入数据</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#配置分词器"><span class="toc-number">1.0.5.</span> <span class="toc-text">配置分词器</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info-avatar"><img class="author-info-avatar-img" src="/avatar.png"></div><div class="author-info-name">Slike-V</div><div class="author-info-description"></div><div class="links-buttons"><a class="links-button button-hover" href="https://github.com/fan-lv" target="_blank">GitHub<i class="icon-dot bg-color2"></i></a><a class="links-button button-hover" href="mailto:826330335@qq.com" target="_blank">E-Mail<i class="icon-dot bg-color3"></i></a><a class="links-button button-hover" href="tencent:/" target="_blank">QQ<i class="icon-dot bg-color7"></i></a></div><div class="author-info-articles"><a class="author-info-articles-archives article-meta" href="/archives"><span class="pull-top">日志</span><span class="pull-bottom">58</span></a><a class="author-info-articles-tags article-meta" href="/tags"><span class="pull-top">标签</span><span class="pull-bottom">58</span></a><a class="author-info-articles-categories article-meta" href="/categories"><span class="pull-top">分类</span><span class="pull-bottom">19</span></a></div><div class="friend-link"><a class="friend-link-text" href="/about" target="_blank">Slike-V【简介】</a><a class="friend-link-text" href="https://github.com/fan-lv" target="_blank">主题作者</a><a class="friend-link-text" href="http://kublic.coding.me" target="_blank">Kubil博客</a><a class="friend-link-text" href="http://mebieber.coding.me" target="_blank">Mebieber博客</a><a class="friend-link-text" href="https://www.ultarts.com" target="_blank">Ultarts博客</a></div></div></div><div id="main-container"><header><div id="menu-outer"><i class="menu-list-icon fas fa-bars"></i><nav id="menu-inner"><a class="menu-item" href="/">首页</a><a class="menu-item" href="/tags">标签</a><a class="menu-item" href="/categories">分类</a><a class="menu-item" href="/archives">归档</a><a class="menu-item" href="/about">关于</a></nav><div class="right-info"><a class="title-name" href="/">Slikeの后花园</a><span id="now-time"></span></div></div></header><div id="content-outer"><div id="content-inner"><article id="post"><div class="post-header"><div class="title">solr8.20用法</div><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 发表于 2019-10-30 | 更新于 2021-07-28</time><!--time.button-hover.post-date #[i.fas.fa-calendar-alt.article-icon(aria-hidden="true")] #[=__('post.modified')] #[=date(page['updated'], config.date_format)]--><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/工具/">工具</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/solr8-20用法/">solr8.20用法</a></div></div></div><div class="main-content"><h3 id="solr8-20用法"><a href="#solr8-20用法" class="headerlink" title="solr8.20用法"></a>solr8.20用法</h3><h5 id="nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solr是一个基于Lucene的Java搜索引擎服务器。Solr 提供了层面搜索、命中醒目显示并且<br>支持多种输出格式（包括 XML/XSLT 和 JSON 格式）。它易于安装和配置，而且附带了一个基于 HTTP 的管理界面。Solr已经在众多大型的网站中使用，较为成熟和稳定。Solr 包装并扩展了 Lucene，所以Solr的基本上沿用了Lucene的相关术语。更重要的是，Solr 创建的索引与Lucene 搜索引擎库完全兼容。通过对 Solr 进行适当的配置，某些情况下可能需要进行编码，Solr 可以阅读和使用构建到其他 Lucene 应用程序中的索引。此外，很多 Lucene 工具（如Nutch、 Luke）也可以使用 Solr 创建的索引。</p>
+<hr>
+<a id="more"></a>
+<h5 id="solr部署"><a href="#solr部署" class="headerlink" title="solr部署"></a>solr部署</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在新版solr5.x以上版本中已经没有了solr.war的存在。不过在server依然有solr提供的webapp文件夹可以提供在Tomcat下部署。</p>
+<p><img src="/images/pasted-196.png" alt="upload successful"></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在5.x以上版本中的变动中solr有了独立的服务器-(server-solr)</p>
+<hr>
+<h5 id="solr环境搭建"><a href="#solr环境搭建" class="headerlink" title="solr环境搭建"></a>solr环境搭建</h5><ol>
+<li><p>server/solr下创建一个文件夹如：”itrip”</p>
+</li>
+<li><p>复制server/solr/configsets/_default下的文件到新建文件夹中”itrip”    </p>
+</li>
+<li><p>cmd - 切换到solr/bin目录下 - solr.cmd start 启动solr,浏览器输入localhost:8983/solr启动控制台</p>
+</li>
+<li><p>进入Core Admin创建”itrip” core</p>
+<p><img src="/images/pasted-198.png" alt="upload successful"></p>
+</li>
+<li><p>在itrip的文件夹中会生成一些新的文件，最后的格式</p>
+<p><img src="/images/pasted-197.png" alt="upload successful"></p>
+</li>
+<li><p>进入itrip下的core.properties文件添加 name=itrip</p>
+</li>
+</ol>
+<hr>
+<h5 id="solr引入数据"><a href="#solr引入数据" class="headerlink" title="solr引入数据"></a>solr引入数据</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在solr每一个core存放着一份文件每一份文件中都是一次在数据库中查询出的数据。以之前创建的itrip为例</p>
+<ol>
+<li><p>将mysql连接jar、solr8.2/dist文件下的solr-dataimporthandler-8.2.0.jar和solr-dataimporthandler-extras-8.2.0.jar两个jar放入server/solr-webapp/webapp/WEB-INF/lib下</p>
+</li>
+<li><p>在itrip中的conf文件中打开solrconfig.xml找到节点中存在name=”/select”位置在它之前创建节点指向连接数据库的xml</p>
+<p><img src="/images/pasted-199.png" alt="upload successful"></p>
+</li>
+<li><p>itrip/conf文件夹下新建mysql-db/DIHconfigfile.xml</p>
+<p><img src="/images/pasted-200.png" alt="upload successful"></p>
+</li>
+<li><p>配置DIHconfigfile.xml</p>
+<pre><code>&lt;dataConfig&gt;
+   &lt;dataSource type=&quot;JdbcDataSource&quot; driver=&quot;com.mysql.cj.jdbc.Driver&quot; 
+   url=&quot;jdbc:mysql://localhost:3306/itripdb?characterEncoding=utf8&amp;amp;useSSL=false&amp;amp;serverTimezone=UTC&quot; 
+   user=&quot;root&quot; password=&quot;root&quot;/&gt;
+   &lt;document&gt;
+       &lt;entity name=&quot;areaDic&quot; pk=&quot;id&quot; query=&quot;select * from itrip&quot; deltaImportQuery=&quot;select * from itrip where id=&apos;${dih.delta.id}&apos;&quot; deltaQuery=&quot;select * from itrip where modifyDate &gt; &apos;${dih.last_index_time}&apos;&quot;&gt;
+         &lt;filed name=&quot;id&quot; column=&quot;id&quot;/&gt;
+         &lt;filed name=&quot;name&quot; column=&quot;name&quot;/&gt;
+         ...
+        &lt;/entity&gt;
+   &lt;/document&gt;
+ &lt;/dataConfig&gt;</code></pre></li>
+<li><p>配置managed-schema文件，映射到solr中的字段</p>
+<pre><code>&lt;!--指定主键--&gt;
+&lt;uniqueKey&gt;id&lt;/uniqueKey&gt;
+&lt;!--映射从数据库查找出的字段--&gt;
+&lt;field name=&quot;id&quot; type=&quot;string&quot; indexed=&quot;true&quot; stored=&quot;true&quot; required=&quot;true&quot; multiValued=&quot;false&quot; /&gt; 
+&lt;field name=&quot;name&quot; type=&quot;string&quot; indexed=&quot;true&quot; stored=&quot;true&quot;/&gt;
+...</code></pre></li>
+<li><p>solr控制台引入数据</p>
+</li>
+</ol>
+<p><img src="/images/pasted-201.png" alt="upload successful"></p>
+<ol start="7">
+<li>查询数据</li>
+</ol>
+<p><img src="/images/pasted-202.png" alt="upload successful"></p>
+<hr>
+<h5 id="配置分词器"><a href="#配置分词器" class="headerlink" title="配置分词器"></a>配置分词器</h5><ul>
+<li><p>下载新版本ik-analyzer-8.2.0.jar放入server/solr-webapp/webapp/WEB-INF/lib下</p>
+</li>
+<li><p>配置managed-schema文件</p>
+<pre><code>&lt;fieldType name=&quot;text_ik&quot; class=&quot;solr.TextField&quot;&gt;
+    &lt;analyzer type=&quot;index&quot; isMaxWordLength=&quot;false&quot; class=&quot;org.wltea.analyzer.lucene.IKAnalyzer&quot;/&gt;
+    &lt;analyzer type=&quot;query&quot; isMaxWordLength=&quot;true&quot; class=&quot;org.wltea.analyzer.lucene.IKAnalyzer&quot;/&gt;
+&lt;/fieldType&gt;
+&lt;!--修改其中需要分词的字段的type=&quot;分词的type&quot; indexed=true--&gt;
+&lt;field name=&quot;name&quot; type=&quot;text_ik&quot; indexed=&quot;true&quot; stored=&quot;true&quot;/&gt;
+
+&lt;!--多字段分词--&gt;
+&lt;field name=&quot;keyword&quot;  type=&quot;text_ik&quot; indexed=&quot;true&quot;  stored=&quot;true&quot;  multiValued=&quot;true&quot;/&gt;
+&lt;copyField source=&quot;name&quot; dest=&quot;keyword&quot;/&gt;
+&lt;copyField source=&quot;address&quot;    dest=&quot;keyword&quot; /&gt;</code></pre><p>   其他几种分词方式可以查看官方文档</p>
+<p><img src="/images/pasted-203.png" alt="upload successful"></p>
+</li>
+</ul>
+</div><div class="post-copyright"><div class="post-copyright-author"><span class="post-copyright-meta">本文作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Slike-V</a></span></div><div class="post-copyright-type"><span class="post-copyright-meta">本文链接: </span><span class="post-copyright-info"><a href="http://Slike-v.github.io/2019/10/30/solr8-20用法/">http://Slike-v.github.io/2019/10/30/solr8-20用法/</a></span></div><div class="post-copyright-notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Slike-v.github.io">Slikeの后花园</a>！</span></div></div></article><div id="pagination"><div class="prev-post pull-left"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/11/26/Linux目录介绍/"><i class="fas fa-angle-left">&nbsp;</i><span>Linux基本介绍</span></a></div><div class="next-post pull-right"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/10/11/Freemarker代码生成器/"><span>Freemarker代码生成器</span><span>&nbsp;</span><i class="fas fa-angle-right"></i></a></div></div><!--div!= paginator()--></div></div><div class="button-hover" id="return-top"><i class="fas fa-arrow-up" aria-hidden="true"></i></div><footer><div id="footer"><div class="button-hover" id="side-button"><i class="fas fa-arrow-right"></i></div><div class="right-content"><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fas fa-file-o"></i></span><span id="busuanzi_value_page_pv"></span><span></span></div><div class="copyright">&copy;2017 ～ 2021 By Slike-V</div></div></div></footer></div><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery-3.3.1.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/velocity.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery.mCustomScrollbar.concat.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/fan.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/canvas_bg.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/utils.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/scroll.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/sidebar.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/copy.js"></script><!--script(src=url)--></body></html>

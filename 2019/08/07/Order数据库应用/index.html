@@ -1,0 +1,249 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="Order数据库应用"><meta name="keywords" content="Oracle"><meta name="author" content="Slike-V,undefined"><meta name="copyright" content="Slike-V"><title>Order数据库应用【Slikeの后花园】</title><link rel="stylesheet" href="/css/fan.css"><link rel="stylesheet" href="/css/thirdparty/jquery.mCustomScrollbar.min.css"><link rel="icon" href="/avatar.png"><!-- script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")--><script src="/js/mathjax/mathjax.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+});
+</script><script>var isPassword = '' || false;
+if (isPassword) {
+    if (prompt('请输入文章密码') !== '') {
+        alert('密码错误！');
+        history.back();
+    }
+}</script><script>window.GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+}</script></head><body><canvas id="universe"></canvas><!--#body--><div id="sidebar"><div class="toggle-sidebar-info button-hover"><span data-toggle="文章目录">站点概览</span></div><div class="sidebar-toc"><div class="sidebar-toc-title">目录</div><div class="sidebar-toc-progress"><span class="progress-notice">您已阅读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc-progress-bar"></div></div><div class="sidebar-toc-content" id="sidebar-toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Order数据库应用"><span class="toc-number">1.</span> <span class="toc-text">Order数据库应用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><span class="toc-number">1.0.1.</span> <span class="toc-text">       前言</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#表空间"><span class="toc-number">1.0.2.</span> <span class="toc-text">表空间</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#自定义用户管理"><span class="toc-number">1.0.3.</span> <span class="toc-text">自定义用户管理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#数据库权限管理"><span class="toc-number">1.0.4.</span> <span class="toc-text">数据库权限管理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#序列"><span class="toc-number">1.0.5.</span> <span class="toc-text">序列</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#同义词"><span class="toc-number">1.0.6.</span> <span class="toc-text">同义词</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#索引"><span class="toc-number">1.0.7.</span> <span class="toc-text">索引</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#分区表的分类"><span class="toc-number">1.0.8.</span> <span class="toc-text">分区表的分类</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info-avatar"><img class="author-info-avatar-img" src="/avatar.png"></div><div class="author-info-name">Slike-V</div><div class="author-info-description"></div><div class="links-buttons"><a class="links-button button-hover" href="https://github.com/fan-lv" target="_blank">GitHub<i class="icon-dot bg-color3"></i></a><a class="links-button button-hover" href="mailto:826330335@qq.com" target="_blank">E-Mail<i class="icon-dot bg-color1"></i></a><a class="links-button button-hover" href="tencent:/" target="_blank">QQ<i class="icon-dot bg-color9"></i></a></div><div class="author-info-articles"><a class="author-info-articles-archives article-meta" href="/archives"><span class="pull-top">日志</span><span class="pull-bottom">58</span></a><a class="author-info-articles-tags article-meta" href="/tags"><span class="pull-top">标签</span><span class="pull-bottom">58</span></a><a class="author-info-articles-categories article-meta" href="/categories"><span class="pull-top">分类</span><span class="pull-bottom">19</span></a></div><div class="friend-link"><a class="friend-link-text" href="/about" target="_blank">Slike-V【简介】</a><a class="friend-link-text" href="https://github.com/fan-lv" target="_blank">主题作者</a><a class="friend-link-text" href="http://kublic.coding.me" target="_blank">Kubil博客</a><a class="friend-link-text" href="http://mebieber.coding.me" target="_blank">Mebieber博客</a><a class="friend-link-text" href="https://www.ultarts.com" target="_blank">Ultarts博客</a></div></div></div><div id="main-container"><header><div id="menu-outer"><i class="menu-list-icon fas fa-bars"></i><nav id="menu-inner"><a class="menu-item" href="/">首页</a><a class="menu-item" href="/tags">标签</a><a class="menu-item" href="/categories">分类</a><a class="menu-item" href="/archives">归档</a><a class="menu-item" href="/about">关于</a></nav><div class="right-info"><a class="title-name" href="/">Slikeの后花园</a><span id="now-time"></span></div></div></header><div id="content-outer"><div id="content-inner"><article id="post"><div class="post-header"><div class="title">Order数据库应用</div><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 发表于 2019-08-07 | 更新于 2021-07-28</time><!--time.button-hover.post-date #[i.fas.fa-calendar-alt.article-icon(aria-hidden="true")] #[=__('post.modified')] #[=date(page['updated'], config.date_format)]--><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/数据库/">数据库</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/Oracle/">Oracle</a></div></div></div><div class="main-content"><h3 id="Order数据库应用"><a href="#Order数据库应用" class="headerlink" title="Order数据库应用"></a>Order数据库应用</h3><h5 id="nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;主要对创建表空间和用户以及授权、序列、同义词、视图、索引和分区表等数据库对象</p>
+<hr>
+<a id="more"></a>
+<h5 id="表空间"><a href="#表空间" class="headerlink" title="表空间"></a>表空间</h5><ul>
+<li><p>表空间：</p>
+<ul>
+<li>Oracle数据库包含逻辑结构和物理结构。数据库的物理结构是指构成数据库的一组操作系统文件。数据库的逻辑结构是指描述数据组织方式的一组逻辑概念及他们之间的关系。表空间是数据库逻辑结构的一个重要组件。表空间可以存放各种应用对象，如表、索引。每个表空间由一个或多个数据文件组成。</li>
+</ul>
+</li>
+<li><p>表空间分类：</p>
+<ul>
+<li>永久性表空间：一般保存表、视图、过程和索引的数据。system、sysaux、users、example表空间是默认安装的</li>
+<li>临时表空间：只用于保存系统中短期活动的数据，如排序数据等。</li>
+<li>撤销表空间：用来帮助回退未提交的事务数据，提交的数据在这里是不可以恢复的。</li>
+</ul>
+</li>
+<li><p>表空间的目的：</p>
+<ul>
+<li><p>1.对不同的用户分配不同的表空间，对不同模式对象分配不同的表空间，方便对用户数据操作、对模式对象的管理。</p>
+</li>
+<li><p>2.可以将不同数据文件创建不同的磁盘总，有利于管理磁盘空间，提高I/O性能，有利于备份和恢复数据等。Oracle系统安装创建Oracle实例后，Oracle会自动创建多个表空间。</p>
+</li>
+<li><p>语法：</p>
+<pre><code>create tablespace tablespacename
+datefile &apos;filename&apos; [size integer [k | M]]
+[autoextend [off | on ]];</code></pre><p>tablespacename：是需创建的表空间名称。</p>
+<p>datafile：指定组成表空间的一个或多个数据文件，当有多个数据文件时使用逗号分隔。</p>
+<p>fileName：数据文件的路径和名称.dbf，后缀可以随意。</p>
+<p>size：文件的大小，用K指定千字节大小，M为兆字节大小</p>
+<p>autoextend：启用或禁用数据文件的自动扩展，设置为ON则空间使用完毕自动扩展，OFF很容易出现表空间剩余容量为0的情况，使数据不能存储到数据库中。</p>
+<p>创建表时默认指定的表空间是USERS表空间，如果需要指定表空间可以在代码后跟个如：</p>
+<pre><code>create table table_name(
+     ……
+ )
+tablespace tablespacename</code></pre></li>
+</ul>
+</li>
+<li><p>删除表空间：<br>  可以通过DROP语句来删除用户自定义的表空间。</p>
+<p>  语法：</p>
+<pre><code>drop tablespace tablespacename</code></pre></li>
+</ul>
+<hr>
+<h5 id="自定义用户管理"><a href="#自定义用户管理" class="headerlink" title="自定义用户管理"></a>自定义用户管理</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当创建新数据库时，Oracle将创建一些默认数据库用户，如Sys、System、Scott等。</p>
+<ul>
+<li><p>1.sys用户</p>
+<ul>
+<li>sys用户是Oracle中的一个超级用户。数据库中所有数据字典和视图都存储在SYS模式中。数据字典存储了用来管理数据对象的所有信息。是Oracle数据库中非常重要的系统信息。sys用户主要用来维护系统信息和管理实例。只能以SYSOPER或SYSDBA角色登录系统。</li>
+</ul>
+</li>
+<li><p>2.System用户</p>
+<ul>
+<li>System用户是Oracle默认的系统管理员。拥有DBA权限。该用户拥有Oracle管理工具使用的内部表和视图。通常通过System用户管理Oracle数据库的用户、权限和存储等。不建议在System模式中创建用户表。不能以SYSOPER或SYSDBA角色登录系统。</li>
+</ul>
+</li>
+<li><p>3.Scott用户</p>
+<ul>
+<li>Scott用户是Oracle数据库的一个示范用户，一般在数据库安装时创建。Scott用户模式包含四个示范表，其中一个EMP表。</li>
+</ul>
+</li>
+</ul>
+<p>创建用户的语法：</p>
+<pre><code>creae user username
+identified by password
+[default tablespace tablespace]
+[temporary tablespace tablespace]</code></pre><p>user - 用户名</p>
+<p>password - 用户口令</p>
+<p>default tablespace \ temporary tablespace - 为用户确定默认表空间或临时表空间</p>
+<ul>
+<li><p>修改martin用户的密码</p>
+<pre><code>alter user martin 
+identified by mpwd</code></pre></li>
+<li><p>删除用户</p>
+<pre><code>drop user martin cascade;</code></pre></li>
+</ul>
+<hr>
+<h5 id="数据库权限管理"><a href="#数据库权限管理" class="headerlink" title="数据库权限管理"></a>数据库权限管理</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;权限是用户对一项功能的执行权力。在Oracle中，根据系统管理方式的不同。</p>
+<ul>
+<li><p>1.系统权限：被授权用户是否可以连接数据库上及在数据库中可以进行哪些系统操作。系统权限是在数据库中执行某种系统级别的操作，或者针对某一类的对象执行某种操作的权力。</p>
+</li>
+<li><p>2.对象权限：用户对数据库中具体对象所拥有的权限。对象权限是针对某个特定的模式对象执行操作的权力，只能针对模式对象来设置和管理对象权限，如数据库中的表、视图、序列、存储过程、存储函数等。</p>
+</li>
+</ul>
+<p>Oracle数据库用户有两种途径获得权限。</p>
+<p>1) 管理员直接向用户授权。</p>
+<p>2) 管理员将权限授予角色，然后将角色授予一个或多个用户。</p>
+<p>权限语法：</p>
+<pre><code>grant 权限|角色 to 用户名;</code></pre><p>撤销权限语法：</p>
+<pre><code>revoke 权限|角色 from 用户名;</code></pre><p>数据库用户安全设计原则：</p>
+<pre><code>1.数据库用户权限授权按照最小分配原则。
+2.数据库用户分为管理、应用、维护、备份四类用户。
+3.不允许使用SYS、System用户建立数据库应用对象。
+4.禁止grant dba to user。</code></pre><h5 id="序列"><a href="#序列" class="headerlink" title="序列"></a>序列</h5><ul>
+<li>创建序列</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;序列是用来生成唯一、连续的整数的数据库对象。序列通常用来自动生成主键或唯一键的值。序列可以按升序排列，也可以按降序排序。</p>
+<p>创建序列语法：</p>
+<pre><code>create sequence sequence_name
+    [start with integer]
+    [increment by integer]
+    [maxvalue integer|nomaxvalue]
+    [minvalue integer|nominvalue]
+    [cycle|nocycle]
+    [cache integer|nocache]</code></pre><p>start with：指定要生成的第一个序列号。对于升序序列，默认值为序列的最小值;对于降序序列，默认值为序列最大值。</p>
+<p>increment by：用于指定序列号之间的间隔，其默认值为1.如果n为正值,则生成的序列将按生序排列;n为负责，生成的序列将按降序排列。</p>
+<p>maxvalue：指定序列可以生成的最大值。</p>
+<p>minvalue：指定序列可以生成的最小值。必须小于或等于start with的值。并且小于maxvalue</p>
+<p>nomaxvalue：指定这个值。Oracle将生序序列的最大值设为10的27次方，将降序的序列的最大值设为-1.</p>
+<p>nominvalue：指定这个值。Oracle将生序序列的最小值设为1，将降序的序列的最大值设为10的27次方.</p>
+<p>cycle：指定序列在达到最大值或最小值后，将继续从头开始生成值</p>
+<p>nocycle：指定序列在达到最大值或最小值后，将不在继续从头开始生成值</p>
+<p>cache：使用cache选项可以预先分配一组序列号，并将其保留在内存中。当用完缓存中的所有序列号时，Oracle将生成另一组数值。</p>
+<p>nocache：使用nocache选项，则不会为加快访问速度而预先分配序列号，如果创建时忽略了cache\nocache，Oracle默认缓存20个序列号。</p>
+<ul>
+<li>访问序列</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;创建序列后，可以通过nextval和currval伪列来访问序列的值。可以从伪列中选择值，但不能操纵它们的值。</p>
+<p>nextval：创建序列后第一次使用nextval时，将返回该序列的初始值。以后再引用时，将使用increment by子句来增加序列值，返回这个新值。</p>
+<p>currval：返回序列的当前值，即最后一次引用nextval时返回的值。</p>
+<ul>
+<li><p>更改序列</p>
+<p>  alter sequence命令用于修改序列的定义。<br>  1.设置或删除minvalue或maxvalue</p>
+<p>  2.修改增量值</p>
+<p>  3.修改缓存中序列号的数目</p>
+<p>  语法：</p>
+<pre><code>alter sequence [schema.]sequence_name
+[increment by integer]
+[maxvalue integer|nomaxvalue]
+[minvalue integer|nominvalue]
+[cycle|nocycle]
+[cache integer|nocache]</code></pre></li>
+<li><p>删除序列</p>
+</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;drop sequence命令用于删除序列。也可以使用此语句重新开始一个序列。</p>
+<p>语法：</p>
+<pre><code>drop sequence [schema.]sequence_name</code></pre><ul>
+<li>使用序列</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可以使用序列设置Oracle的主关键字，所得值为从给定的起点开始的一系列整数值。序列所生成的数字只能保证在单个实例里是唯一的，这就不合适将它用作并行或者远程环境里的主关键字。</p>
+<hr>
+<h5 id="同义词"><a href="#同义词" class="headerlink" title="同义词"></a>同义词</h5><p>同义词用途</p>
+<ol>
+<li>简化SQL语句。</li>
+<li>隐藏对象的名称和所有者</li>
+<li>为分布式数据库的远程对象提供了位置透明性</li>
+<li>提供对对象的公共访问</li>
+</ol>
+<p>同义词分类</p>
+<ul>
+<li>私有同义词：</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;只能被当前模式的用户访问，且私有同义词名称不可与当前模式的对象名称相同。要在当前模式下创建私有同义词，用户必须拥有create synonym系统权限。要在其他用户模式创建私有同义词，必须拥有create any synonym系统权限。</p>
+<p>语法：</p>
+<pre><code>create [or replace] synonym [schema.]synonym_name
+for [schema.]object_name</code></pre><p>or replace：在同义词存在的情况下替换该同义词</p>
+<p>synonym_name：创建同义词的名称</p>
+<p>object_name：创建同义词的对象名称</p>
+<ul>
+<li>公有同义词:</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可被所有的数据库访问。可以隐藏数据库对象的所有者和名称，并降低SQL语句的复杂性。创建公有同义词，必须拥有create public synonym系统权限。</p>
+<p>  语法：</p>
+<pre><code>create [or replace] public synonym synonym_name
+for [schema.]object_name</code></pre><ul>
+<li><p>删除同义词</p>
+<p>  drop synonym语法用于删除同义词。用户必须拥有相应的权限。</p>
+<p>  语法：</p>
+<pre><code>drop [public] synonym [schema.]synonym_name</code></pre></li>
+</ul>
+<hr>
+<h5 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h5><p>索引分类</p>
+<ul>
+<li><p>分区或非分区索引 - 单列或组合索引</p>
+</li>
+<li><p>B树索引(标准索引) - 唯一或非唯一索引</p>
+<p>  通常也称为标准索引。索引的顶部为根，其中包含指向索引中下一级的项。下一级为分支块，分支块又指向索引下一级的块。最低一级为叶节点，其中包含指向表行的索引项。叶块为双向链接。</p>
+<p>  语法：</p>
+<pre><code>create [unique] index index_name on table_name(column_list)
+[tablespace tablespace_name]</code></pre></li>
+</ul>
+<p>unique：指定唯一索引，默认为非唯一索引</p>
+<p>index_name：创建索引的名称</p>
+<p>table_name：创建索引的表名。</p>
+<p>column_list：创建索引的列名的列表，可以多列创建，用逗号隔开。</p>
+<p>tablespace_name：为索引指定表空间</p>
+<ul>
+<li><p>唯一索引:</p>
+<ul>
+<li>定义索引的列中任何两行都没有重复。唯一索引中的索引关键字只能指向表中一行。创建主键约束和唯一约束都会创建一个与之对应的唯一索引。</li>
+</ul>
+</li>
+<li><p>非唯一索引：</p>
+<ul>
+<li>单个关键字可以有多个其关联的行。</li>
+</ul>
+</li>
+<li><p>正常或反向键索引 - 基于函数索引</p>
+</li>
+<li><p>位图索引<br>  适用于低基数列。</p>
+<p>  优点：</p>
+<pre><code>1.对于大批即时查询，可以减少相应时间。
+2.相比其他索引技术，占用空间明显减少。
+3.即使在配置很低的终端硬件上，也能获得显著的性能。</code></pre><p>  位图索引不应当用在频繁发生insert、update、delete操作的表上。</p>
+</li>
+</ul>
+<p>删除索引</p>
+<pre><code>drop index index_bit_job;</code></pre><p>重建索引</p>
+<pre><code>何时重建索引
+    1.用户表被移动到新表空间后，表上的索引不是自动转移，需将索引移到指定表空间。
+    2.索引中包含很多已删除的项。对表进行频繁删除，造成索引空间浪费，可以重建。
+    3.需将现有正常索引转换成反向键索引。</code></pre><hr>
+<h5 id="分区表的分类"><a href="#分区表的分类" class="headerlink" title="分区表的分类"></a>分区表的分类</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Oracle提供分区有：范围分区、列表分区、散列分区、复合分区、间隔分区、虚拟列分区等</p>
+<ol>
+<li>范围分区<ul>
+<li>应用范围比较广的表分区方式。以列的值的范围作为分区的划分条件，将记录存放在列值所在的range分区中。</li>
+</ul>
+</li>
+<li>间隔分区<ul>
+<li>Oracle 11g版本新引入的分区方法，是范围分区的一种增强功能，可以实现范围分区的自动化。<ul>
+<li>优点为在不需要创建表时就将所有分区划分清楚。间隔分区随着数据的增加会划分更多的分区，并自动创建新的分区。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>列表分区</li>
+<li>散列分区</li>
+<li>复合分区</li>
+<li>间隔分区</li>
+<li>虚拟列分区</li>
+</ol>
+</div><div class="post-copyright"><div class="post-copyright-author"><span class="post-copyright-meta">本文作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Slike-V</a></span></div><div class="post-copyright-type"><span class="post-copyright-meta">本文链接: </span><span class="post-copyright-info"><a href="http://Slike-v.github.io/2019/08/07/Order数据库应用/">http://Slike-v.github.io/2019/08/07/Order数据库应用/</a></span></div><div class="post-copyright-notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Slike-v.github.io">Slikeの后花园</a>！</span></div></div></article><div id="pagination"><div class="prev-post pull-left"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/08/16/初识Oracle-0/"><i class="fas fa-angle-left">&nbsp;</i><span>PL/SQL编程</span></a></div><div class="next-post pull-right"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/08/05/初识oracle/"><span>初识oracle</span><span>&nbsp;</span><i class="fas fa-angle-right"></i></a></div></div><!--div!= paginator()--></div></div><div class="button-hover" id="return-top"><i class="fas fa-arrow-up" aria-hidden="true"></i></div><footer><div id="footer"><div class="button-hover" id="side-button"><i class="fas fa-arrow-right"></i></div><div class="right-content"><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fas fa-file-o"></i></span><span id="busuanzi_value_page_pv"></span><span></span></div><div class="copyright">&copy;2017 ～ 2021 By Slike-V</div></div></div></footer></div><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery-3.3.1.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/velocity.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery.mCustomScrollbar.concat.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/fan.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/canvas_bg.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/utils.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/scroll.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/sidebar.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/copy.js"></script><!--script(src=url)--></body></html>

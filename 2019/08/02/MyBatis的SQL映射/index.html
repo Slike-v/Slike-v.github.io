@@ -1,0 +1,146 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="MyBatis的SQL映射"><meta name="keywords" content="SQL映射"><meta name="author" content="Slike-V,undefined"><meta name="copyright" content="Slike-V"><title>MyBatis的SQL映射【Slikeの后花园】</title><link rel="stylesheet" href="/css/fan.css"><link rel="stylesheet" href="/css/thirdparty/jquery.mCustomScrollbar.min.css"><link rel="icon" href="/avatar.png"><!-- script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")--><script src="/js/mathjax/mathjax.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+});
+</script><script>var isPassword = '' || false;
+if (isPassword) {
+    if (prompt('请输入文章密码') !== '') {
+        alert('密码错误！');
+        history.back();
+    }
+}</script><script>window.GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+}</script></head><body><canvas id="universe"></canvas><!--#body--><div id="sidebar"><div class="toggle-sidebar-info button-hover"><span data-toggle="文章目录">站点概览</span></div><div class="sidebar-toc"><div class="sidebar-toc-title">目录</div><div class="sidebar-toc-progress"><span class="progress-notice">您已阅读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc-progress-bar"></div></div><div class="sidebar-toc-content" id="sidebar-toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#MyBatis的SQL映射"><span class="toc-number">1.</span> <span class="toc-text">MyBatis的SQL映射</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><span class="toc-number">1.0.1.</span> <span class="toc-text">       前言</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#MyBatis实现条件查询"><span class="toc-number">1.0.2.</span> <span class="toc-text">MyBatis实现条件查询</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#使用动态SQL完成多条件查询"><span class="toc-number">1.0.3.</span> <span class="toc-text">使用动态SQL完成多条件查询</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#正则表达式的捕获组替换"><span class="toc-number">1.0.4.</span> <span class="toc-text">正则表达式的捕获组替换</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info-avatar"><img class="author-info-avatar-img" src="/avatar.png"></div><div class="author-info-name">Slike-V</div><div class="author-info-description"></div><div class="links-buttons"><a class="links-button button-hover" href="https://github.com/fan-lv" target="_blank">GitHub<i class="icon-dot bg-color3"></i></a><a class="links-button button-hover" href="mailto:826330335@qq.com" target="_blank">E-Mail<i class="icon-dot bg-color6"></i></a><a class="links-button button-hover" href="tencent:/" target="_blank">QQ<i class="icon-dot bg-color5"></i></a></div><div class="author-info-articles"><a class="author-info-articles-archives article-meta" href="/archives"><span class="pull-top">日志</span><span class="pull-bottom">58</span></a><a class="author-info-articles-tags article-meta" href="/tags"><span class="pull-top">标签</span><span class="pull-bottom">58</span></a><a class="author-info-articles-categories article-meta" href="/categories"><span class="pull-top">分类</span><span class="pull-bottom">19</span></a></div><div class="friend-link"><a class="friend-link-text" href="/about" target="_blank">Slike-V【简介】</a><a class="friend-link-text" href="https://github.com/fan-lv" target="_blank">主题作者</a><a class="friend-link-text" href="http://kublic.coding.me" target="_blank">Kubil博客</a><a class="friend-link-text" href="http://mebieber.coding.me" target="_blank">Mebieber博客</a><a class="friend-link-text" href="https://www.ultarts.com" target="_blank">Ultarts博客</a></div></div></div><div id="main-container"><header><div id="menu-outer"><i class="menu-list-icon fas fa-bars"></i><nav id="menu-inner"><a class="menu-item" href="/">首页</a><a class="menu-item" href="/tags">标签</a><a class="menu-item" href="/categories">分类</a><a class="menu-item" href="/archives">归档</a><a class="menu-item" href="/about">关于</a></nav><div class="right-info"><a class="title-name" href="/">Slikeの后花园</a><span id="now-time"></span></div></div></header><div id="content-outer"><div id="content-inner"><article id="post"><div class="post-header"><div class="title">MyBatis的SQL映射</div><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 发表于 2019-08-02 | 更新于 2021-07-28</time><!--time.button-hover.post-date #[i.fas.fa-calendar-alt.article-icon(aria-hidden="true")] #[=__('post.modified')] #[=date(page['updated'], config.date_format)]--><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/MyBatis框架/">MyBatis框架</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/SQL映射/">SQL映射</a></div></div></div><div class="main-content"><h3 id="MyBatis的SQL映射"><a href="#MyBatis的SQL映射" class="headerlink" title="MyBatis的SQL映射"></a>MyBatis的SQL映射</h3><h5 id="nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MyBatis是一个优秀数据持久层框架。它内部封装了通过JDBC访问数据库的操作,支持普通的SQL查询、存储过程和高级映射,动态映射SQL语句。</p>
+<hr>
+<a id="more"></a>
+<h5 id="MyBatis实现条件查询"><a href="#MyBatis实现条件查询" class="headerlink" title="MyBatis实现条件查询"></a>MyBatis实现条件查询</h5><p>1) SQL映射文件</p>
+<pre><code>&lt;?xml vesion=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+    &lt;!DOCTYPE mapper
+    PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
+    &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;
+    &lt;mapper&gt;&lt;/mapper&gt;</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>mapper</strong>:映射文件的根元素,属性的namespace(命名空间)<br><strong>作用</strong>：用于区分不同的mapper,全局唯一绑定DAO接口,面向接口编程,当namespace绑定某一接口后,可以不用实现接口,MyBatis会通过接口的完整限定名查找对应的mapper配置执行SQL语句。namespace的命名必须跟某个接口同名,同属于DAO层,故代码结构上映射文件与该DAO接口应放在同一个package下</p>
+<p>mapper.xml配置文件中的一些标签</p>
+<ul>
+<li><p>cache:配置给定命名空间的缓存</p>
+</li>
+<li><p>cache-ref:从其他命名空间引用缓存配置</p>
+</li>
+<li><p>resultMap:描述数据库结果集和对象的对应关系</p>
+<ul>
+<li><p>resultMap将结果集映射到Java对象</p>
+<p>  id:唯一标识。作用于到select元素resultMap属性的引用</p>
+<p>  type:表示resultMap的映射结果类型</p>
+<p>  result:子节点标识简单属性,其中column属性表示从数据库中查询的字段名</p>
+<p>  property表示查询出来的字段对应的值赋给实体对象的哪个属性<br>  最后测试类中进行相关字段的输出。比较：resultType：直接表示返回类型</p>
+<p>  resultMap:对外部resultMap定义的引用,可以做出更复杂的查询结果<br>  数据库字段信息与对象属性不一致或需要做复杂联合查询以便自由控制应设结果。在resultMap中么有映射出的字段是不能在后台查出数据,即使是查询全部信息。如果需要查出没有映射的字段需要改写resultMap的自动映射级别为 NONE。默认为 PARTIAL 在mybatis-config.xml中修改</p>
+<pre><code>&lt;settings&gt;&lt;setting name=&quot;autoMappingBehavior&quot; value=&quot;NONE&quot;/&gt;&lt;/settings&gt;
+FULL - 自动匹配所有
+NONE - 禁止自动匹配
+PARTIAL</code></pre></li>
+</ul>
+</li>
+<li><p>sql:重用的SQL块</p>
+</li>
+<li><p>insert:映射插入</p>
+</li>
+<li><p>update:映射更新</p>
+</li>
+<li><p>delete:映射删除</p>
+<ul>
+<li>增删改默认返回值为int</li>
+</ul>
+</li>
+<li><p>select:映射查询</p>
+<ul>
+<li><p><code>&lt;select&gt;sql语句&lt;/select&gt;</code></p>
+<p>id:指定其节点的唯一标识,与接口方法同名</p>
+<p>parameterType:标识查询语句传入参数的类型,名称为指定的别名或类名。支持基础数据类型或复杂数据类型。如String或别名string</p>
+<ul>
+<li><p>接收值：</p>
+<p>  基础类型：#{属性名}</p>
+<p>对象类型：#{对象类型里的属性名}</p>
+<p>Map：#{Map的Key}</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>  <strong>同时接收两种类型时对象在接口处需要加上@Param注解对象需要通过注解的别名.属性名 #{对象别名.属性名}</strong></p>
+<pre><code>resultType:查询语句返回结果类型,名称为指定的别名或类名。</code></pre></li>
+</ul>
+<p>2）使用@Param注解实现多参数入参</p>
+<ul>
+<li><p>接口中方法定义</p>
+<pre><code>public int updatePwd(@Param(&quot;id&quot;)Integer =id,@Param(&quot;password&quot;)String pwd);</code></pre></li>
+<li><p>使用别名之后可以在配置文件中的SQL语句之间使用</p>
+<pre><code>update 表名 set password=#{password} where id=#{id}</code></pre></li>
+</ul>
+<p>3) 单参数或多参数也可以使用下标</p>
+<pre><code>public int updatePwd(Integer id,String pwd);
+update 表名 set password=#{1} where id=#{0}</code></pre><hr>
+<h5 id="使用动态SQL完成多条件查询"><a href="#使用动态SQL完成多条件查询" class="headerlink" title="使用动态SQL完成多条件查询"></a>使用动态SQL完成多条件查询</h5><p>1) 实现动态SQL的元素</p>
+<ul>
+<li><p>if:实现简单的条件选择</p>
+<pre><code>&lt;if test=&quot;条件&quot;&gt;条件成立结果&lt;/if&gt;
+  执行一个SQL语句时
+  select * from 表名 where 1=1
+  &lt;if test=&quot;条件&quot;&gt;
+      and ....
+  &lt;/if&gt;</code></pre></li>
+<li><p>choose(when,otherwise):等于Java中switch语句</p>
+</li>
+<li><p>where:简化SQL语句中where的条件判断</p>
+</li>
+<li><p>set:解决动态更新语句</p>
+<pre><code>&lt;update id=&quot;modify&quot; parameterType=&quot;User&quot;&gt;
+       update smbms_user
+             &lt;set&gt;
+                 &lt;if test=&quot;userName!=null&quot;&gt;userName=#{userName}&lt;/if&gt;
+              &lt;/set&gt;
+        &lt;/update&gt;</code></pre></li>
+<li><p>trim:去除多余的关键字</p>
+<ul>
+<li><p>trim会自动识别其标签内是否有返回值,true会在自己包含的内容 前或后 加上某些前缀,与之对应的属性prefix和suffix。也可包含内容的 首部或尾部 某些内容覆盖(即忽略),对应的属性：prefixOverrides和suffixOverrides<br>  可以利用trim来替换where元素</p>
+</li>
+<li><p>suffix:后缀,在trim包含的内容上加上后缀<br>  prefixOverrides:trim包含的首部进行制定内容(如”and | or”)的忽略</p>
+<p>  suffixOverrides:trim包含内容的首尾部进行指定内容的忽略</p>
+<pre><code>&lt;select id=&quot;getUserList&quot; resultType=&quot;User&quot;&gt;
+    select * from smbms_user
+        &lt;trim prefix=&quot;where&quot; prefixOverrides-&quot;and | or&quot; &gt;
+            &lt;if test=&quot;userName !=null and userName !=&apos;&apos;&quot;&gt;
+                and userName like concat(&apos;%&apos;,#{userName},&apos;%&apos;)
+            &lt;/if&gt;
+        &lt;/trim&gt;
+&lt;/select&gt;</code></pre></li>
+</ul>
+</li>
+<li><p>foreach:迭代一个集合,通常用于in条件</p>
+<ul>
+<li><p>MyBatis入参为数组类型的foreach迭代</p>
+</li>
+<li><p>foreach主要用在构建in条件中,可以在SQL语句中迭代一个集合。</p>
+<p>  属性：</p>
+<ul>
+<li>item:表示集合中每个元素进行迭代时的别名。</li>
+<li>index:指定一个名称,表示迭代过程,每次迭代到的位置。</li>
+<li>open:表示该语句以什么开始</li>
+<li>separator:表示每次进行迭代直接以什么符号作为分隔符</li>
+<li>close:表示该语句以什么技术</li>
+<li>collection:最关键最容易出错的属性。不同情况,该属性的值不一样,主要三种情况</li>
+<li>入参为单参数且参数类型是一个List时：collection值为List</li>
+<li>入参为单参数且参数类型是一个数组时：collection值为array</li>
+<li>入惨为多参数,需要把它们封装为一个Map。</li>
+<li>入参不能有@Param注解</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h5 id="正则表达式的捕获组替换"><a href="#正则表达式的捕获组替换" class="headerlink" title="正则表达式的捕获组替换"></a>正则表达式的捕获组替换</h5><pre><code>搜索：(\w+)=\{(\w+)\}
+替换：&lt;if test=&quot;$1&quot;&gt;$1=#\{$1\}&lt;/if&gt;</code></pre></div><div class="post-copyright"><div class="post-copyright-author"><span class="post-copyright-meta">本文作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Slike-V</a></span></div><div class="post-copyright-type"><span class="post-copyright-meta">本文链接: </span><span class="post-copyright-info"><a href="http://Slike-v.github.io/2019/08/02/MyBatis的SQL映射/">http://Slike-v.github.io/2019/08/02/MyBatis的SQL映射/</a></span></div><div class="post-copyright-notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Slike-v.github.io">Slikeの后花园</a>！</span></div></div></article><div id="pagination"><div class="prev-post pull-left"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/08/02/初识Spring/"><i class="fas fa-angle-left">&nbsp;</i><span>初识Spring</span></a></div><div class="next-post pull-right"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/08/02/初识MyBatis/"><span>初识MyBatis</span><span>&nbsp;</span><i class="fas fa-angle-right"></i></a></div></div><!--div!= paginator()--></div></div><div class="button-hover" id="return-top"><i class="fas fa-arrow-up" aria-hidden="true"></i></div><footer><div id="footer"><div class="button-hover" id="side-button"><i class="fas fa-arrow-right"></i></div><div class="right-content"><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fas fa-file-o"></i></span><span id="busuanzi_value_page_pv"></span><span></span></div><div class="copyright">&copy;2017 ～ 2021 By Slike-V</div></div></div></footer></div><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery-3.3.1.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/velocity.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery.mCustomScrollbar.concat.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/fan.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/canvas_bg.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/utils.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/scroll.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/sidebar.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/copy.js"></script><!--script(src=url)--></body></html>

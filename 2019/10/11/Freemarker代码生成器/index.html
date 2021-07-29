@@ -1,0 +1,205 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="Freemarker代码生成器"><meta name="keywords" content="Freemarker代码生成器"><meta name="author" content="Slike-V,undefined"><meta name="copyright" content="Slike-V"><title>Freemarker代码生成器【Slikeの后花园】</title><link rel="stylesheet" href="/css/fan.css"><link rel="stylesheet" href="/css/thirdparty/jquery.mCustomScrollbar.min.css"><link rel="icon" href="/avatar.png"><!-- script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")--><script src="/js/mathjax/mathjax.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+});
+</script><script>var isPassword = '' || false;
+if (isPassword) {
+    if (prompt('请输入文章密码') !== '') {
+        alert('密码错误！');
+        history.back();
+    }
+}</script><script>window.GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+}</script></head><body><canvas id="universe"></canvas><!--#body--><div id="sidebar"><div class="toggle-sidebar-info button-hover"><span data-toggle="文章目录">站点概览</span></div><div class="sidebar-toc"><div class="sidebar-toc-title">目录</div><div class="sidebar-toc-progress"><span class="progress-notice">您已阅读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc-progress-bar"></div></div><div class="sidebar-toc-content" id="sidebar-toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Freemarker代码生成器"><span class="toc-number">1.</span> <span class="toc-text">Freemarker代码生成器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><span class="toc-number">1.0.1.</span> <span class="toc-text">       前言</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#代码生成器原理"><span class="toc-number">1.0.2.</span> <span class="toc-text">代码生成器原理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Freemarker使用"><span class="toc-number">1.0.3.</span> <span class="toc-text">Freemarker使用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Freemarker一些基本指令"><span class="toc-number">1.0.4.</span> <span class="toc-text">Freemarker一些基本指令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Freemarker示例代码"><span class="toc-number">1.0.5.</span> <span class="toc-text">Freemarker示例代码</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info-avatar"><img class="author-info-avatar-img" src="/avatar.png"></div><div class="author-info-name">Slike-V</div><div class="author-info-description"></div><div class="links-buttons"><a class="links-button button-hover" href="https://github.com/fan-lv" target="_blank">GitHub<i class="icon-dot bg-color9"></i></a><a class="links-button button-hover" href="mailto:826330335@qq.com" target="_blank">E-Mail<i class="icon-dot bg-color4"></i></a><a class="links-button button-hover" href="tencent:/" target="_blank">QQ<i class="icon-dot bg-color8"></i></a></div><div class="author-info-articles"><a class="author-info-articles-archives article-meta" href="/archives"><span class="pull-top">日志</span><span class="pull-bottom">58</span></a><a class="author-info-articles-tags article-meta" href="/tags"><span class="pull-top">标签</span><span class="pull-bottom">58</span></a><a class="author-info-articles-categories article-meta" href="/categories"><span class="pull-top">分类</span><span class="pull-bottom">19</span></a></div><div class="friend-link"><a class="friend-link-text" href="/about" target="_blank">Slike-V【简介】</a><a class="friend-link-text" href="https://github.com/fan-lv" target="_blank">主题作者</a><a class="friend-link-text" href="http://kublic.coding.me" target="_blank">Kubil博客</a><a class="friend-link-text" href="http://mebieber.coding.me" target="_blank">Mebieber博客</a><a class="friend-link-text" href="https://www.ultarts.com" target="_blank">Ultarts博客</a></div></div></div><div id="main-container"><header><div id="menu-outer"><i class="menu-list-icon fas fa-bars"></i><nav id="menu-inner"><a class="menu-item" href="/">首页</a><a class="menu-item" href="/tags">标签</a><a class="menu-item" href="/categories">分类</a><a class="menu-item" href="/archives">归档</a><a class="menu-item" href="/about">关于</a></nav><div class="right-info"><a class="title-name" href="/">Slikeの后花园</a><span id="now-time"></span></div></div></header><div id="content-outer"><div id="content-inner"><article id="post"><div class="post-header"><div class="title">Freemarker代码生成器</div><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 发表于 2019-10-11 | 更新于 2021-07-28</time><!--time.button-hover.post-date #[i.fas.fa-calendar-alt.article-icon(aria-hidden="true")] #[=__('post.modified')] #[=date(page['updated'], config.date_format)]--><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/工具/">工具</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/Freemarker代码生成器/">Freemarker代码生成器</a></div></div></div><div class="main-content"><h3 id="Freemarker代码生成器"><a href="#Freemarker代码生成器" class="headerlink" title="Freemarker代码生成器"></a>Freemarker代码生成器</h3><h5 id="nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FreeMarker是一款模板引擎： 即一种基于模板和要改变的数据，并用来生成输出文本（HTML网页、电子邮件、配置文件、源代码等）的通用工具。</p>
+<hr>
+<a id="more"></a>
+<h5 id="代码生成器原理"><a href="#代码生成器原理" class="headerlink" title="代码生成器原理"></a>代码生成器原理</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Freemarker代码生成器主要通过需要生成的template模板放入Freemarker中，然后将页面所需要的数据动态绑定，并放入Map中。使用Freemarker中的模板解析方法template.process();将静态页面的生成在指定的目录中。</p>
+<p><a href="https://freemarker.apache.org/" target="_blank" rel="noopener">官方网址</a></p>
+<p><img src="/images/pasted-195.png" alt="upload successful"></p>
+<ul>
+<li><p>代码生成器三要素</p>
+<ul>
+<li>模板：生成文件的模板文件。</li>
+<li>数据：生成文件所需要的关键数据。</li>
+<li>合成机制：使用数据置换模板中的占位符，生成新的文件的机制。</li>
+</ul>
+</li>
+<li><p>具体过程</p>
+<ul>
+<li>有后缀为.fld的模板文件 </li>
+<li>创建一个Configuration对象 </li>
+<li>设置模板文件所在路径 </li>
+<li>设置模板文件所使用的字符集 </li>
+<li>根据路径加载模板文件，创建模板对象 </li>
+<li>创建数据集对象，并向对象填充数据 </li>
+<li>创建输出流对象Writer（此步骤是设置输出的文件所在的路径及其名字） </li>
+<li>调用模板对象的process方法输出（生成）HTML文件或其他文件 </li>
+<li>关闭流对象</li>
+<li>关闭流对象</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h5 id="Freemarker使用"><a href="#Freemarker使用" class="headerlink" title="Freemarker使用"></a>Freemarker使用</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最简单的模板是纯HTML文件（或其他文本文件； FreeMarker不限于HTML）。当客户端访问该页面时，FreeMarker会将HTML照原样发送给客户端。但是，如果您希望该页面更具动态性，则可以开始将特殊部分放入HTML中，FreeMarker可以理解这些特殊部分</p>
+<ul>
+<li><p>${…}：FreeMarker将在输出中将其替换为大括号内表达式的实际值。它们被称为 插值。</p>
+</li>
+<li><p>FTL标记（用于FreeMarker模板语言标记）：FTL标记与HTML标记有点相似，但是它们是FreeMarker的说明，不会打印到输出中。这些标记的名称以开头 #。（用户定义的FTL标签使用 @代替#，但它们是高级主题。）</p>
+</li>
+<li><p>注释：注释与HTML注释相似，但由&lt;#–和分隔 –&gt;。与HTML注释不同，FTL注释不会进入输出（访问者的页面源中将不可见），因为FreeMarker会跳过它们。</p>
+</li>
+</ul>
+<hr>
+<h5 id="Freemarker一些基本指令"><a href="#Freemarker一些基本指令" class="headerlink" title="Freemarker一些基本指令"></a>Freemarker一些基本指令</h5><ul>
+<li><p>if指令</p>
+<pre><code>//示例1
+&lt;#if user ==“ Big Joe”&gt;
+    我们心爱的领袖1
+&lt;/＃if&gt;
+
+//示例2
+&lt;#if user ==“ Big Joe”&gt;
+    我们心爱的领袖1
+&lt;#elseif user ==“My Bie”&gt;
+    我们心爱的领袖2
+&lt;#else&gt;
+    我们心爱的领袖3
+&lt;/＃if&gt;</code></pre></li>
+<li><p>list指令</p>
+<pre><code>&lt;#list userlist as user&gt; 
+    &lt;tr&gt; 
+      &lt;td&gt; $ { user .name} &lt;/td&gt;
+      &lt;td&gt; $ { user .price} &lt;/td&gt;
+     &lt;/tr&gt;
+  &lt;/＃list&gt; </code></pre></li>
+</ul>
+<hr>
+<h5 id="Freemarker示例代码"><a href="#Freemarker示例代码" class="headerlink" title="Freemarker示例代码"></a>Freemarker示例代码</h5><ul>
+<li><p>导入Freemarker依赖</p>
+<pre><code> &lt;dependency&gt;
+    &lt;groupId&gt;com.quhaodian&lt;/groupId&gt;
+    &lt;artifactId&gt;freemarker&lt;/artifactId&gt;
+    &lt;version&gt;1.8.1&lt;/version&gt;
+&lt;/dependency&gt;</code></pre></li>
+<li><p>打开连接加载数据库驱动通过DatabaseMetaData类获得数据库中的表</p>
+<pre><code>DatabaseMetaData meta = conn.getMetaData();
+List&lt;String&gt; nameList = new ArrayList&lt;String&gt;();
+//表目录、表模式、表名、表类型
+//conn.getCatalog()获得连接的数据库
+//通过getTables方法获得，不指定数据库则获得所有的表信息
+ResultSet rs = meta.getTables(conn.getCatalog(),null,new String[]{&quot;TABLE&quot;});
+   //通过循环得到所有表的名称存入集合
+while (rs.next()){
+     String tName = rs.getString(&quot;TABLE_NAME&quot;);
+     nameList.add(tName);
+}
+//返回一个数组
+return nameList.toArray(new String[]{});</code></pre></li>
+<li><p>通过DatabaseMetaData类获得数据库中每张表的列</p>
+<pre><code>//通过表名称将所有列存入rs中
+//类别名称、模式名称、表名称、列名称
+ResultSet rs = meta.getColumns(null,&quot;%&quot;,tableName,&quot;%&quot;);
+List&lt;String[]&gt; columnsInfoList = new ArrayList&lt;String[]&gt;();
+//循环存入创建实体类需要的一些字段
+while (rs.next()){
+    String[] colInfo = new String[3];
+    //列名、注释、数据库类型
+    colInfo[0] = rs.getString(&quot;COLUMN_NAME&quot;);
+    colInfo[1] = rs.getString(&quot;REMARKS&quot;);
+    colInfo[2] = rs.getString(&quot;TYPE_NAME&quot;);
+    columnsInfoList.add(colInfo);
+}
+return columnsInfoList;</code></pre></li>
+<li><p>模板示例pojo.ftl</p>
+<pre><code>package ${package}.pojo;
+
+import java.io.Serializable;
+import java.util.Date;
+
+public class ${table.className} implements Serializable{
+
+    //生成私有属性
+    &lt;#list table.columns as col&gt;
+        //${col.comment}
+        private ${col.javaType} ${col.fieldName};
+    &lt;/#list&gt;
+
+    //生成getter方法
+    &lt;#list table.columns as col&gt;
+        public void set${col.upperCaseColumnName}(${col.javaType} ${col.fieldName}){
+            this.${col.fieldName} = ${col.fieldName};
+        }
+        public ${col.javaType} get${col.upperCaseColumnName}(){
+            return ${col.fieldName};
+        }
+    &lt;/#list&gt;
+}</code></pre></li>
+<li><p>创建Configuration对象</p>
+<pre><code>//得到最新的Configuration对象
+Configuration cfg = new Configuration(Configuration.getVersion());</code></pre></li>
+<li><p>设置模板文件所在路径</p>
+<pre><code> 加载模板文件路径的三种方式
+//1.类路径加载,直接加载resources文件夹下cfg.setClassForTemplateLoading(this.getClass(),&quot;/flt&quot;);
+//2.文件的绝对路径加载cfg.setDirectoryForTemplateLoading(&quot;src/main/resources/flt&quot;);
+//3.基于WEB服务器的路径加载cfg.setServletContextForTemplateLoading(&quot;file/resources/flt&quot;);</code></pre></li>
+<li><p>设置模板文件所在路径</p>
+<pre><code>Template template = cfg.getTemplate(&quot;pojo.ftl&quot;);</code></pre></li>
+<li><p>设置模板文件所使用的字符集</p>
+<pre><code>cfg.setDefaultEncoding(&quot;utf-8&quot;);
+//用于存储赋值在模板中的参数
+valueMap = new HashMap();</code></pre></li>
+<li><p>编辑转换的工具类：帕斯卡、骆驼、数据类型</p>
+</li>
+<li><p>获取所有表信息、列信息、转换对象</p>
+<pre><code>  //获取所有表名
+String [] tableNameArr = MetadataUtil.getTableNames();
+//建立表对象、存储数据库表名、转换后的表名(大小写类名)、注释、列集合
+TableVo table = new TableVo();
+  //通过循环每张表获取列名、
+  List&lt;String[]&gt; colInfoList=MetadataUtil.getTableColumnsInfo(tName);
+ //建立列对象、存储数据库列名、转换后的列名(Java属性名)、注释、数据库中类型、java类型
+   ColumnVo column = new ColumnVo();
+ //存入表对象
+ table.getColumns().add(column);</code></pre></li>
+<li><p>创建输出流对象Writer，调用模板对象的process方法输出（生成）HTML文件或其他文件</p>
+</li>
+</ul>
+<pre><code>  //生成代码的方法，各子类的实现
+  public void generateCode() {
+      System.out.println(&quot;------开始生成&quot;+template.getName()+&quot;代码-----&quot;);
+      OutputStreamWriter writer = null;
+      //循环每个表对象生成代码
+      for (TableVo table:tableVoList) {
+          valueMap.put(&quot;table&quot;,table);
+          //生成每个代码文件，拼接文件名，创建一个文件写入器
+         try{
+             writer = new FileWriter
+                     (savePath+&quot;/&quot;+table.getClassName()+ fileNameSuffix);
+             //Freemarker合成数据和模板，输出到代码文件
+             this.template.process(valueMap,writer);
+             writer.flush();
+         }catch (TemplateException e){
+             e.printStackTrace();
+         }catch (IOException e){
+             e.printStackTrace();
+         }finally {
+             try {
+                 writer.close();
+             } catch (IOException e) {
+                 e.printStackTrace();
+             }
+         }
+      }
+      System.out.println(&quot;根据&quot;+template.getName()+&quot;模板生成代码成功！\n\n&quot;);
+  }
+
+  //包路径的set方法
+  public void setPackage(String packg){
+    this.valueMap.put(&quot;package&quot;,packg);
+}</code></pre></div><div class="post-copyright"><div class="post-copyright-author"><span class="post-copyright-meta">本文作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Slike-V</a></span></div><div class="post-copyright-type"><span class="post-copyright-meta">本文链接: </span><span class="post-copyright-info"><a href="http://Slike-v.github.io/2019/10/11/Freemarker代码生成器/">http://Slike-v.github.io/2019/10/11/Freemarker代码生成器/</a></span></div><div class="post-copyright-notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Slike-v.github.io">Slikeの后花园</a>！</span></div></div></article><div id="pagination"><div class="prev-post pull-left"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/10/30/solr8-20用法/"><i class="fas fa-angle-left">&nbsp;</i><span>solr8.20用法</span></a></div><div class="next-post pull-right"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/09/24/Shiro进阶使用/"><span>Shiro中的记住我</span><span>&nbsp;</span><i class="fas fa-angle-right"></i></a></div></div><!--div!= paginator()--></div></div><div class="button-hover" id="return-top"><i class="fas fa-arrow-up" aria-hidden="true"></i></div><footer><div id="footer"><div class="button-hover" id="side-button"><i class="fas fa-arrow-right"></i></div><div class="right-content"><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fas fa-file-o"></i></span><span id="busuanzi_value_page_pv"></span><span></span></div><div class="copyright">&copy;2017 ～ 2021 By Slike-V</div></div></div></footer></div><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery-3.3.1.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/velocity.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery.mCustomScrollbar.concat.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/fan.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/canvas_bg.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/utils.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/scroll.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/sidebar.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/copy.js"></script><!--script(src=url)--></body></html>

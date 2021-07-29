@@ -1,0 +1,94 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="Git下使用Hexo+GitHub搭建个人博客"><meta name="keywords" content="博客搭建"><meta name="author" content="Slike-V,undefined"><meta name="copyright" content="Slike-V"><title>Git下使用Hexo+GitHub搭建个人博客【Slikeの后花园】</title><link rel="stylesheet" href="/css/fan.css"><link rel="stylesheet" href="/css/thirdparty/jquery.mCustomScrollbar.min.css"><link rel="icon" href="/avatar.png"><!-- script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")--><script src="/js/mathjax/mathjax.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+});
+</script><script>var isPassword = '' || false;
+if (isPassword) {
+    if (prompt('请输入文章密码') !== '') {
+        alert('密码错误！');
+        history.back();
+    }
+}</script><script>window.GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+}</script></head><body><canvas id="universe"></canvas><!--#body--><div id="sidebar"><div class="toggle-sidebar-info button-hover"><span data-toggle="文章目录">站点概览</span></div><div class="sidebar-toc"><div class="sidebar-toc-title">目录</div><div class="sidebar-toc-progress"><span class="progress-notice">您已阅读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc-progress-bar"></div></div><div class="sidebar-toc-content" id="sidebar-toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Git下使用Hexo-GitHub搭建个人博客"><span class="toc-number">1.</span> <span class="toc-text">Git下使用Hexo+GitHub搭建个人博客</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><span class="toc-number">1.0.1.</span> <span class="toc-text">       前言</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#一、node安装"><span class="toc-number">1.1.</span> <span class="toc-text">一、node安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、Git安装"><span class="toc-number">1.2.</span> <span class="toc-text">二、Git安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、注册Github账号并新建仓库"><span class="toc-number">1.3.</span> <span class="toc-text">三、注册Github账号并新建仓库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#四、配置SSH-Key"><span class="toc-number">1.4.</span> <span class="toc-text">四、配置SSH Key</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#五、同步本地博客到Github"><span class="toc-number">1.5.</span> <span class="toc-text">五、同步本地博客到Github</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置主题"><span class="toc-number">1.6.</span> <span class="toc-text">配置主题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#发布文章"><span class="toc-number">1.7.</span> <span class="toc-text">发布文章</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info-avatar"><img class="author-info-avatar-img" src="/avatar.png"></div><div class="author-info-name">Slike-V</div><div class="author-info-description"></div><div class="links-buttons"><a class="links-button button-hover" href="https://github.com/fan-lv" target="_blank">GitHub<i class="icon-dot bg-color3"></i></a><a class="links-button button-hover" href="mailto:826330335@qq.com" target="_blank">E-Mail<i class="icon-dot bg-color9"></i></a><a class="links-button button-hover" href="tencent:/" target="_blank">QQ<i class="icon-dot bg-color8"></i></a></div><div class="author-info-articles"><a class="author-info-articles-archives article-meta" href="/archives"><span class="pull-top">日志</span><span class="pull-bottom">58</span></a><a class="author-info-articles-tags article-meta" href="/tags"><span class="pull-top">标签</span><span class="pull-bottom">58</span></a><a class="author-info-articles-categories article-meta" href="/categories"><span class="pull-top">分类</span><span class="pull-bottom">19</span></a></div><div class="friend-link"><a class="friend-link-text" href="/about" target="_blank">Slike-V【简介】</a><a class="friend-link-text" href="https://github.com/fan-lv" target="_blank">主题作者</a><a class="friend-link-text" href="http://kublic.coding.me" target="_blank">Kubil博客</a><a class="friend-link-text" href="http://mebieber.coding.me" target="_blank">Mebieber博客</a><a class="friend-link-text" href="https://www.ultarts.com" target="_blank">Ultarts博客</a></div></div></div><div id="main-container"><header><div id="menu-outer"><i class="menu-list-icon fas fa-bars"></i><nav id="menu-inner"><a class="menu-item" href="/">首页</a><a class="menu-item" href="/tags">标签</a><a class="menu-item" href="/categories">分类</a><a class="menu-item" href="/archives">归档</a><a class="menu-item" href="/about">关于</a></nav><div class="right-info"><a class="title-name" href="/">Slikeの后花园</a><span id="now-time"></span></div></div></header><div id="content-outer"><div id="content-inner"><article id="post"><div class="post-header"><div class="title">Git下使用Hexo+GitHub搭建个人博客</div><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 发表于 2019-07-17 | 更新于 2021-07-28</time><!--time.button-hover.post-date #[i.fas.fa-calendar-alt.article-icon(aria-hidden="true")] #[=__('post.modified')] #[=date(page['updated'], config.date_format)]--><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/个人博客/">个人博客</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/博客搭建/">博客搭建</a></div></div></div><div class="main-content"><h3 id="Git下使用Hexo-GitHub搭建个人博客"><a href="#Git下使用Hexo-GitHub搭建个人博客" class="headerlink" title="Git下使用Hexo+GitHub搭建个人博客"></a>Git下使用Hexo+GitHub搭建个人博客</h3><h5 id="nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;简介Hexo 是一个快速、简洁且高效的博客框架。开发起来也是非常的方便简单。配合Git与GitHub可以很容易搭建一个自己的博客</p>
+<hr>
+<a id="more"></a>
+<h4 id="一、node安装"><a href="#一、node安装" class="headerlink" title="一、node安装"></a>一、node安装</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;搜索关键字node，<a href="https://nodejs.org/en/" target="_blank" rel="noopener">node官网</a>下载node安装包，无需其他操作直接进行安装。</p>
+<hr>
+<h4 id="二、Git安装"><a href="#二、Git安装" class="headerlink" title="二、Git安装"></a>二、Git安装</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;搜索关键字Git，<a href="https://git-scm.com/" target="_blank" rel="noopener">Git官网</a>下载Git安装包，直接安装即可。</p>
+<hr>
+<h4 id="三、注册Github账号并新建仓库"><a href="#三、注册Github账号并新建仓库" class="headerlink" title="三、注册Github账号并新建仓库"></a>三、注册Github账号并新建仓库</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;进入<a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>网址，创建一个新的项目，用于保存博客所有文件</p>
+<p><img src="/images/pasted-2.png" alt="upload successful"></p>
+<p><strong>注意： 红色横线处的前缀名必须和你的用户名相同</strong></p>
+<hr>
+<h4 id="四、配置SSH-Key"><a href="#四、配置SSH-Key" class="headerlink" title="四、配置SSH Key"></a>四、配置SSH Key</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这一步不是必须的，配置SSH Key的话之后每次更新博客就不用都输入用户名和密码，可以方便一些。</p>
+<p><strong>1.通过GIT BASH HERE查看本机上是否已经存在SSH KEY</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;找到系统盘符下的：用户\系统名.ssh</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;右击、点击git bash here使用git命令</p>
+<pre><code>$ cd ~/.ssh    </code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果提示:No such file or directory 去创建一个SSH Key，否则跳过以下这步。</p>
+<p><strong>2.创建一个SSH KEY</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;使用Git命令创建ssh公钥，连续3次回车后，那么在你用户的文件夹下就会多了一个.ssh的文件夹。创建完成之后可以通过文件中去查看.ssh文件夹下的id_rsa.pub打开该文件，复制里面的文本。</p>
+<pre><code>$ ssh-keygen -t rsa -C &quot;你的邮箱&quot;  #创建ssh密钥</code></pre><p><img src="/images/pasted-3.png" alt="upload successful"></p>
+<p>再登录GieHub，点击右上角头像右边的三角图标，点击Settings，然后在左边菜单栏点击SSH and GPG keys，点击New SSH key，Title 随便填一个，在Key栏填入你复制的公钥(id-rsa.pub文件里的所有内容)，点击Add SSH key，就添加成功了。</p>
+<p><strong>3.检验SSH KEY是否配置成功</strong></p>
+<p>在.ssh目录中进入git终端输入以下命令检查</p>
+<pre><code>$ ssh -T git@github.com</code></pre><p>出现相应信息输入yes回车，出现以下信息 就说明你的SSH Key配置成功了。</p>
+<pre><code>Are you sure you want to continue connecting (yes/no)? 
+Hi username! You&apos;ve successfully authenticated, but GitHub does not provide shell acces.&amp;ensp;</code></pre><p><strong>4.部署Hexo</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;随便在一个盘符下新建一个文件夹如：Hexo(文件名随意)，在该文件夹中右击选择GIT BASH HERE进入，再使用NPM命令来安装HEXO。<br>以下代码是用来下载安装hexo命令。</p>
+<pre><code>$ npm install -g hexo</code></pre><p>自动下载安装好之后进行初始化。该命令会在目标文件夹内建立网站所需要的所有文件。</p>
+<pre><code>$ hexo init</code></pre><p><img src="/images/pasted-4.png" alt="upload successful"></p>
+<p>下一步、安装相应的依赖包。到这里本地博客就搭建好了。</p>
+<pre><code>$ npm install</code></pre><p>最后生成静态的文件</p>
+<pre><code>$ hexo g</code></pre><p>此时，你博客的目录下会多那么几个文件，比如public文件夹中出现的文件。</p>
+<p><img src="/images/pasted-5.png" alt="upload successful"></p>
+<p>启动服务</p>
+<pre><code>$ hexo s</code></pre><p>在浏览器输入<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> （默认端口号为4000）就可以进行查看了。</p>
+<p><img src="/images/pasted-6.png" alt="upload successful"></p>
+<p>也可以使用以下的更改端口的命令，可改可不改根据自己的需求来。</p>
+<pre><code>$ hexo server -p 5000（端口号）</code></pre><hr>
+<h4 id="五、同步本地博客到Github"><a href="#五、同步本地博客到Github" class="headerlink" title="五、同步本地博客到Github"></a>五、同步本地博客到Github</h4><p><strong>1.编辑自己创建的本地博客文件夹中的_CONFIG.YML中的DEPLOY节点</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;进入你博客根目录下的_config.yml文件：在最下面找到deploy节点并进行修改：</p>
+<p><img src="/images/pasted-7.png" alt="upload successful"></p>
+<p><strong>注意：repo配置为你自己的仓库地址，repo为这种形式的是配置了SSH Key之后的，如果没有配置则使用Https形式的地址。（“：”冒号之后空格不可少）</strong></p>
+<pre><code>deploy:
+    type: git
+    repo: git@github.com:xxx/xxx.github.io.git
+    branch: master</code></pre><p>repo：后面的地址在你的GitHub仓库中进行查找：</p>
+<p><img src="/images/pasted-9.png" alt="upload successful"></p>
+<p><strong>2.为了能够使HEXO部署到GITHUB上，需要安装一个插件</strong></p>
+<pre><code>$ npm install hexo-deployer-git --save</code></pre><p><strong>3.将HEXO部署到GITHUB中命令</strong></p>
+<pre><code>$ hexo c        #清空缓存
+$ hexo g        #生成静态文件资源
+$ hexo d        #部署到GitHub</code></pre><p>部署好了之后就可以使用你的域名(项目名称)来直接访问博客了</p>
+<hr>
+<h4 id="配置主题"><a href="#配置主题" class="headerlink" title="配置主题"></a>配置主题</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;先进入你的GIT BASH HERE，进入到博客的本地目录中右击git bash here即可进入。使用git clone来克隆主题，例如：</p>
+<pre><code>$ git clone https://github.com/theme-next/hexo-theme-next themes/next</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;克隆完成后，打开当前目录下的“_CONFIG.YML”配置文件：</p>
+<p><img src="/images/pasted-10.png" alt="upload successful"></p>
+<p><strong>找到theme的配置选项，一般在文件的最后。之后，将theme选项配置为我们新下载好的next主题即可。（“：”冒号之后空格不可少）</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;回到GIT BASH HERE中输入命令启动服务，在浏览器中输入localhost:4000查看。在本地查看无误之后，输入生成和发布命令,就可已将新主题发布到自己的博客网站上了命令与之前命令相同。清空缓存-生成静态文件资源-部署到GItHub，然后在浏览器输入你的博客地址（你的项目名）就可以访问你最新的博客了。</p>
+<p><strong>还可以去<a href="https://hexo.io/themes/" target="_blank" rel="noopener">Hexo官网</a>主题中去找更多好看的主题</strong></p>
+<hr>
+<h4 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h4><p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这里使用的是Hexo Admin后台管理的方式发布文章的。</p>
+<p> <strong>1.安装插件</strong></p>
+<p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在Git Hash Here中输入以下命令进行安装插件：</p>
+<pre><code>npm install --save hexo-admin</code></pre><p> <strong>2.启动服务</strong></p>
+<pre><code>hexo s</code></pre><p>即可在浏览器中输入localhost:4000/admin中编写博文了。</p>
+<p><img src="/images/pasted-11.png" alt="upload successful"></p>
+<p><strong>3.在HEXO ADMIN中自动部署和发布</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;先在博客的本地的目录下新建hexo-pubish.bat文件，文件内容如下：</p>
+<pre><code>hexo g -d</code></pre><p> 编辑完毕后，在Hexo Admin后台管理中就可以点击Deploy，直接部署发布Github博客上。发布时现在Git上使用代码创建一个新的.md文件</p>
+<p><img src="/images/pasted-12.png" alt="upload successful"></p>
+<p>*<em>注意：Deploy之前，还需要编辑配置文件_config.yml。(否则会出现Error: Config value “admin.deployCommand” not found或者Error: spawn hexo ENOENT之类的报错。) *</em></p>
+<p><img src="/images/pasted-14.png" alt="upload successful"></p>
+<p>用来指定之前创建的hexo-pubish.bat文件的启用</p>
+<p><strong>4.关于HEXO ADMIN插入图片</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hexo Admin可以直接复制图片粘贴，然后自动下载到source/images目录并重命名。但在Windows中粘贴后会出现裂图。这时就需要手动把括号中的前后两个斜杠去掉，就能正常显示。</p>
+<p><img src="/images/pasted-13.png" alt="upload successful"></p>
+</div><div class="post-copyright"><div class="post-copyright-author"><span class="post-copyright-meta">本文作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Slike-V</a></span></div><div class="post-copyright-type"><span class="post-copyright-meta">本文链接: </span><span class="post-copyright-info"><a href="http://Slike-v.github.io/2019/07/17/搭建/">http://Slike-v.github.io/2019/07/17/搭建/</a></span></div><div class="post-copyright-notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Slike-v.github.io">Slikeの后花园</a>！</span></div></div></article><div id="pagination"><div class="prev-post pull-left"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/07/18/美化/"><i class="fas fa-angle-left">&nbsp;</i><span>个人博客Fan主题美化</span></a></div></div><!--div!= paginator()--></div></div><div class="button-hover" id="return-top"><i class="fas fa-arrow-up" aria-hidden="true"></i></div><footer><div id="footer"><div class="button-hover" id="side-button"><i class="fas fa-arrow-right"></i></div><div class="right-content"><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fas fa-file-o"></i></span><span id="busuanzi_value_page_pv"></span><span></span></div><div class="copyright">&copy;2017 ～ 2021 By Slike-V</div></div></div></footer></div><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery-3.3.1.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/velocity.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery.mCustomScrollbar.concat.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/fan.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/canvas_bg.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/utils.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/scroll.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/sidebar.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/copy.js"></script><!--script(src=url)--></body></html>

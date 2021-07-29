@@ -1,0 +1,91 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="SpringBoot的web开发扩展"><meta name="keywords" content="SpringBoot的web开发扩展"><meta name="author" content="Slike-V,undefined"><meta name="copyright" content="Slike-V"><title>SpringBoot的web开发扩展【Slikeの后花园】</title><link rel="stylesheet" href="/css/fan.css"><link rel="stylesheet" href="/css/thirdparty/jquery.mCustomScrollbar.min.css"><link rel="icon" href="/avatar.png"><!-- script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")--><script src="/js/mathjax/mathjax.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+});
+</script><script>var isPassword = '' || false;
+if (isPassword) {
+    if (prompt('请输入文章密码') !== '') {
+        alert('密码错误！');
+        history.back();
+    }
+}</script><script>window.GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+}</script></head><body><canvas id="universe"></canvas><!--#body--><div id="sidebar"><div class="toggle-sidebar-info button-hover"><span data-toggle="文章目录">站点概览</span></div><div class="sidebar-toc"><div class="sidebar-toc-title">目录</div><div class="sidebar-toc-progress"><span class="progress-notice">您已阅读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc-progress-bar"></div></div><div class="sidebar-toc-content" id="sidebar-toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#SpringBoot的web开发扩展"><span class="toc-number">1.</span> <span class="toc-text">SpringBoot的web开发扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><span class="toc-number">1.0.1.</span> <span class="toc-text">       前言</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#登录-amp-拦截"><span class="toc-number">1.0.2.</span> <span class="toc-text">登录&amp; 拦截</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info-avatar"><img class="author-info-avatar-img" src="/avatar.png"></div><div class="author-info-name">Slike-V</div><div class="author-info-description"></div><div class="links-buttons"><a class="links-button button-hover" href="https://github.com/fan-lv" target="_blank">GitHub<i class="icon-dot bg-color5"></i></a><a class="links-button button-hover" href="mailto:826330335@qq.com" target="_blank">E-Mail<i class="icon-dot bg-color2"></i></a><a class="links-button button-hover" href="tencent:/" target="_blank">QQ<i class="icon-dot bg-color6"></i></a></div><div class="author-info-articles"><a class="author-info-articles-archives article-meta" href="/archives"><span class="pull-top">日志</span><span class="pull-bottom">58</span></a><a class="author-info-articles-tags article-meta" href="/tags"><span class="pull-top">标签</span><span class="pull-bottom">58</span></a><a class="author-info-articles-categories article-meta" href="/categories"><span class="pull-top">分类</span><span class="pull-bottom">19</span></a></div><div class="friend-link"><a class="friend-link-text" href="/about" target="_blank">Slike-V【简介】</a><a class="friend-link-text" href="https://github.com/fan-lv" target="_blank">主题作者</a><a class="friend-link-text" href="http://kublic.coding.me" target="_blank">Kubil博客</a><a class="friend-link-text" href="http://mebieber.coding.me" target="_blank">Mebieber博客</a><a class="friend-link-text" href="https://www.ultarts.com" target="_blank">Ultarts博客</a></div></div></div><div id="main-container"><header><div id="menu-outer"><i class="menu-list-icon fas fa-bars"></i><nav id="menu-inner"><a class="menu-item" href="/">首页</a><a class="menu-item" href="/tags">标签</a><a class="menu-item" href="/categories">分类</a><a class="menu-item" href="/archives">归档</a><a class="menu-item" href="/about">关于</a></nav><div class="right-info"><a class="title-name" href="/">Slikeの后花园</a><span id="now-time"></span></div></div></header><div id="content-outer"><div id="content-inner"><article id="post"><div class="post-header"><div class="title">SpringBoot的web开发扩展</div><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 发表于 2019-09-06 | 更新于 2021-07-28</time><!--time.button-hover.post-date #[i.fas.fa-calendar-alt.article-icon(aria-hidden="true")] #[=__('post.modified')] #[=date(page['updated'], config.date_format)]--><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/SpringBoot/">SpringBoot</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/SpringBoot的web开发扩展/">SpringBoot的web开发扩展</a></div></div></div><div class="main-content"><h3 id="SpringBoot的web开发扩展"><a href="#SpringBoot的web开发扩展" class="headerlink" title="SpringBoot的web开发扩展"></a>SpringBoot的web开发扩展</h3><h5 id="nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;使用SpringBoot开发Web项目扩展-2</p>
+<hr>
+<a id="more"></a>
+<h5 id="登录-amp-拦截"><a href="#登录-amp-拦截" class="headerlink" title="登录&amp; 拦截"></a>登录&amp; 拦截</h5><ul>
+<li><p>登录实现</p>
+<ol>
+<li><p>登录需要连接到数据库中我们使用MyBatis框架配合连接MySQL数据库进行连接，需要引入MyBatis+MySQL依赖</p>
+ <dependency>
+   <groupid>org.mybatis.spring.boot</groupid>
+   <artifactid>mybatis-spring-boot-starter</artifactid>
+   <version>1.3.0</version>
+</dependency>
+<dependency>
+   <groupid>mysql</groupid>
+   <artifactid>mysql-connector-java</artifactid>
+   <version>5.1.10</version>
+ </dependency>
+</li>
+<li><p>配置文件中编写连接参数</p>
+<p><img src="/images/pasted-136.png" alt="upload successful"></p>
+</li>
+<li><p>编写mapper接口和映射文件、server层、Controller层的相关代码</p>
+</li>
+<li><p>创建 dao 包，在 dao 包下创建 UserMapper 接口。</p>
+<p> <img src="/images/pasted-137.png" alt="upload successful"></p>
+</li>
+<li><p>在 resources 目录中创建 mapper 包，在mapper包下创建 UserMapper.xml 映射文件。</p>
+<pre><code>      &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+  &lt;!DOCTYPE mapper
+    PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
+   &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
+&lt;mapper namespace=&quot;com.example.dao.UserMapper&quot;&gt;
+  &lt;select id=&quot;getUserByName&quot; resultType=&quot;com.example.pojo.UserCs&quot;&gt;
+    select * from user where name = #{name}
+     &lt;/select&gt;
+ &lt;/mapper&gt;</code></pre></li>
+<li><p>在 application.properties 文件中为指定 类的完整类名 取一个别名</p>
+<pre><code># 为指定包下的所有类的完整类名 取一个别名别名为类名
+mybatis.type-aliases-package=cn.bdqn.springbootcrud.entity</code></pre></li>
+<li><p>指定 mapper  映射文件所在的位置</p>
+<pre><code>mybatis.mapper-locations=classpath:mapper/*.xml</code></pre></li>
+<li><p>在service包中，创建 UserServiceImpl实现 UserService接口。</p>
+<p><img src="/images/pasted-138.png" alt="upload successful"></p>
+</li>
+<li><p>在 controller 包中创建 LoginController，LoginController 的代码如下所示。</p>
+<p> <strong>如果发生Bean注入错误说类型不匹配Service和ServiceImpl，虽然是父类接口实现关系，但还是报了这个错误。可以把@Resource换成@Autowired</strong><br> <img src="/images/pasted-139.png" alt="upload successful"></p>
+</li>
+<li><p>禁止调模板引擎的缓存</p>
+<p>有时在修改完页面后，刷新浏览器发现页面没有更新，这是因为模板引擎存在缓存。编辑 application.properties 文件，添加禁用模板引擎缓存的代码。</p>
+<p>spring.thymeleaf.cache=false</p>
+</li>
+<li><p>在启动类添加@MapperScan  实现对 dao 层 层 进行扫描  </p>
+<p><img src="/images/pasted-140.png" alt="upload successful"></p>
+</li>
+</ol>
+</li>
+<li><p>登录拦截器</p>
+<p>  用于拦截一些恶意访问信息，避免没有登录的用户之间访问数据信息。框架中的拦截器有很多种。如：HandlerInterceptor、MethodInterceptor、LocaleResolver。</p>
+<p>  它们的执行顺序是：LocaleResolver &gt; HandlerInterceptor &gt; MethodInterceptor</p>
+<p>  实现一个拦截操作的步骤：HandlerInterceptor</p>
+<ul>
+<li>创建LoginHandlerInterceptor继承HandlerInterceptor</li>
+</ul>
+<p>  <strong>并编写被拦截之后需要执行的方法。preHandle方法</strong></p>
+<pre><code>![upload successful](/images/pasted-141.png)</code></pre><ul>
+<li><p>创建MyMvcConfig继承WebMvcConfigurer</p>
+<p>(<strong>WebMvcConfigurerAdapter在高版本以及被淘汰了，我们可以使用它所继承的类</strong>)它的InterceptorRegistry的addInterceptor方法实例化了一个InterceptorRegistration用于添加一个拦截器。并使用addPathPatterns来约定拦截的路径。</p>
+<p><img src="/images/pasted-142.png" alt="upload successful"></p>
+</li>
+</ul>
+</li>
+</ul>
+</div><div class="post-copyright"><div class="post-copyright-author"><span class="post-copyright-meta">本文作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Slike-V</a></span></div><div class="post-copyright-type"><span class="post-copyright-meta">本文链接: </span><span class="post-copyright-info"><a href="http://Slike-v.github.io/2019/09/06/SpringBoot的web开发扩展/">http://Slike-v.github.io/2019/09/06/SpringBoot的web开发扩展/</a></span></div><div class="post-copyright-notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Slike-v.github.io">Slikeの后花园</a>！</span></div></div></article><div id="pagination"><div class="prev-post pull-left"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/09/06/Oracle连接参数/"><i class="fas fa-angle-left">&nbsp;</i><span>Oracle连接参数</span></a></div><div class="next-post pull-right"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/09/06/SpringBoot项目打包JAR外部运行/"><span>SpringBoot项目打包JAR外部运行</span><span>&nbsp;</span><i class="fas fa-angle-right"></i></a></div></div><!--div!= paginator()--></div></div><div class="button-hover" id="return-top"><i class="fas fa-arrow-up" aria-hidden="true"></i></div><footer><div id="footer"><div class="button-hover" id="side-button"><i class="fas fa-arrow-right"></i></div><div class="right-content"><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fas fa-file-o"></i></span><span id="busuanzi_value_page_pv"></span><span></span></div><div class="copyright">&copy;2017 ～ 2021 By Slike-V</div></div></div></footer></div><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery-3.3.1.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/velocity.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery.mCustomScrollbar.concat.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/fan.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/canvas_bg.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/utils.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/scroll.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/sidebar.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/copy.js"></script><!--script(src=url)--></body></html>

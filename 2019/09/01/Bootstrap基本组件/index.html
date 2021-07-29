@@ -1,0 +1,268 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="Bootstrap基本组件"><meta name="keywords" content="Bootstrap基本组件"><meta name="author" content="Slike-V,undefined"><meta name="copyright" content="Slike-V"><title>Bootstrap基本组件【Slikeの后花园】</title><link rel="stylesheet" href="/css/fan.css"><link rel="stylesheet" href="/css/thirdparty/jquery.mCustomScrollbar.min.css"><link rel="icon" href="/avatar.png"><!-- script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")--><script src="/js/mathjax/mathjax.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+});
+</script><script>var isPassword = '' || false;
+if (isPassword) {
+    if (prompt('请输入文章密码') !== '') {
+        alert('密码错误！');
+        history.back();
+    }
+}</script><script>window.GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+}</script></head><body><canvas id="universe"></canvas><!--#body--><div id="sidebar"><div class="toggle-sidebar-info button-hover"><span data-toggle="文章目录">站点概览</span></div><div class="sidebar-toc"><div class="sidebar-toc-title">目录</div><div class="sidebar-toc-progress"><span class="progress-notice">您已阅读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc-progress-bar"></div></div><div class="sidebar-toc-content" id="sidebar-toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#BootStrap基本组件"><span class="toc-number">1.</span> <span class="toc-text">BootStrap基本组件</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><span class="toc-number">1.0.1.</span> <span class="toc-text">       前言</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#小图标"><span class="toc-number">1.0.2.</span> <span class="toc-text">小图标</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#下拉菜单"><span class="toc-number">1.0.3.</span> <span class="toc-text">下拉菜单</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#输入框"><span class="toc-number">1.0.4.</span> <span class="toc-text">输入框</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#导航和导航条"><span class="toc-number">1.0.5.</span> <span class="toc-text">导航和导航条</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#缩略图"><span class="toc-number">1.0.6.</span> <span class="toc-text">缩略图</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#媒体对象"><span class="toc-number">1.0.7.</span> <span class="toc-text">媒体对象</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#列表组"><span class="toc-number">1.0.8.</span> <span class="toc-text">列表组</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#分页导航"><span class="toc-number">1.0.9.</span> <span class="toc-text">分页导航</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info-avatar"><img class="author-info-avatar-img" src="/avatar.png"></div><div class="author-info-name">Slike-V</div><div class="author-info-description"></div><div class="links-buttons"><a class="links-button button-hover" href="https://github.com/fan-lv" target="_blank">GitHub<i class="icon-dot bg-color4"></i></a><a class="links-button button-hover" href="mailto:826330335@qq.com" target="_blank">E-Mail<i class="icon-dot bg-color9"></i></a><a class="links-button button-hover" href="tencent:/" target="_blank">QQ<i class="icon-dot bg-color7"></i></a></div><div class="author-info-articles"><a class="author-info-articles-archives article-meta" href="/archives"><span class="pull-top">日志</span><span class="pull-bottom">58</span></a><a class="author-info-articles-tags article-meta" href="/tags"><span class="pull-top">标签</span><span class="pull-bottom">58</span></a><a class="author-info-articles-categories article-meta" href="/categories"><span class="pull-top">分类</span><span class="pull-bottom">19</span></a></div><div class="friend-link"><a class="friend-link-text" href="/about" target="_blank">Slike-V【简介】</a><a class="friend-link-text" href="https://github.com/fan-lv" target="_blank">主题作者</a><a class="friend-link-text" href="http://kublic.coding.me" target="_blank">Kubil博客</a><a class="friend-link-text" href="http://mebieber.coding.me" target="_blank">Mebieber博客</a><a class="friend-link-text" href="https://www.ultarts.com" target="_blank">Ultarts博客</a></div></div></div><div id="main-container"><header><div id="menu-outer"><i class="menu-list-icon fas fa-bars"></i><nav id="menu-inner"><a class="menu-item" href="/">首页</a><a class="menu-item" href="/tags">标签</a><a class="menu-item" href="/categories">分类</a><a class="menu-item" href="/archives">归档</a><a class="menu-item" href="/about">关于</a></nav><div class="right-info"><a class="title-name" href="/">Slikeの后花园</a><span id="now-time"></span></div></div></header><div id="content-outer"><div id="content-inner"><article id="post"><div class="post-header"><div class="title">Bootstrap基本组件</div><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 发表于 2019-09-01 | 更新于 2021-07-28</time><!--time.button-hover.post-date #[i.fas.fa-calendar-alt.article-icon(aria-hidden="true")] #[=__('post.modified')] #[=date(page['updated'], config.date_format)]--><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/BootStrap/">BootStrap</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/Bootstrap基本组件/">Bootstrap基本组件</a></div></div></div><div class="main-content"><h3 id="BootStrap基本组件"><a href="#BootStrap基本组件" class="headerlink" title="BootStrap基本组件"></a>BootStrap基本组件</h3><h5 id="nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bootstrap框架是一个响应式框架，其中封装了很多常用的组件，如：图标、下拉框、导航条等。不需要程序员再去自己做样式，可以提高程序员搭建的速度。<strong>在4X版本以上的Bootstrap引入的方法存在差异</strong></p>
+<hr>
+<a id="more"></a>
+<h5 id="小图标"><a href="#小图标" class="headerlink" title="小图标"></a>小图标</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;图标是一个优秀网站不可缺少的一组元素，小图标的点缀可以使网站瞬间提升一个档次。Bootstrap给我们提供了250多种小图标，可以作用在内联元素上，给网页增加更多活力。</p>
+<ul>
+<li><p>小图标用法</p>
+<pre><code>&lt;span class=&quot;glyphicon glyphicon-home&quot;&gt;&lt;/span&gt;</code></pre></li>
+</ul>
+<p><strong>注意：</strong><br>    所有的icon图标都是以glyphicon-开头的，因为这些小图标都是由<a href="http://glyphicons.com/网站提供的，使用的时候必须同时使用两个样式，即glyphicon和glyphicon-*开头。" target="_blank" rel="noopener">http://glyphicons.com/网站提供的，使用的时候必须同时使用两个样式，即glyphicon和glyphicon-*开头。</a></p>
+<ol>
+<li>图标类不能喝其他组件之间联合使用，它们不能再同一个元素上与其他类同时存在，应该创建一个嵌套的span元素，并将图标应用到这个span上。</li>
+<li>只对内容为空的元素起作用。</li>
+<li>对引入的图标位置有规定，假如所有图标字体全部位于../fonts/目录内，相对于预编译版CSS文件的应该是同级目录才有效果。</li>
+<li>引用图标时需要导入下载好的Bootstrap压缩包中的fonts整个文件夹中的文件</li>
+</ol>
+<hr>
+<h5 id="下拉菜单"><a href="#下拉菜单" class="headerlink" title="下拉菜单"></a>下拉菜单</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;网页中经常会需要上下文菜单或者隐藏/展示菜单项，Bootstrap默认提供了通用的菜单显示效果，而且各种交互状态下的菜单展示需要和JavaScript的Dropdown插件配合才能使用。</p>
+<ul>
+<li><p>基本下拉菜单</p>
+<p>  基本下拉菜单的用法即将下拉菜单触发器和下拉菜单包裹在dropdown里，或者另外声明一个position:relative的元素。</p>
+<pre><code>&lt;div class=&quot;dropdown open&quot;&gt;
+    &lt;button class=&quot;btn btn-defalut&quot; data-toggle=&quot;dropdown&quot;&gt;
+        Dropdown
+        &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;ul class=&quot;dropdown-menu&quot;&gt;
+        &lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+&lt;script src=&quot;js/jquery-1.12.4.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/bootstrap.js&quot;&gt;&lt;/script&gt;</code></pre></li>
+<li><p>分离式下拉菜单</p>
+<pre><code>&lt;div class=&quot;btn-group&quot;&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn btn-danger&quot;&gt;Action&lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn btn-danger dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&gt;
+        &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;ul class=&quot;dropdown-menu&quot;&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre></li>
+</ul>
+<h5 id="输入框"><a href="#输入框" class="headerlink" title="输入框"></a>输入框</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我们需要输入框组件(Input group)和文字或者小icon组合在一起使用(称为addon)。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;输入框组件是通过在文本输入框input前面、后面或者两边加上文字或按钮。使用输入框组件也很简单，只需要在容器上应用input-group样式，然后对需要在input前后显示的个性元素上应用input-group-addon样式即可。</p>
+<ul>
+<li><p>基本用法</p>
+<pre><code>&lt;div class=&quot;input-group&quot;&gt;
+        &lt;span class=&quot;input-group-addon&quot;&gt;@&lt;/span&gt;
+        &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Username&quot;&gt;
+    &lt;/div&gt;
+    &lt;br /&gt;
+    &lt;div class=&quot;input-group&quot;&gt;
+        &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;请输入要搜索的内容&quot;&gt;
+        &lt;span class=&quot;input-group-addon&quot;&gt;百度一下&lt;/span&gt;
+    &lt;/div&gt;</code></pre></li>
+<li><p>尺寸大小</p>
+<p>  输入框组件也可以设置大小，在input-group-addon样式容器上添加相应尺寸类，不需要为输入框组件中每个元素重复添加控制尺寸的类。</p>
+<pre><code>&lt;div class=&quot;input-group input-group-lg&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;input-group input-group-sm&quot;&gt;&lt;/div&gt;</code></pre></li>
+<li><p>按钮作为addon</p>
+<p>  输入框组件上addon支持普通的button以addon的形式出现。为了避免冲突，为btn样式单独设置了一个input-group-btn样式，用它来替换input-group-addon作为新的addon容器。</p>
+<pre><code>&lt;div class=&quot;input-group&quot;&gt;
+    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;请输入要搜索的内容&quot;&gt;
+    &lt;span class=&quot;input-group-btn&quot;&gt;
+        &lt;button class=&quot;btn btn-primary&quot; type=&quot;button&quot;&gt;百度一下&lt;/button&gt;
+    &lt;/span&gt;
+&lt;/div&gt;</code></pre></li>
+</ul>
+<p><strong>注意：</strong></p>
+<ol>
+<li>请避免在select上元素上使用，因为Webkit浏览器不完全支持input-group组件特性。</li>
+<li>不要直接将input-group和form-group混合使用。因为input-group是一个独立组件。</li>
+<li>不要将表单组件或栅格列类直接输入框混合使用，而是将输入框组件嵌套到表单组件或栅格相关元素的内部。</li>
+</ol>
+<hr>
+<h5 id="导航和导航条"><a href="#导航和导航条" class="headerlink" title="导航和导航条"></a>导航和导航条</h5><ul>
+<li><p>导航</p>
+<p>  导航(Nav)是一个网站最重要的组成部分，可以便于用户查找网站所提供的各项功能服务。Bootstrap中导航组件都依赖一个nav类，状态也是公共的。就像btn使用一样，需要特殊的样式，在添加相应的类即可。</p>
+<p>  1.选项卡导航</p>
+<p>  选项卡导航时最常用的一种导航方式，尤其是在多内容编辑的时候，通常都需要选项卡进行分组显示。当前高亮菜单单项使用active样式，选项卡式导航使用nav-tabs类</p>
+<pre><code>&lt;ul class=&quot;nav nav-tabs&quot;&gt;
+    &lt;li calss=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;主页&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;微博&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;图书&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;关于我们&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre><p>  2.胶囊式选项卡导航</p>
+<pre><code>&lt;ul class=&quot;nav nav-pills&quot;&gt;
+    &lt;li calss=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;主页&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;微博&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;图书&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;关于我们&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre><p>  3.自适应导航</p>
+<pre><code>&lt;ul class=&quot;nav nav-tabs nav-justified&quot;&gt;
+    &lt;li calss=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;主页&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;微博&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;图书&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;关于我们&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre><p>  4.二级导航</p>
+<pre><code>&lt;ul class=&quot;nav nav-pills&quot;&gt;
+    &lt;li calss=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;主页&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;微博&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;图书&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;个人&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;dropdown&quot;&gt;
+        &lt;a href=&quot;#&quot; class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&gt;其他
+            &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;ul class=&quot;dropdown-menu&quot;&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;收藏&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;关于我们&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;联系卖家&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;退换货&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;</code></pre></li>
+<li><p>导航条</p>
+<p>  1.基础导航条</p>
+<p>  基础导航条时在普通导航的基础上改进实现的，不过实现原理却不像想象中那么简单。首先在普通导航的ul元素上应用navbar-nav样式。然后在负极容器上使用navbar样式。</p>
+<pre><code>&lt;nav class=&quot;navbar navbar-defalut&quot; role=&quot;navigation&quot;&gt;
+    &lt;div class=&quot;navbar-header&quot;&gt;
+        &lt;a href=&quot;#&quot; class=&quot;navbar-brand&quot;&gt;LOGO&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;ul class=&quot;nav navbar-nav&quot;&gt;
+        &lt;li calss=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;主页&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;微博&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;图书&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre><p>  2.导航条中的表单</p>
+<pre><code>&lt;nav class=&quot;navbar navbar-defalut&quot; role=&quot;navigation&quot;&gt;
+    &lt;form class=&quot;navbar-form navbar-right&quot; role=&quot;search&quot;&gt;
+        &lt;div class=&quot;form-group&quot;&gt;
+            &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Search&quot;&gt;
+        &lt;/div&gt;
+        &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;搜索&lt;/button&gt;
+    &lt;/form&gt;
+&lt;/nav&gt;</code></pre><p>  3.导航条中的按钮(文本、链接)</p>
+<pre><code>&lt;nav class=&quot;navbar navbar-defalut&quot; role=&quot;navigation&quot;&gt;
+    &lt;div class=&quot;navbar-header&quot;&gt;
+        &lt;a href=&quot;#&quot; class=&quot;navbar-brand&quot;&gt;LOGO&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;nav navbar-nav&quot;&gt;
+        &lt;button class=&quot;btn btn-defalut navbar-btn&quot;&gt;button&lt;/button&gt;
+        &lt;button class=&quot;btn btn-primary navbar-btn&quot;&gt;button&lt;/button&gt;
+        &lt;button class=&quot;btn btn-success navbar-btn&quot;&gt;button&lt;/button&gt;
+
+        &lt;p class=&quot;navbar-text&quot;&gt;text&lt;/p&gt;
+
+        &lt;a href=&quot;#&quot; class=&quot;navbar-link&quot;&gt;link&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;</code></pre><p>  4.顶部固定或底部固定</p>
+<pre><code>&lt;nav class=&quot;navbar navbar-defalut navbar-fixed-top&quot;&gt;&lt;/nav&gt;
+&lt;nav class=&quot;navbar navbar-defalut navbar-fixed-bottom&quot;&gt;&lt;/nav&gt;</code></pre><p>  5.响应式导航条</p>
+<p>  一个导航条默认情况是全屏100%显示，所以通常都会有很多菜单项内容，以至于在小屏幕下会有可能显示不完全，或排版很乱。大屏幕浏览器下导航条的所有内容并非都需要在小屏幕浏览上显示有些内容是可以省略或是被隐藏起来。根据需求，Bootstrap提供了响应式导航条。</p>
+<pre><code> &lt;nav class=&quot;navbar navbar-inverse&quot;&gt;
+    &lt;div class=&quot;navbar-header&quot;&gt;
+        &lt;button class=&quot;navbar-toggle&quot; data-toggle=&quot;collapse&quot; data-targer=&quot;navbar-collapse&quot;&gt;
+            &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;a href=&quot;#&quot; class=&quot;navbar-brand&quot;&gt;LOGO&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;collapse navbar-collapse navbar-left&quot;&gt;
+        &lt;ul class=&quot;nav navbar-nav&quot;&gt;
+            &lt;li calss=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;主页&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;微博&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;图书&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;form class=&quot;navber-form navbar-right&quot; role=&quot;search&quot;&gt;
+        &lt;div class=&quot;form-group&quot;&gt;
+            &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Search&quot;&gt;
+        &lt;/div&gt;
+        &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;搜索&lt;/button&gt;
+    &lt;/form&gt;
+&lt;/nav&gt;</code></pre></li>
+</ul>
+<hr>
+<h5 id="缩略图"><a href="#缩略图" class="headerlink" title="缩略图"></a>缩略图</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;使用thumbnail样式，可以使图片、文字或是视频展示的更加漂亮</p>
+<pre><code>&lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-md-2 col-xs-6&quot;&gt;
+        &lt;a class=&quot;thumbnail&quot; href=&quot;#&quot;&gt;
+            &lt;img src=&quot;image/img1.jpg&quot; alt=&quot;&quot;/&gt;
+            &lt;div class=&quot;caption&quot;&gt;
+                &lt;h3&gt;左耳&lt;/h3&gt;
+                &lt;p&gt;放肆青春掀全民追忆&lt;/p&gt;
+                &lt;p&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;btn btn-primary&quot; role=&quot;button&quot;&gt;播放&lt;/a&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;btn btn-defalut&quot; role=&quot;button&quot;&gt;下载&lt;/a&gt;
+                &lt;/p&gt;
+        &lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre><hr>
+<h5 id="媒体对象"><a href="#媒体对象" class="headerlink" title="媒体对象"></a>媒体对象</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;媒体对象是一个抽象的样式，用来构建不同类型的组件，这些组件都具有在文本内左对齐或右对齐的图片。</p>
+<pre><code>&lt;div class=&quot;media&quot;&gt;
+    &lt;div class=&quot;media-left&quot;&gt;
+        &lt;a href=&quot;#&quot;&gt;
+            &lt;img class=&quot;media-object&quot; src=&quot;image/pic.jpg&quot; alt=&quot;&quot;&gt;
+        &lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;media-body&quot;&gt;
+        &lt;h4 class=&quot;media-heading&quot;&gt;谁在制造下跌，散户何去何从&lt;/h4&gt;
+        &lt;p&gt;大盘分时不断在筑底过程中下跌。&lt;/p&gt;
+        &lt;small&gt;5分钟/股市&lt;/small&gt;
+        &lt;small&gt;评论|分享&lt;/small&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre><hr>
+<h5 id="列表组"><a href="#列表组" class="headerlink" title="列表组"></a>列表组</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;灵活又强大的组件，不仅能用于显示一组简单元素，还能用负责的定制内容。大部分列表都是使用ul/li实现。然后给它添加特定样式。</p>
+<pre><code>&lt;ul class=&quot;list-group&quot;&gt;
+        &lt;li class=&quot;list-group-item active&quot;&gt;同桌的你
+            &lt;span class=&quot;badge&quot;&gt;12&lt;/span&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;list-group-item list-group-item-success&quot;&gt;花样年华
+            &lt;span class=&quot;badge&quot;&gt;5&lt;/span&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;list-group-item&quot;&gt;甜蜜蜜&lt;/li&gt;
+        &lt;li class=&quot;list-group-item&quot;&gt;向天再借五百年&lt;/li&gt;
+    &lt;/ul&gt;</code></pre><hr>
+<h5 id="分页导航"><a href="#分页导航" class="headerlink" title="分页导航"></a>分页导航</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当网页内容很多的时候会使用分页显示。Bootstrap提供了两种分页组件：带多个页面的组件、只有上一页和下一页的翻页组件</p>
+<ul>
+<li><p>默认分页</p>
+<pre><code>&lt;ul class=&quot;pagination&quot;&gt;
+    &lt;li class=&quot;disabled&quot;&gt;&lt;a href=&quot;#&quot;&gt;&amp;laquo;&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;2&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;4&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;5&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&amp;laquo;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre></li>
+<li><p>翻页</p>
+<pre><code>&lt;ul class=&quot;pager&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;上一页&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;下一页&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul class=&quot;pager&quot;&gt;
+    &lt;li class=&quot;previous disabled&quot;&gt;&lt;a href=&quot;#&quot;&gt;上一页&lt;/a&gt;&lt;/li&gt;
+    &lt;li calss=&quot;next&quot;&gt;&lt;a href=&quot;#&quot;&gt;下一页&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre></li>
+</ul>
+</div><div class="post-copyright"><div class="post-copyright-author"><span class="post-copyright-meta">本文作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Slike-V</a></span></div><div class="post-copyright-type"><span class="post-copyright-meta">本文链接: </span><span class="post-copyright-info"><a href="http://Slike-v.github.io/2019/09/01/Bootstrap基本组件/">http://Slike-v.github.io/2019/09/01/Bootstrap基本组件/</a></span></div><div class="post-copyright-notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Slike-v.github.io">Slikeの后花园</a>！</span></div></div></article><div id="pagination"><div class="prev-post pull-left"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/09/04/Bootstrap中javascript插件/"><i class="fas fa-angle-left">&nbsp;</i><span>Bootstrap中javascript插件</span></a></div><div class="next-post pull-right"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/08/28/BootStrap/"><span>BootStrap</span><span>&nbsp;</span><i class="fas fa-angle-right"></i></a></div></div><!--div!= paginator()--></div></div><div class="button-hover" id="return-top"><i class="fas fa-arrow-up" aria-hidden="true"></i></div><footer><div id="footer"><div class="button-hover" id="side-button"><i class="fas fa-arrow-right"></i></div><div class="right-content"><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fas fa-file-o"></i></span><span id="busuanzi_value_page_pv"></span><span></span></div><div class="copyright">&copy;2017 ～ 2021 By Slike-V</div></div></div></footer></div><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery-3.3.1.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/velocity.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery.mCustomScrollbar.concat.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/fan.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/canvas_bg.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/utils.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/scroll.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/sidebar.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/copy.js"></script><!--script(src=url)--></body></html>

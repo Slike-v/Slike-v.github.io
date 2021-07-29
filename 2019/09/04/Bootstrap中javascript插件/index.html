@@ -1,0 +1,216 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="Bootstrap中javascript插件"><meta name="keywords" content="Bootstrap中javascript插件"><meta name="author" content="Slike-V,undefined"><meta name="copyright" content="Slike-V"><title>Bootstrap中javascript插件【Slikeの后花园】</title><link rel="stylesheet" href="/css/fan.css"><link rel="stylesheet" href="/css/thirdparty/jquery.mCustomScrollbar.min.css"><link rel="icon" href="/avatar.png"><!-- script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")--><script src="/js/mathjax/mathjax.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+});
+</script><script>var isPassword = '' || false;
+if (isPassword) {
+    if (prompt('请输入文章密码') !== '') {
+        alert('密码错误！');
+        history.back();
+    }
+}</script><script>window.GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+}</script></head><body><canvas id="universe"></canvas><!--#body--><div id="sidebar"><div class="toggle-sidebar-info button-hover"><span data-toggle="文章目录">站点概览</span></div><div class="sidebar-toc"><div class="sidebar-toc-title">目录</div><div class="sidebar-toc-progress"><span class="progress-notice">您已阅读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc-progress-bar"></div></div><div class="sidebar-toc-content" id="sidebar-toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Bootstrap中javascript插件"><span class="toc-number">1.</span> <span class="toc-text">Bootstrap中javascript插件</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><span class="toc-number">1.0.1.</span> <span class="toc-text">       前言</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#data属性"><span class="toc-number">1.0.2.</span> <span class="toc-text">data属性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#模态框"><span class="toc-number">1.0.3.</span> <span class="toc-text">模态框</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#选项卡"><span class="toc-number">1.0.4.</span> <span class="toc-text">选项卡</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#旋转轮播"><span class="toc-number">1.0.5.</span> <span class="toc-text">旋转轮播</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#滚动监听"><span class="toc-number">1.0.6.</span> <span class="toc-text">滚动监听</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info-avatar"><img class="author-info-avatar-img" src="/avatar.png"></div><div class="author-info-name">Slike-V</div><div class="author-info-description"></div><div class="links-buttons"><a class="links-button button-hover" href="https://github.com/fan-lv" target="_blank">GitHub<i class="icon-dot bg-color1"></i></a><a class="links-button button-hover" href="mailto:826330335@qq.com" target="_blank">E-Mail<i class="icon-dot bg-color5"></i></a><a class="links-button button-hover" href="tencent:/" target="_blank">QQ<i class="icon-dot bg-color4"></i></a></div><div class="author-info-articles"><a class="author-info-articles-archives article-meta" href="/archives"><span class="pull-top">日志</span><span class="pull-bottom">58</span></a><a class="author-info-articles-tags article-meta" href="/tags"><span class="pull-top">标签</span><span class="pull-bottom">58</span></a><a class="author-info-articles-categories article-meta" href="/categories"><span class="pull-top">分类</span><span class="pull-bottom">19</span></a></div><div class="friend-link"><a class="friend-link-text" href="/about" target="_blank">Slike-V【简介】</a><a class="friend-link-text" href="https://github.com/fan-lv" target="_blank">主题作者</a><a class="friend-link-text" href="http://kublic.coding.me" target="_blank">Kubil博客</a><a class="friend-link-text" href="http://mebieber.coding.me" target="_blank">Mebieber博客</a><a class="friend-link-text" href="https://www.ultarts.com" target="_blank">Ultarts博客</a></div></div></div><div id="main-container"><header><div id="menu-outer"><i class="menu-list-icon fas fa-bars"></i><nav id="menu-inner"><a class="menu-item" href="/">首页</a><a class="menu-item" href="/tags">标签</a><a class="menu-item" href="/categories">分类</a><a class="menu-item" href="/archives">归档</a><a class="menu-item" href="/about">关于</a></nav><div class="right-info"><a class="title-name" href="/">Slikeの后花园</a><span id="now-time"></span></div></div></header><div id="content-outer"><div id="content-inner"><article id="post"><div class="post-header"><div class="title">Bootstrap中javascript插件</div><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 发表于 2019-09-04 | 更新于 2021-07-28</time><!--time.button-hover.post-date #[i.fas.fa-calendar-alt.article-icon(aria-hidden="true")] #[=__('post.modified')] #[=date(page['updated'], config.date_format)]--><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/Bootstrap/">Bootstrap</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/Bootstrap中javascript插件/">Bootstrap中javascript插件</a></div></div></div><div class="main-content"><h3 id="Bootstrap中javascript插件"><a href="#Bootstrap中javascript插件" class="headerlink" title="Bootstrap中javascript插件"></a>Bootstrap中javascript插件</h3><h5 id="nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bootstrap提供了12个JavaScript插件，如果引入Bootstrap.js文件就意味着将这12个插件都引入页面中，但是还有一种引入方式，就是单个引入JavaScript插件。下载Bootstrap源码下载时，里面会有一个js文件夹。文件夹中的.js文件有单个的JavaScript插件文件。<strong>在4X版本以上的Bootstrap引入的方法存在差异</strong></p>
+<hr>
+<a id="more"></a>
+<h5 id="data属性"><a href="#data属性" class="headerlink" title="data属性"></a>data属性</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bootstrap中的JavaScript插件可以只通过HTML代码就能实现具有JavaScript特性的功能。它是Bootstrap已经通过JavaScript和jQuery封装了相应的插件。我们需要按照规范使用。这个规范最重要的就是data属性。data属性API是Bootstrap中的一等API可以仅仅通过data属性API就能使用所有的Bootstrap插件。</p>
+<pre><code>//关闭属性：
+$(document).off(&apos;.data-api&apos;);
+//对特定的插件关闭
+$(document).off(&apos;.alert.data-api&apos;);</code></pre><ul>
+<li><p>动画过渡</p>
+<p>  Bootstrap使用的动画是CSS3的语法。使用时可以单独引入transition.js。在Bootstrap中一般不会直接使用动画过渡插件，而是把它的功能融入到其他插件中使用。</p>
+<pre><code>&lt;head&gt;
+        &lt;style&gt;
+            #div1{
+                width:100px;
+                height:100px;
+                background:red;
+                transition:all 3s;
+            }
+            #div1:hover{
+                background:green;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id=&quot;div1&quot;&gt;&lt;div&gt;
+        &lt;script src=&quot;js/jquery-1.12.4.js&quot;&gt;&lt;/script&gt;
+        &lt;script src=&quot;transition.js&quot;&gt;&lt;/script&gt;
+        &lt;script&gt;
+            var div=document.getElementById(&apos;div1&apos;);
+            div.addEventListener(&apos;transitionend&apos;,function(e){
+                alert(&quot;浏览器支持过渡效果&quot;);
+            })
+        &lt;/script&gt;
+    &lt;/body&gt;</code></pre></li>
+</ul>
+<hr>
+<h5 id="模态框"><a href="#模态框" class="headerlink" title="模态框"></a>模态框</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;模态框(Model)是绝大部分网站需要的交互式功能，他能更加灵活地以对话框的形式出现，具有最小和最实用的功能集。前面说过可以仅仅通过data属性API就能使用所有的Bootstrap插件，无须写一行JavaScript代码。</p>
+<ul>
+<li><p>模态框布局和样式</p>
+<p>  默认的模态框的基本结构中包括模态框的头部(标题和关闭符号)、中间主体部分和底部(放置操作按钮)</p>
+<pre><code>&lt;div id=&quot;mymodal&quot; class=&quot;modal fade&quot;&gt;
+        &lt;div class=&quot;modal-dialog&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;div class=&quot;modal-header&quot;&gt;
+                &lt;button class=&quot;close&quot; data-dismiss=&quot;modal&quot;&gt;&amp;times;&lt;/button&gt;
+                &lt;h4 class=&quot;modal-title&quot;&gt;我是标题&lt;/h4&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;media-body&quot;&gt;
+                &lt;p&gt; 我是内容……&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;modal-footer&quot;&gt;
+                &lt;button class=&quot;btn btn-default&quot; data-dismiss=&quot;modal&quot;&gt;关闭&lt;/button&gt;
+                &lt;button class=&quot;btn btn-primary&quot;&gt;保存&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;           
+      &lt;/div&gt;
+   &lt;/div&gt;</code></pre></li>
+</ul>
+<p><strong>1.不要在一个模态框上重叠另外一个模态框，要想同时支持多个模态框，需要通过写额外的代码来实现。</strong></p>
+<p><strong>2.档的最高层内(尽量作为body标签的直接子元素)，以避免其他组件影响模态框的展现和功能。</strong></p>
+<ul>
+<li><p>模态框尺寸</p>
+<pre><code>&lt;a href=&quot;#mymodal1&quot; class=&quot;btn btn-primary&quot; data-toggle=&quot;modal&quot;&gt;大尺寸模态框&lt;/a&gt;
+   &lt;a href=&quot;#mymodal2&quot; class=&quot;btn btn-primary&quot; data-toggle=&quot;modal&quot;&gt;小尺寸模态框&lt;/a&gt;
+   &lt;!--弹出的大模态框--&gt;
+   &lt;div id=&quot;mymodal1&quot; class=&quot;modal fade bs-example-modal-lg&quot;&gt;
+       &lt;div class=&quot;modal-dialog modal-lg&quot;&gt;
+       ……
+       &lt;/div&gt;
+   &lt;/div&gt;
+   &lt;!--弹出的小模态框--&gt;
+   &lt;div id=&quot;mymodal2&quot; class=&quot;modal fade bs-example-modal-sm&quot;&gt;
+       &lt;div class=&quot;modal-dialog modal-sm&quot;&gt;
+       ……
+       &lt;/div&gt;
+   &lt;/div&gt;</code></pre></li>
+<li><p>模态框声明选项<br>  使用data属性API来实现一些交互功能，除了data-toggle外，模态框还可以设置其他的data属性来完成别的功能。</p>
+<ul>
+<li>data-backdrop - 是否包含一个背景div，如果为true，则单击该背景(不是弹窗本身)时关闭弹窗;值为static，则单击该背景div元素时不关闭弹窗</li>
+<li>data-keyboard - 按Esc键时关闭弹窗，为false则不会关闭</li>
+<li>data-show - 初始化时是否显示</li>
+<li>href - 提供的是URL，则利用jQuery的load方法从此URL地址加载要展示的内容(只加载一次)并插入modal-content内。如果使用的是data属性API。可以利用href属性指定内容来源地址</li>
+</ul>
+</li>
+<li><p>JavaScript操作模态框</p>
+<ul>
+<li><p>模态框属性</p>
+<ul>
+<li>backdrop - 是否包含一个背景div，如果为true，则单击该背景(不是弹窗本身)时关闭弹窗;值为static，则单击该背景div元素时不关闭弹窗</li>
+<li>keyboard - 按Esc键时关闭弹窗，为false则不会关闭</li>
+<li>show - 初始化时是否显示</li>
+</ul>
+</li>
+<li><p>模态框方法</p>
+<ul>
+<li>toggle - 触发时，反转弹窗的状态，当时是开启，则关闭；反之则开启$(‘#mymodal’).modal(‘toggle’);</li>
+<li>show - 触发时，显示弹窗$(‘#mymodal’).modal(‘show’);</li>
+<li>hide - 触发时，关闭弹窗$(‘#mymodal’).modal(‘hide’);</li>
+</ul>
+</li>
+<li><p>模态框事件</p>
+<ul>
+<li>show.bs.modal - show方法调用之后立即触发该事件。如果是通过单击某个作为触发器的元素，则此元素可以通过事件的relatedTarget属性进行访问</li>
+<li>shown.bs.modal - 此事件在模态框已经显示出来(同时在CSS过渡效果完成)之后被触发。如果是通过单击某个作为触发器的元素，则此元素可以通过事件的relatedTarget属性进行访问</li>
+<li>hide.bs.modal - hide方法调用之后立即触发该事件</li>
+<li>hidden.bs.modal - 此事件在模态框被隐藏(并且同时在CSS过渡效果完成)之后触发</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h5 id="选项卡"><a href="#选项卡" class="headerlink" title="选项卡"></a>选项卡</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;选项卡(Tab)组件是Bootstrap提供的一种非常常用的功能，和平时使用的Windows操作系统里的选项卡设置一样，单击一个选项，下面就显示对应的选项卡面板。</p>
+<ul>
+<li><p>选项卡布局和样式</p>
+<pre><code>&lt;ul class=&quot;nav nav-tabs&quot;&gt;
+    &lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#name1&quot; data-toggle=&quot;tab&quot;&gt;home&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#name2&quot; data-toggle=&quot;tab&quot;&gt;Profile&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#name3&quot; data-toggle=&quot;tab&quot;&gt;fat&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#name4&quot; data-toggle=&quot;tab&quot;&gt;mdo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;tab-content&quot;&gt;
+    &lt;div class=&quot;tab-pane fade in active&quot; id=&quot;name1&quot;&gt;
+        &lt;p&gt;……&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;tab-pane fade in active&quot; id=&quot;name2&quot;&gt;
+        &lt;p&gt;……&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;tab-pane fade in active&quot; id=&quot;name3&quot;&gt;
+        &lt;p&gt;……&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;tab-pane fade in active&quot; id=&quot;name4&quot;&gt;
+        &lt;p&gt;……&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre></li>
+</ul>
+<hr>
+<h5 id="旋转轮播"><a href="#旋转轮播" class="headerlink" title="旋转轮播"></a>旋转轮播</h5><ul>
+<li><p>旋转轮播布局和样式</p>
+<pre><code>&lt;div id=&quot;myCarousel&quot; class=&quot;carousel slide&quot; data-ride=&quot;carousel&quot;&gt;
+    &lt;div class=&quot;carousel-inner&quot;&gt;
+        &lt;div class=&quot;item active&quot;&gt;
+            &lt;img src=&quot;image/ylimg1.jpg&quot; alt=&quot;...&quot;&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;item&quot;&gt;
+            &lt;img src=&quot;image/ylimg2.jpg&quot; alt=&quot;...&quot;&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;ol class=&quot;carousel-indicators&quot;&gt;
+        &lt;li data-targer=&quot;#mCarousel&quot; data-slide-to=&quot;0&quot; class=&quot;active&quot;&gt;&lt;/li&gt;
+        &lt;li data-targer=&quot;#mCarousel&quot; data-slide-to=&quot;1&quot;&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;a class=&quot;left carousel-control&quot; href=&quot;#myCarousel&quot; data-slide=&quot;prev&quot;&gt;
+        &lt;span class=&quot;glyphicon glyphicon-chevron-left&quot;&gt;&lt;/span&gt;
+    &lt;/a&gt;
+    &lt;a class=&quot;right carousel-control&quot; href=&quot;#myCarousel&quot; data-slide=&quot;next&quot;&gt;
+        &lt;span class=&quot;glyphicon glyphicon-chevron-left&quot;&gt;&lt;/span&gt;
+    &lt;/a&gt;
+&lt;/div&gt;</code></pre></li>
+<li><p>旋转轮播自定义属性</p>
+<pre><code>我们可以使用data属性API来实现一些交互功能，除了data-ride、data-slide、data-slide-to以外，轮播插件还支持其他三个自定义属性。</code></pre><ul>
+<li>data-interval - 幻灯片轮播的等待时间(毫秒)。如果为false，轮播图将不会主动开始轮播</li>
+<li>data-pause - 默认鼠标停留在幻灯片区域图片停止轮播，离开即播放</li>
+<li>data-wrap - 轮播是否持续循环</li>
+</ul>
+</li>
+<li><p>选择轮播事件</p>
+<ul>
+<li>slide.bs.carousel - 此事件在slide方法被调用后，未开始处理下一张图片之前立即触发</li>
+<li>slid.bs.carousel - 在一张图片结束轮播之后触发</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h5 id="滚动监听"><a href="#滚动监听" class="headerlink" title="滚动监听"></a>滚动监听</h5><ul>
+<li><p>旋转轮播布局和样式<br>  滚动监听(Scrollspy)插件根据滚动的位置自动更新导航条中相应的导航项。当滚动区域到达指定的时，你就可以给出想要修改的样式。</p>
+<pre><code>&lt;div id=&quot;selector&quot;&gt;
+    &lt;nav class=&quot;navbar navbar-default navbar-fixed-top&quot;&gt;
+        &lt;ul class=&quot;nav navbar-nav&quot;&gt;
+            &lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#name1&quot;&gt;@fat&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#name2&quot;&gt;@mdo&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#name2&quot;&gt;@one&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#name2&quot;&gt;@two&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/div&gt;
+&lt;div data-offset=&quot;0&quot; data-targer=&quot;selector&quot; data-spy=&quot;scroll&quot; style=&quot;height:300px;overflow:auto;&quot;&gt;
+    &lt;h4 id=&quot;name1&quot;&gt;@fat&lt;/h4&gt;
+    &lt;p&gt;Ad leggings keytar,brunch id art...&lt;/p&gt;
+    &lt;h4 id=&quot;name2&quot;&gt;@mdo&lt;/h4&gt;
+    &lt;p&gt;Veniam marfa mustache...&lt;/p&gt;
+    &lt;h4 id=&quot;name3&quot;&gt;one&lt;/h4&gt;
+    &lt;p&gt;Occaecat commodo aliqua ...&lt;/p&gt;
+    &lt;h4 id=&quot;name4&quot;&gt;two&lt;/h4&gt;
+    &lt;p&gt;In incididunt echo...&lt;/p&gt;
+&lt;/div&gt;</code></pre></li>
+</ul>
+</div><div class="post-copyright"><div class="post-copyright-author"><span class="post-copyright-meta">本文作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Slike-V</a></span></div><div class="post-copyright-type"><span class="post-copyright-meta">本文链接: </span><span class="post-copyright-info"><a href="http://Slike-v.github.io/2019/09/04/Bootstrap中javascript插件/">http://Slike-v.github.io/2019/09/04/Bootstrap中javascript插件/</a></span></div><div class="post-copyright-notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Slike-v.github.io">Slikeの后花园</a>！</span></div></div></article><div id="pagination"><div class="prev-post pull-left"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/09/04/SpringBoot详解/"><i class="fas fa-angle-left">&nbsp;</i><span>SpringBoot详解</span></a></div><div class="next-post pull-right"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/09/01/Bootstrap基本组件/"><span>Bootstrap基本组件</span><span>&nbsp;</span><i class="fas fa-angle-right"></i></a></div></div><!--div!= paginator()--></div></div><div class="button-hover" id="return-top"><i class="fas fa-arrow-up" aria-hidden="true"></i></div><footer><div id="footer"><div class="button-hover" id="side-button"><i class="fas fa-arrow-right"></i></div><div class="right-content"><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fas fa-file-o"></i></span><span id="busuanzi_value_page_pv"></span><span></span></div><div class="copyright">&copy;2017 ～ 2021 By Slike-V</div></div></div></footer></div><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery-3.3.1.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/velocity.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery.mCustomScrollbar.concat.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/fan.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/canvas_bg.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/utils.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/scroll.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/sidebar.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/copy.js"></script><!--script(src=url)--></body></html>

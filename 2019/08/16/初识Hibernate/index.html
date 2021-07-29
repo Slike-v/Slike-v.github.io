@@ -1,0 +1,180 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="初识Hibernate"><meta name="keywords" content="Hibernate"><meta name="author" content="Slike-V,undefined"><meta name="copyright" content="Slike-V"><title>初识Hibernate【Slikeの后花园】</title><link rel="stylesheet" href="/css/fan.css"><link rel="stylesheet" href="/css/thirdparty/jquery.mCustomScrollbar.min.css"><link rel="icon" href="/avatar.png"><!-- script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")--><script src="/js/mathjax/mathjax.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+});
+</script><script>var isPassword = '' || false;
+if (isPassword) {
+    if (prompt('请输入文章密码') !== '') {
+        alert('密码错误！');
+        history.back();
+    }
+}</script><script>window.GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+}</script></head><body><canvas id="universe"></canvas><!--#body--><div id="sidebar"><div class="toggle-sidebar-info button-hover"><span data-toggle="文章目录">站点概览</span></div><div class="sidebar-toc"><div class="sidebar-toc-title">目录</div><div class="sidebar-toc-progress"><span class="progress-notice">您已阅读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc-progress-bar"></div></div><div class="sidebar-toc-content" id="sidebar-toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#初识Hibernate"><span class="toc-number">1.</span> <span class="toc-text">初识Hibernate</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><span class="toc-number">1.0.1.</span> <span class="toc-text">       前言</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Hibernate框架的优缺点"><span class="toc-number">1.0.2.</span> <span class="toc-text">Hibernate框架的优缺点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Hibernate与MyBatis比较"><span class="toc-number">1.0.3.</span> <span class="toc-text">Hibernate与MyBatis比较</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Hibernate环境搭建"><span class="toc-number">1.0.4.</span> <span class="toc-text">Hibernate环境搭建</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#使用Hibernate完成持久化操作"><span class="toc-number">1.0.5.</span> <span class="toc-text">使用Hibernate完成持久化操作</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Hibernate中Java对象的三种状态"><span class="toc-number">1.0.6.</span> <span class="toc-text">Hibernate中Java对象的三种状态</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#脏检查及刷新缓存机制"><span class="toc-number">1.0.7.</span> <span class="toc-text">脏检查及刷新缓存机制</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#更新数据的方法"><span class="toc-number">1.0.8.</span> <span class="toc-text">更新数据的方法</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info-avatar"><img class="author-info-avatar-img" src="/avatar.png"></div><div class="author-info-name">Slike-V</div><div class="author-info-description"></div><div class="links-buttons"><a class="links-button button-hover" href="https://github.com/fan-lv" target="_blank">GitHub<i class="icon-dot bg-color7"></i></a><a class="links-button button-hover" href="mailto:826330335@qq.com" target="_blank">E-Mail<i class="icon-dot bg-color3"></i></a><a class="links-button button-hover" href="tencent:/" target="_blank">QQ<i class="icon-dot bg-color1"></i></a></div><div class="author-info-articles"><a class="author-info-articles-archives article-meta" href="/archives"><span class="pull-top">日志</span><span class="pull-bottom">58</span></a><a class="author-info-articles-tags article-meta" href="/tags"><span class="pull-top">标签</span><span class="pull-bottom">58</span></a><a class="author-info-articles-categories article-meta" href="/categories"><span class="pull-top">分类</span><span class="pull-bottom">19</span></a></div><div class="friend-link"><a class="friend-link-text" href="/about" target="_blank">Slike-V【简介】</a><a class="friend-link-text" href="https://github.com/fan-lv" target="_blank">主题作者</a><a class="friend-link-text" href="http://kublic.coding.me" target="_blank">Kubil博客</a><a class="friend-link-text" href="http://mebieber.coding.me" target="_blank">Mebieber博客</a><a class="friend-link-text" href="https://www.ultarts.com" target="_blank">Ultarts博客</a></div></div></div><div id="main-container"><header><div id="menu-outer"><i class="menu-list-icon fas fa-bars"></i><nav id="menu-inner"><a class="menu-item" href="/">首页</a><a class="menu-item" href="/tags">标签</a><a class="menu-item" href="/categories">分类</a><a class="menu-item" href="/archives">归档</a><a class="menu-item" href="/about">关于</a></nav><div class="right-info"><a class="title-name" href="/">Slikeの后花园</a><span id="now-time"></span></div></div></header><div id="content-outer"><div id="content-inner"><article id="post"><div class="post-header"><div class="title">初识Hibernate</div><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 发表于 2019-08-16 | 更新于 2021-07-28</time><!--time.button-hover.post-date #[i.fas.fa-calendar-alt.article-icon(aria-hidden="true")] #[=__('post.modified')] #[=date(page['updated'], config.date_format)]--><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/Hibernate框架/">Hibernate框架</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/Hibernate/">Hibernate</a></div></div></div><div class="main-content"><h3 id="初识Hibernate"><a href="#初识Hibernate" class="headerlink" title="初识Hibernate"></a>初识Hibernate</h3><h5 id="nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hibernate是数据持久化工具，也是一个开放源代码的ORM解决方案。内部封装了通过JDBC访问数据库的操作，向上层应用提供面向对象的数据访问API。基于ORM，Hibernate在对象模型和关系型数据库的表之间建立了一座桥梁，通过Hibernate，程序员不需要使用SQL语句操作数据库的表，使用API直接操作JavaBean对象就可以实现数据的增、删、改、查。显著降低由于对象与关系数据库在数据表现方面的范例不匹配导致的开发成本</p>
+<hr>
+<a id="more"></a>
+<h5 id="Hibernate框架的优缺点"><a href="#Hibernate框架的优缺点" class="headerlink" title="Hibernate框架的优缺点"></a>Hibernate框架的优缺点</h5><p>优点：</p>
+<ol>
+<li>Hibernate功能强大，是Java应用于关系数据库间的桥梁，较之JDBC方式操作数据库，代码量大大减少，提高开发速度，降低维护成本。</li>
+<li>Hibernate支持许多面向对象的特性，组合、继承、多态等。使开发人员不必再面向对象领域的对象模型和面向数据库的关系数据库直接来回切换，方便开发人员进行领域驱动的面向对象的设计与开发。</li>
+<li>可移植性好。系统不会绑定在某个特定的关系型数据库上，对于系统更换数据库，只需要修改Hibernate配置文件即可正常运行。</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>不适合以数据为中心大量使用存储过程的应用。</li>
+<li>大规模的批量插入、修改、删除不适合Hibernate。</li>
+</ol>
+<hr>
+<h5 id="Hibernate与MyBatis比较"><a href="#Hibernate与MyBatis比较" class="headerlink" title="Hibernate与MyBatis比较"></a>Hibernate与MyBatis比较</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hibernate与MyBatis都属于ORM框架，为数据层提供持久化操作的支持。</p>
+<ol>
+<li>相对于MyBatis的”SQL-Mapping”的ORM实现，Hibernate的ORM实现更加完善，提供对象状态管理的功能。Hibernate对数据操作，针对的是Java对象，即使用Hibernate的查询语言HQL，书写规则也是面向对象的。</li>
+<li>Hibernate与具体数据库的关联只需要在XML中配置即可，Hibernate开发者不需要关注SQL的生成与结果的映射，所有的HQL语句与具体使用的数据库无关，便于修改、移植性好。MyBatis直接使用SQL语句，不同数据库可能会有差异、修改工作量大、可移植性差。</li>
+<li>由于直接使用SQL语句、MyBatis灵活性更高、Hibernate对于关系型模型设计不合理、不规范的系统不适用。不考虑缓存的情况下，MyBatis执行效率比Hibernate高一些。</li>
+</ol>
+<hr>
+<h5 id="Hibernate环境搭建"><a href="#Hibernate环境搭建" class="headerlink" title="Hibernate环境搭建"></a>Hibernate环境搭建</h5><ol>
+<li>下载需要的JAR文件<pre><code>hibernate-core
+antlr
+commons-collections
+dom4j
+javassist
+jta
+slf4j-api
+hibernate-jpa</code></pre></li>
+<li>部署JAR文件</li>
+<li>创建Hibernate配置文件hibernate.cfg.xml<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE hibernate-configuration PUBLIC
+    &quot;-//Hibernate/Hibernate Configuration DTD 3.0//EN&quot;
+    &quot;http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd&quot;&gt;
+    &lt;hibernate-configuration&gt;
+        &lt;session-factory&gt;
+            &lt;!--数据库URL--&gt;
+            &lt;property name=&quot;connection.url&quot;&gt;
+                jdbc:oracle:thin:@10.0.0.176:1521:orcl
+            &lt;/property&gt;
+            &lt;!--数据库用户--&gt;
+            &lt;property name=&quot;configuration.username&quot;&gt;scott&lt;/property&gt;
+            &lt;!--数据库密码--&gt;
+            &lt;property name=&quot;configuration.password&quot;&gt;tiger&lt;/property&gt;
+            &lt;!--数据库JDBC驱动--&gt;
+            &lt;property name=&quot;configuration.driver_class&quot;&gt;
+                oracle.jdbc.driver.OraleDriver
+            &lt;/property&gt;
+            &lt;!--每个数据库都有其对应的防御以匹配其平台特性--&gt;
+            &lt;property name=&quot;dialect&quot;&gt;
+                org.hibernate.dialect.Oracle10gDialect
+            &lt;/property&gt;
+            &lt;!--指定当前session范围和上下文--&gt;
+            &lt;property name=&quot;current_session_context_class&quot;&gt;thread&lt;/property&gt;
+            &lt;!--是否运行期生成的SQL输出到日志以供调试--&gt;
+            &lt;property name=&quot;show_sql&quot;&gt;true&lt;/property&gt;
+            &lt;!--是否格式化SQL--&gt;
+            &lt;property name=&quot;format_sql&quot;&gt;true&lt;/property&gt;
+        &lt;/session-factory&gt;
+    &lt;/hibernate-configuration&gt;</code></pre></li>
+<li>创建持久化类和映射文件</li>
+</ol>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;持久化类指其实例化状态需要被Hibernate持久化到数据库中的类。在应用的设计中，持久化类通常对应需求中的业务类实体。Hibernate对持久化类的要求很少，它鼓励采用POJO编程模型来实现持久化类。</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE hibernate-mapping PUBLIC
+    &quot;-//Hibernate/Hibernate Mapping DTD 3.0//EN&quot;
+    &quot;http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd&quot;&gt;
+    &lt;hibernate-mapping&gt;
+        &lt;class name=&quot;cn.hibernatedemo.entity.Dept&quot; table=&quot;`DEPT`&quot;&gt;
+            &lt;id name=&quot;deptNo&quot; type=&quot;java.lang.Byte&quot; column=&quot;`DEPTNO`&quot;&gt;
+                &lt;generator class=&quot;assigned&quot;/&gt;
+            &lt;/id&gt;
+            &lt;property name=&quot;deptName&quot; type=&quot;java.lang.String&quot; column=&quot;`DNAME`&quot;/&gt;
+            &lt;property name=&quot;location&quot; type=&quot;java.lang.String&quot;&gt;
+                &lt;column name=&quot;`LOC`&quot;&gt;&lt;/column&gt;
+            &lt;/property&gt;
+        &lt;/class&gt;
+    &lt;/hibernate-mapping&gt;</code></pre><hr>
+<h5 id="使用Hibernate完成持久化操作"><a href="#使用Hibernate完成持久化操作" class="headerlink" title="使用Hibernate完成持久化操作"></a>使用Hibernate完成持久化操作</h5><ol>
+<li><p>读取并解析配置文件及映射文件</p>
+<pre><code>Configuration conf =new Configuration().configure();</code></pre><p>根据默认位置Hibernate配置文件中的信息，构建Configuration对象。</p>
+</li>
+<li><p>依据配置文件和映射文件中的信息，创建SessionFactory对象。</p>
+<pre><code>SessionFactory sf=conf.buildSessionFactory();</code></pre></li>
+</ol>
+<p>Configuration对象会根据当前数据库配置信息，构造SessionFactory对象。一旦构造完成，Configuration对象的任何变更将不会影响已经创建的SessionFactory对象。如果Hibernate配置信息有改动，那么需要基于改动后的Configuration对象重新构造一个SessionFactory对象。</p>
+<ul>
+<li><p>打开Session。</p>
+<pre><code>Session session = sf.getCurrentSession();</code></pre></li>
+</ul>
+<p>SessionFactory负责创建Session对象。Session是Hibernate持久化操作的基础。Session作为贯穿Hibernate的持久化管理器的核心，提供了众多方法。save()、delete()、update()、get()、load()等。</p>
+<ul>
+<li><p>开始一个事务。</p>
+<pre><code>Transaction tx = session.beginTransaction();</code></pre></li>
+<li><p>数据库操作。</p>
+<pre><code>session.save(user);</code></pre></li>
+<li><p>结束事务</p>
+<pre><code>tx.commit();或tx.rollback();</code></pre></li>
+<li><p>如果通过SessionFactory的openSession()获取的Session对象需要关闭session。</p>
+<pre><code>session.close();</code></pre></li>
+</ul>
+<hr>
+<h5 id="Hibernate中Java对象的三种状态"><a href="#Hibernate中Java对象的三种状态" class="headerlink" title="Hibernate中Java对象的三种状态"></a>Hibernate中Java对象的三种状态</h5><ol>
+<li><p>Java对象的三种状态</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当应用通过调用Hibernate API与框架进行交互时，需要从持久化的角度关注应用对象的生命周期。持久化生命周期时Hibernate中的一个关键概念，正确理解生命周期，可以更好了解Hibernate的实现原理。</p>
+<ul>
+<li><p>瞬时状态(Transient)</p>
+<pre><code>瞬时状态又称临时状态。Java对象与数据库中的数据没有任何的关联，即此Java对象在数据库中没有相关联的记录。此时Java对象的状态为瞬时状态。Session对于瞬时状态的Java对象是一无所知的，当对象不再被其他对象引用时，它的所有数据也就丢失了，对象将会被Java虚拟机按照垃圾回收机制处理。</code></pre></li>
+<li><p>持久状态(Persistent)</p>
+<pre><code>当对象与Session关联，被Session管理时，他就处于持久状态。处于持久状态的对象拥有数据库标识(数据库中的主键值)。对象什么时候与Session发生关联？(1)通过Session的查询接口，或者get()、load()从数据库中加载对象的时候，加载对象是与数据库表中的一条记录关联、此时对象与加载它的Session发生关联。(2)对瞬时状态的对象调用Session的save()、saveOrUpdate()等方法、在保存对象数据的同时，Java对象的内部状态发生了任何变更，Hibernate会选择合适的时机将变更同步到数据库中。</code></pre></li>
+<li><p>游离状态(Detached)</p>
+<pre><code>游离状态又称脱管状态。处于持久状态的对象，脱离与其关联的Session管理后，对象处于游离状态。处于游离状态的对象，Hibernate无法保证对象所包含的数据与数据库中的记录一致。因为Hibernate已经无法感知该对象的任何操作。Session提供了update()、saveOrUpdate()等方法。将处于游离状态的对象数据以更新的方式同步到数据库中，并将该对象与当前的Session关联。这时，对象的状态从游离状态转换为持久状态。</code></pre></li>
+</ul>
+</li>
+</ol>
+<p>2.三种状态之间的转换    </p>
+<ol>
+<li><p>瞬时状态转为持久状态</p>
+<p> 使用Session的save()、saveOrUpdate()方法等保存对象后，该对象的状态由瞬时状态转为持久状态</p>
+<p> 使用Session的get()、load()方法获取对象，该对象的状态是持久状态</p>
+</li>
+<li><p>持久状态转为瞬时状态</p>
+<p> 执行Session的delete()对象由原来的持久状态转变为瞬时状态，因为此时该对象没有与任何数据库数据关联</p>
+</li>
+<li><p>持久状态转为游离状态</p>
+<p> 执行Session的evict()、clear()、close()，对象由原来的持久状态转为游离状态</p>
+</li>
+<li><p>游离状态转为持久状态</p>
+<p> 执行Session的update()或saveOrUpdate()，对象由游离状态转为持久状态。</p>
+</li>
+<li><p>游离状态转为瞬时状态</p>
+<p> 执行Session的delete()方法，对象由游离状态转为瞬时状态</p>
+</li>
+</ol>
+<hr>
+<h5 id="脏检查及刷新缓存机制"><a href="#脏检查及刷新缓存机制" class="headerlink" title="脏检查及刷新缓存机制"></a>脏检查及刷新缓存机制</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Session是Hibernate向应用程序提供的持久化操纵的主要接口，提供了基本的保存、更新、删除、加载Java对象的方法。Session具有一个缓存，可以管理和跟踪所有持久化对象。在某些时间点，Session会根据缓存中对象的变化来执行相关SQL语句，将对象发生的变化同步到数据库中，就是将数据库同步为域Session缓存一致。称为刷新缓存</p>
+<ol>
+<li><p>脏检查</p>
+<p> 在Hibernate中，数据前后发生变化的对象，称为脏对象。</p>
+<pre><code>tx=session.beginTransaction();
+//获取部门对象，dept处于持久状态
+Dept dept=(Dept)session.load(Dept.class,new Byte(&quot;11&quot;));
+//修改后，部门信息和之前不同，此时dept对象为脏对象
+dept.setDname(&quot;质量部&quot;);
+//提交事务
+tx.commit();</code></pre></li>
+<li><p>刷新缓存机制</p>
+<p> 需要注意，当Session缓存中对象的属性发生变化时，Session并不会立即执行脏检查和执行相关联的SQL语句，而是在特定的时间点，即刷新缓存时才执行。这使得Session能够把多次变化合并为一条或者一批SQL语句，减少访问数据库次数，从而提高应用程序的数据访问性能。</p>
+<p> 默认情况Session会在以下时间点刷新缓存</p>
+<pre><code>1.应用程序显示调用Session的flush()，进行刷新缓存操作，触发脏检查，视情况执行相关的SQL语句。
+2.应用程序调用Transaction的commit()，commit()会先调用Session的刷新缓存方法flush()，然后向数据库提交事务。</code></pre></li>
+</ol>
+<hr>
+<h5 id="更新数据的方法"><a href="#更新数据的方法" class="headerlink" title="更新数据的方法"></a>更新数据的方法</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hibernate中的Session提供了多种更新数据的方法：update()、saveOrUpdate()、merge()</p>
+<ol>
+<li>update()，用于将游离状态的对象恢复为持久状态，同时进行数据库更新操作。参数对象的OID为null时会报异常。</li>
+<li>saveOrUpdate()，同时包含save()与update()，如果入参时瞬时状态对象就调用save()，如果是游离状态的对象就调用update()</li>
+<li>merge()，能把作为参数传入的游离状态对象的属性复制到一个拥有相同OID的持久状态对象中，通过对持久状态对象的脏检查实现实现更新操作，返回该持久状态对象;如果无法从Session缓存或数据库中加载到相应的持久状态对象，即传入的时瞬时状态对象，则创建其副本执行插入操作，并返回这一新的持久状态对象。</li>
+</ol>
+</div><div class="post-copyright"><div class="post-copyright-author"><span class="post-copyright-meta">本文作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Slike-V</a></span></div><div class="post-copyright-type"><span class="post-copyright-meta">本文链接: </span><span class="post-copyright-info"><a href="http://Slike-v.github.io/2019/08/16/初识Hibernate/">http://Slike-v.github.io/2019/08/16/初识Hibernate/</a></span></div><div class="post-copyright-notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Slike-v.github.io">Slikeの后花园</a>！</span></div></div></article><div id="pagination"><div class="prev-post pull-left"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/08/16/Oracle账号问题/"><i class="fas fa-angle-left">&nbsp;</i><span>Oracle数据库密码问题</span></a></div><div class="next-post pull-right"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/08/16/Oracle索引/"><span>Oracle索引</span><span>&nbsp;</span><i class="fas fa-angle-right"></i></a></div></div><!--div!= paginator()--></div></div><div class="button-hover" id="return-top"><i class="fas fa-arrow-up" aria-hidden="true"></i></div><footer><div id="footer"><div class="button-hover" id="side-button"><i class="fas fa-arrow-right"></i></div><div class="right-content"><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fas fa-file-o"></i></span><span id="busuanzi_value_page_pv"></span><span></span></div><div class="copyright">&copy;2017 ～ 2021 By Slike-V</div></div></div></footer></div><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery-3.3.1.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/velocity.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery.mCustomScrollbar.concat.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/fan.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/canvas_bg.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/utils.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/scroll.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/sidebar.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/copy.js"></script><!--script(src=url)--></body></html>

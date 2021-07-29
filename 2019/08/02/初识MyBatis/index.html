@@ -1,0 +1,118 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="初识MyBatis"><meta name="keywords" content="MyBatis"><meta name="author" content="Slike-V,undefined"><meta name="copyright" content="Slike-V"><title>初识MyBatis【Slikeの后花园】</title><link rel="stylesheet" href="/css/fan.css"><link rel="stylesheet" href="/css/thirdparty/jquery.mCustomScrollbar.min.css"><link rel="icon" href="/avatar.png"><!-- script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")--><script src="/js/mathjax/mathjax.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+});
+</script><script>var isPassword = '' || false;
+if (isPassword) {
+    if (prompt('请输入文章密码') !== '') {
+        alert('密码错误！');
+        history.back();
+    }
+}</script><script>window.GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+}</script></head><body><canvas id="universe"></canvas><!--#body--><div id="sidebar"><div class="toggle-sidebar-info button-hover"><span data-toggle="文章目录">站点概览</span></div><div class="sidebar-toc"><div class="sidebar-toc-title">目录</div><div class="sidebar-toc-progress"><span class="progress-notice">您已阅读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc-progress-bar"></div></div><div class="sidebar-toc-content" id="sidebar-toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#初识MyBatis"><span class="toc-number">1.</span> <span class="toc-text">初识MyBatis</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><span class="toc-number">1.0.1.</span> <span class="toc-text">       前言</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#一、MyBatis介绍及环境搭建"><span class="toc-number">1.0.2.</span> <span class="toc-text">一、MyBatis介绍及环境搭建</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#MyBatis的基本要素——核心对象"><span class="toc-number">1.0.3.</span> <span class="toc-text">MyBatis的基本要素——核心对象</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info-avatar"><img class="author-info-avatar-img" src="/avatar.png"></div><div class="author-info-name">Slike-V</div><div class="author-info-description"></div><div class="links-buttons"><a class="links-button button-hover" href="https://github.com/fan-lv" target="_blank">GitHub<i class="icon-dot bg-color8"></i></a><a class="links-button button-hover" href="mailto:826330335@qq.com" target="_blank">E-Mail<i class="icon-dot bg-color5"></i></a><a class="links-button button-hover" href="tencent:/" target="_blank">QQ<i class="icon-dot bg-color9"></i></a></div><div class="author-info-articles"><a class="author-info-articles-archives article-meta" href="/archives"><span class="pull-top">日志</span><span class="pull-bottom">58</span></a><a class="author-info-articles-tags article-meta" href="/tags"><span class="pull-top">标签</span><span class="pull-bottom">58</span></a><a class="author-info-articles-categories article-meta" href="/categories"><span class="pull-top">分类</span><span class="pull-bottom">19</span></a></div><div class="friend-link"><a class="friend-link-text" href="/about" target="_blank">Slike-V【简介】</a><a class="friend-link-text" href="https://github.com/fan-lv" target="_blank">主题作者</a><a class="friend-link-text" href="http://kublic.coding.me" target="_blank">Kubil博客</a><a class="friend-link-text" href="http://mebieber.coding.me" target="_blank">Mebieber博客</a><a class="friend-link-text" href="https://www.ultarts.com" target="_blank">Ultarts博客</a></div></div></div><div id="main-container"><header><div id="menu-outer"><i class="menu-list-icon fas fa-bars"></i><nav id="menu-inner"><a class="menu-item" href="/">首页</a><a class="menu-item" href="/tags">标签</a><a class="menu-item" href="/categories">分类</a><a class="menu-item" href="/archives">归档</a><a class="menu-item" href="/about">关于</a></nav><div class="right-info"><a class="title-name" href="/">Slikeの后花园</a><span id="now-time"></span></div></div></header><div id="content-outer"><div id="content-inner"><article id="post"><div class="post-header"><div class="title">初识MyBatis</div><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 发表于 2019-08-02 | 更新于 2021-07-28</time><!--time.button-hover.post-date #[i.fas.fa-calendar-alt.article-icon(aria-hidden="true")] #[=__('post.modified')] #[=date(page['updated'], config.date_format)]--><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/MyBatis框架/">MyBatis框架</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/MyBatis/">MyBatis</a></div></div></div><div class="main-content"><h3 id="初识MyBatis"><a href="#初识MyBatis" class="headerlink" title="初识MyBatis"></a>初识MyBatis</h3><h5 id="nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MyBatis是一个优秀数据持久层框架。它内部封装了通过JDBC访问数据库的操作,支持普通的SQL查询、存储过程和高级映射,几乎消除了所有的JDBC代码和参数的手工设置。</p>
+<hr>
+<a id="more"></a>
+<h5 id="一、MyBatis介绍及环境搭建"><a href="#一、MyBatis介绍及环境搭建" class="headerlink" title="一、MyBatis介绍及环境搭建"></a>一、MyBatis介绍及环境搭建</h5><p>1) 数据持久化概念</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据持久化：将内存中数据模型转换为存储模型,以及存储模型转换为内存中的数据模型的统称。</p>
+<p>2) MyBatis框架及ORM</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MyBatis作为持久化层框架,其主要思想是将程序中的大量SQL语句剥离出来,配置在配置文件中。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ORM(Object/Relational Mapping)对象/关系映射,是一种数据持久化技术。他在对象模型和关系型数据之间建立起对应关系,并且提供了一种机制,通过JavaBean对象去操作数据库表中的数据。MyBatis是ORM解决方案基于ORM,MyBatis在对象模型和关系数据库的表之间建立一座桥梁,通过MyBatis建立SQL关系映射,便捷实现数据存储、查询、更改、删除等操作。</p>
+<p>3) MyBatis环境搭建</p>
+<ul>
+<li>下载jar包</li>
+<li>部署jar包</li>
+<li>新建Source Folder类型的resources目录</li>
+<li>编写MyBatis核心配置文件mybatis-config.xml</li>
+</ul>
+<p>mybaits-config.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+        &lt;!DOCTYPE configuration
+            PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
+            &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;
+        &lt;configuration&gt;        配置文件的根元素节点
+            &lt;!--引用database.properties 文件 指定properties属性文件--&gt;
+            &lt;properties resource=&quot;data.properties&quot;/&gt;
+            &lt;!--配置mybatis的log实现为LOG4J 设置实现日志log4j功能--&gt;
+            &lt;settings&gt;                                            
+                &lt;setting name=&quot;logImpl&quot; value=&quot;LOG4J&quot;/&gt;
+            &lt;/settings&gt;
+          &lt;!--设置resultMap默认级别:autoMappingBehavior属性NONE:只映射xml配置文件的列和属性 PARTIAL:只要列名和属性名相同,不管是否配置,都自动映射 FULL:在PARTIAL的基础上,开启自动映射--&gt;
+                &lt;settings&gt;
+                   &lt;setting name=&quot;autoMappingBehavior&quot; value=&quot;NONE&quot;/&gt;
+                &lt;/settings&gt;    
+
+            &lt;!--给定类型指定别名--&gt;
+            &lt;typeAliases type=&quot;类型的路径&quot; alias=&quot;别名&quot;&gt;&lt;/typeAliases&gt;            
+
+            &lt;!-- 配置mybatis多套运行环境 多套运行环境映射多个不同的数据库可以配置多个environment--&gt;
+            &lt;environments default=&quot;development&quot;&gt;    
+            &lt;!--配置MyBatis的一套运行环境,--&gt;
+                &lt;environment id=&quot;development&quot;&gt;
+                    &lt;!--配置事务 管理,JDBC事务管理--&gt;
+                    &lt;transactionManager type=&quot;JDBC&quot;&gt;&lt;/transactionManager&gt;
+                    &lt;!--POOLED:mybatis自带的数据源,JNDI:基于tomcat的数据源--&gt;
+            &lt;!--type=&quot;POOLED&quot;-连接池方式 =&quot;UNPOOLED&quot;-非连接池方式 =&quot;JNDI&quot;--&gt;
+                    &lt;dataSource type=&quot;POOLED&quot;&gt;                    
+                        &lt;property name=&quot;driver&quot; value=&quot;${driver}&quot;/&gt;
+                        &lt;property name=&quot;url&quot; value=&quot;${url}&quot;/&gt;
+                        &lt;property name=&quot;username&quot; value=&quot;${user}&quot;/&gt;
+                        &lt;property name=&quot;password&quot; value=&quot;${password}&quot;/&gt;
+                    &lt;/dataSource&gt;
+                &lt;/environment&gt;
+            &lt;/environments&gt;
+            &lt;!--将mapper文件加入到配置文件中--&gt;
+            &lt;mappers&gt;
+         &lt;!--指定SQL映射文件--&gt;
+                &lt;mapper resource=&quot;&quot;/&gt;                            
+            &lt;/mappers&gt;
+        &lt;/configuration&gt;</code></pre><ul>
+<li><p>创建实体类</p>
+</li>
+<li><p>创建SQL映射文件 mapper.xml</p>
+</li>
+<li><p>创建xml文件实现映射</p>
+<pre><code>&lt;?xml vesion=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+        &lt;!DOCTYPE mapper
+        PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
+        &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;
+      &lt;mapper namespace=&quot;cn.smbms.dao.user.UserMapper&quot;&gt;                                    映射文件的根元素节点,只有一个属性namespace
+          &lt;!--查看用户记录数--&gt;
+          &lt;select id=&quot;count&quot; resultType=&quot;int&quot;&gt;                                            查询语句,id属性:该命名空间下唯一标识符,resultType:SQL语句返回值
+              select count(1) as count from smbms
+          &lt;/select&gt;
+      &lt;/mapper&gt;</code></pre><p>4) 1.4.MyBatis框架的优缺点</p>
+<p>  优点：</p>
+<pre><code>1.与JDBC相比,减少了50%以上代码量。
+2.MyBatis简单,小巧易学。
+3.MyBatis灵活,不会对应用程序或数据库强加影响。
+4.提供XML标签,支持编写动态SQL语句。
+5.提供映射标签,支持对象与数据库的ORM字段关系映射。</code></pre><p>  缺点：</p>
+<pre><code>1.SQL语句编写工作量大。
+2.SQL语句依赖于数据库,导致数据库移植行差。</code></pre></li>
+</ul>
+<hr>
+<h5 id="MyBatis的基本要素——核心对象"><a href="#MyBatis的基本要素——核心对象" class="headerlink" title="MyBatis的基本要素——核心对象"></a>MyBatis的基本要素——核心对象</h5><p>1) 核心接口和类</p>
+<p>SqlSessionFactoryBuilder - build() - SqlSessionFactory - openSession() - SqlSession</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;每个MyBatis的应用程序都以一个SqlSessionFactory对象的实例为核心</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首先获取SqlSessionFactoryBuilder对象,可以根据XML配置文件或Configuration类的实例构建该对象。然后获取SqlSessionFactory对象的实例能通过SqlSessionFactionBuilder对象来获得。有了SqlSessionFactory对象后,可以获得SqlSession实例,SqlSession对象包含所有执行SQL操作的方法。</p>
+<p>MyBatis核心配置文件(mybatis-config.xml)</p>
+<p>SQL映射文件(mapper.xml)</p>
+<p>2) SqlSessionFactoryBuilder</p>
+<pre><code>作用：读取XML文件方式
+负责构建SqlSessionFactory,提供多个build()方法重载。
+分别是InputStream、Reader、Configuration三种读取方式
+生命周期和作用域
+用过即丢。一旦创建SqlSessionFactory对象后,这个类就不再需要存在了。</code></pre><p>3) SqlSessionFactory    单例工厂 - 最好只存在一个工厂</p>
+<pre><code>作用：创建SqlSession实例的工厂。
+提供多个openSession()方法的重载,openSession()方法参数为boolean值时,true表示关闭事务控制,自动提交。false开启事务提交,若不传入参数默认为true。
+SqlSessionFactory创建就会在整个应用运行过程中始终存在。</code></pre><p>4) SqlSession    - 线程级别 - 不能共享</p>
+<pre><code>作用：执行持久化操作的对象。类似JDBC中Connection。
+提供执行SQL命令所需的所有方法。如select、update、delete、
+SqlSession对应一次数据库会话。生命周期不是永久的。可以执行多次SQL语句。若关闭了SqlSession。需要重新创建。</code></pre></div><div class="post-copyright"><div class="post-copyright-author"><span class="post-copyright-meta">本文作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Slike-V</a></span></div><div class="post-copyright-type"><span class="post-copyright-meta">本文链接: </span><span class="post-copyright-info"><a href="http://Slike-v.github.io/2019/08/02/初识MyBatis/">http://Slike-v.github.io/2019/08/02/初识MyBatis/</a></span></div><div class="post-copyright-notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Slike-v.github.io">Slikeの后花园</a>！</span></div></div></article><div id="pagination"><div class="prev-post pull-left"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/08/02/MyBatis的SQL映射/"><i class="fas fa-angle-left">&nbsp;</i><span>MyBatis的SQL映射</span></a></div><div class="next-post pull-right"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/08/01/SpringBoot访问JSP/"><span>SpringBoot访问JSP</span><span>&nbsp;</span><i class="fas fa-angle-right"></i></a></div></div><!--div!= paginator()--></div></div><div class="button-hover" id="return-top"><i class="fas fa-arrow-up" aria-hidden="true"></i></div><footer><div id="footer"><div class="button-hover" id="side-button"><i class="fas fa-arrow-right"></i></div><div class="right-content"><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fas fa-file-o"></i></span><span id="busuanzi_value_page_pv"></span><span></span></div><div class="copyright">&copy;2017 ～ 2021 By Slike-V</div></div></div></footer></div><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery-3.3.1.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/velocity.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery.mCustomScrollbar.concat.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/fan.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/canvas_bg.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/utils.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/scroll.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/sidebar.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/copy.js"></script><!--script(src=url)--></body></html>

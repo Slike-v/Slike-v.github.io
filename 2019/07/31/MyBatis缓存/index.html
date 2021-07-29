@@ -1,0 +1,104 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="MyBatis缓存"><meta name="keywords" content="MyBatis缓存"><meta name="author" content="Slike-V,undefined"><meta name="copyright" content="Slike-V"><title>MyBatis缓存【Slikeの后花园】</title><link rel="stylesheet" href="/css/fan.css"><link rel="stylesheet" href="/css/thirdparty/jquery.mCustomScrollbar.min.css"><link rel="icon" href="/avatar.png"><!-- script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")--><script src="/js/mathjax/mathjax.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+});
+</script><script>var isPassword = '' || false;
+if (isPassword) {
+    if (prompt('请输入文章密码') !== '') {
+        alert('密码错误！');
+        history.back();
+    }
+}</script><script>window.GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+}</script></head><body><canvas id="universe"></canvas><!--#body--><div id="sidebar"><div class="toggle-sidebar-info button-hover"><span data-toggle="文章目录">站点概览</span></div><div class="sidebar-toc"><div class="sidebar-toc-title">目录</div><div class="sidebar-toc-progress"><span class="progress-notice">您已阅读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc-progress-bar"></div></div><div class="sidebar-toc-content" id="sidebar-toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#MyBatis缓存机制"><span class="toc-number">1.</span> <span class="toc-text">MyBatis缓存机制</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><span class="toc-number">1.0.1.</span> <span class="toc-text">       前言</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#一、一级缓存"><span class="toc-number">1.0.2.</span> <span class="toc-text">一、一级缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#一级缓存的生命周期"><span class="toc-number">1.0.2.1.</span> <span class="toc-text">一级缓存的生命周期</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#二、二级缓存"><span class="toc-number">1.0.3.</span> <span class="toc-text">二、二级缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#二级缓存的使用场景："><span class="toc-number">1.0.3.1.</span> <span class="toc-text">二级缓存的使用场景：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#二级缓存和一级缓存的顺序"><span class="toc-number">1.0.3.2.</span> <span class="toc-text">二级缓存和一级缓存的顺序</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#开启二级缓存"><span class="toc-number">1.0.3.3.</span> <span class="toc-text">开启二级缓存</span></a></li></ol></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info-avatar"><img class="author-info-avatar-img" src="/avatar.png"></div><div class="author-info-name">Slike-V</div><div class="author-info-description"></div><div class="links-buttons"><a class="links-button button-hover" href="https://github.com/fan-lv" target="_blank">GitHub<i class="icon-dot bg-color5"></i></a><a class="links-button button-hover" href="mailto:826330335@qq.com" target="_blank">E-Mail<i class="icon-dot bg-color8"></i></a><a class="links-button button-hover" href="tencent:/" target="_blank">QQ<i class="icon-dot bg-color9"></i></a></div><div class="author-info-articles"><a class="author-info-articles-archives article-meta" href="/archives"><span class="pull-top">日志</span><span class="pull-bottom">58</span></a><a class="author-info-articles-tags article-meta" href="/tags"><span class="pull-top">标签</span><span class="pull-bottom">58</span></a><a class="author-info-articles-categories article-meta" href="/categories"><span class="pull-top">分类</span><span class="pull-bottom">19</span></a></div><div class="friend-link"><a class="friend-link-text" href="/about" target="_blank">Slike-V【简介】</a><a class="friend-link-text" href="https://github.com/fan-lv" target="_blank">主题作者</a><a class="friend-link-text" href="http://kublic.coding.me" target="_blank">Kubil博客</a><a class="friend-link-text" href="http://mebieber.coding.me" target="_blank">Mebieber博客</a><a class="friend-link-text" href="https://www.ultarts.com" target="_blank">Ultarts博客</a></div></div></div><div id="main-container"><header><div id="menu-outer"><i class="menu-list-icon fas fa-bars"></i><nav id="menu-inner"><a class="menu-item" href="/">首页</a><a class="menu-item" href="/tags">标签</a><a class="menu-item" href="/categories">分类</a><a class="menu-item" href="/archives">归档</a><a class="menu-item" href="/about">关于</a></nav><div class="right-info"><a class="title-name" href="/">Slikeの后花园</a><span id="now-time"></span></div></div></header><div id="content-outer"><div id="content-inner"><article id="post"><div class="post-header"><div class="title">MyBatis缓存</div><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 发表于 2019-07-31 | 更新于 2021-07-28</time><!--time.button-hover.post-date #[i.fas.fa-calendar-alt.article-icon(aria-hidden="true")] #[=__('post.modified')] #[=date(page['updated'], config.date_format)]--><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/MyBatis框架/">MyBatis框架</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/MyBatis缓存/">MyBatis缓存</a></div></div></div><div class="main-content"><h3 id="MyBatis缓存机制"><a href="#MyBatis缓存机制" class="headerlink" title="MyBatis缓存机制"></a>MyBatis缓存机制</h3><h5 id="nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-前言" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前言</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MyBatis提供了一级缓存和二级缓存的支持。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>使用缓存的好处：</strong>如果在极短时间内，做相同的查询，那么它们的结果很可能是相同，而访问一次数据库是非常消耗资源的。如果有一层缓存，将极大减少资源的消耗。减少重复的进行数据库的查询</p>
+<hr>
+<a id="more"></a>
+<h5 id="一、一级缓存"><a href="#一、一级缓存" class="headerlink" title="一、一级缓存"></a>一、一级缓存</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一级缓存是SqlSession级别的缓存。默认情况开启一级缓存，基于PerpetualCache的HashMap本地缓存，作用范围为session域内，当session刷新或关闭之后，该session中所有的cache就会被清空。</p>
+<h6 id="一级缓存的生命周期"><a href="#一级缓存的生命周期" class="headerlink" title="一级缓存的生命周期"></a>一级缓存的生命周期</h6><ul>
+<li><p>MyBatis在开启一个数据库会话时，会 创建一个新的SqlSession对象，SqlSession对象中会有一个新的Executor对象。Executor对象中持有一个新的PerpetualCache对象；当会话结束时，SqlSession对象及其内部的Executor对象还有PerpetualCache对象也一并释放掉。</p>
+</li>
+<li><p>如果SqlSession调用了close()方法，会释放掉一级缓存PerpetualCache对象，一级缓存将不可用;</p>
+</li>
+<li><p>如果SqlSession调用了clearCache()，会清空PerpetualCache对象中的数据，但是该对象仍可使用;</p>
+</li>
+<li><p>SqlSession中执行了任何一个update操作(update()、delete()、insert()) ，都会清空PerpetualCache对象的数据，但是该对象可以继续使用</p>
+</li>
+</ul>
+<p><strong>对于某个查询，根据statementId,params,rowBounds来构建一个key值，根据这个key值去缓存Cache中取出对应的key值存储的缓存结果。如果没有：去数据库中查询数据，得到查询结果;将key和查询到的结果分别作为key,value对存储到Cache中;</strong></p>
+<p>mybatis认为，对于两次查询，如果以下条件都完全一样，那么就认为它们是完全相同的两次查询。</p>
+<ul>
+<li><p>传入的statementId</p>
+</li>
+<li><p>查询时要求的结果集中的结果范围</p>
+</li>
+<li><p>这次查询所产生的最终要传递给JDBC java.sql.Preparedstatement的Sql语句字符串(boundSql.getSql())</p>
+</li>
+<li><p>传递给java.sql.Statement要设置的参数值</p>
+</li>
+</ul>
+<hr>
+<h5 id="二、二级缓存"><a href="#二、二级缓存" class="headerlink" title="二、二级缓存"></a>二、二级缓存</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;二级缓存就是global caching，它超出了session范围之外，可以被所有SqlSession共享，MyBatis的二级缓存是Application级别的缓存，它可以提高对数据库查询的效率，以提高应用的性能。开启它只需要在MyBatis的核心配置文件(MyBatis-config.xml)settings中设置即可。</p>
+<h6 id="二级缓存的使用场景："><a href="#二级缓存的使用场景：" class="headerlink" title="二级缓存的使用场景："></a>二级缓存的使用场景：</h6><p>二级缓存好处很多，但并不是什么时候都可以使用 。<br>在以下场景中，推荐使用二级缓存。</p>
+<ul>
+<li><p>以查询为主的应用中，只有尽可能少的增、删、改操作 。</p>
+</li>
+<li><p>绝大多数以单表操作存在时，由于很少存在互相关联的情况，因此不会出现脏数据 。</p>
+</li>
+<li><p>可以按业务划分对表进行分组时 ， 如关联的表比较少，可以通过参照缓存进行配置。</p>
+</li>
+<li><p>除了推荐使用的情况，如果脏读对系统没有影响，也可以考虑使用 。 在无法保证数据不出现脏读的情况下 ，不建议使用Mybatis的二级缓存</p>
+</li>
+</ul>
+<h6 id="二级缓存和一级缓存的顺序"><a href="#二级缓存和一级缓存的顺序" class="headerlink" title="二级缓存和一级缓存的顺序"></a>二级缓存和一级缓存的顺序</h6><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;你的MyBatis使用了二级缓存，并且你的Mapper和select语句也配置使用了二级缓存，那么在执行select查询的时候，MyBatis会先从二级缓存中取输入，其次才是一级缓存，即MyBatis查询数据的顺序是：</p>
+<p>二级缓存 ——&gt; 一级缓存——&gt; 数据库</p>
+<h6 id="开启二级缓存"><a href="#开启二级缓存" class="headerlink" title="开启二级缓存"></a>开启二级缓存</h6><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SqlSessionFactory层面上的二级缓存默认是不开启的，二级缓存的开启需要进行配置，实现二级缓存的时候，MyBatis要求返回的POJO必须是可序列化的。 也就是要求实现Serializable接口，配置方法很简单，只需要在映射XML文件(Mapper)配置就可以开启缓存了<cache>，如果我们配置了二级缓存就意味着：</cache></p>
+<ul>
+<li><p>映射语句文件中的所有select语句将会被缓存。</p>
+</li>
+<li><p>映射语句文件中的所欲insert、update和delete语句会刷新缓存。</p>
+</li>
+<li><p>缓存会使用默认的Least Recently Used（LRU，最近最少使用的）算法来收回。</p>
+</li>
+<li><p>根据时间表，比如No Flush Interval,（CNFI没有刷新间隔），缓存不会以任何时间顺序来刷新。</p>
+</li>
+<li><p>缓存会存储列表集合或对象(无论查询方法返回什么)的1024个引用。</p>
+</li>
+<li><p>缓存会被视为是read/write(可读/可写)的缓存，意味着对象检索不是共享的，而且可以安全的被调用者修改，不干扰其他调用者或线程所做的潜在修改。</p>
+</li>
+</ul>
+<p><strong>mybatis-config.xml配置</strong></p>
+<pre><code>&lt;settings&gt;
+    &lt;setting name=&quot;cacheEnabled&quot; value=&quot;true&quot;/&gt;
+&lt;/settings&gt;</code></pre><p><strong>mapper.xml配置</strong></p>
+<pre><code>&lt;mapper namespace=&quot;com.dao.user.UserMapper&quot;&gt;
+&lt;!--cache配置--&gt;
+&lt;!--开启本mapper的namespace下的二级缓存--&gt;
+&lt;!--
+    eviction:代表的是缓存回收策略，目前MyBatis提供以下策略。
+    (1) LRU,最近最少使用的，一处最长时间不用的对象
+    (2) FIFO,先进先出，按对象进入缓存的顺序来移除他们
+    (3) SOFT,软引用，移除基于垃圾回收器状态和软引用规则的对象
+    (4) WEAK,弱引用，更积极的移除基于垃圾收集器状态和弱引用规则的对象。这里采用的是LRU，
+            移除最长时间不用的对形象
+
+    flushInterval:刷新间隔时间，单位为毫秒，这里配置的是100秒刷新，如果你不配置它，那么当
+    SQL被执行的时候才会去刷新缓存。
+
+    size:引用数目，一个正整数，代表缓存最多可以存储多少个对象，不宜设置过大。设置过大会导致内存溢出。
+    这里配置的是1024个对象
+
+    readOnly:只读，意味着缓存数据只能读取而不能修改，这样设置的好处是我们可以快速读取缓存，缺点是我们没有
+    办法修改缓存，他的默认值是false，不允许我们修改
+--&gt;
+&lt;cache eviction=&quot;FIFO&quot; flushInterval=&quot;60000&quot; size=&quot;512&quot; readOnly=&quot;true&quot;/&gt;
+……
+&lt;/mapper&gt;</code></pre><p>配置了支持的cache后，如果需要对个别查询进行调整，可以单独设置cache</p>
+<pre><code>&lt;select id=&quot;getUserList&quot; resultType=&quot;User&quot; useCache=&quot;true&quot;&gt;
+&lt;/select&gt;</code></pre></div><div class="post-copyright"><div class="post-copyright-author"><span class="post-copyright-meta">本文作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Slike-V</a></span></div><div class="post-copyright-type"><span class="post-copyright-meta">本文链接: </span><span class="post-copyright-info"><a href="http://Slike-v.github.io/2019/07/31/MyBatis缓存/">http://Slike-v.github.io/2019/07/31/MyBatis缓存/</a></span></div><div class="post-copyright-notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Slike-v.github.io">Slikeの后花园</a>！</span></div></div></article><div id="pagination"><div class="prev-post pull-left"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/07/31/初识MyBatis-Plus/"><i class="fas fa-angle-left">&nbsp;</i><span>初识MyBatis Plus</span></a></div><div class="next-post pull-right"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/07/29/jdk源码-一/"><span>jdk源码(一)</span><span>&nbsp;</span><i class="fas fa-angle-right"></i></a></div></div><!--div!= paginator()--></div></div><div class="button-hover" id="return-top"><i class="fas fa-arrow-up" aria-hidden="true"></i></div><footer><div id="footer"><div class="button-hover" id="side-button"><i class="fas fa-arrow-right"></i></div><div class="right-content"><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fas fa-file-o"></i></span><span id="busuanzi_value_page_pv"></span><span></span></div><div class="copyright">&copy;2017 ～ 2021 By Slike-V</div></div></div></footer></div><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery-3.3.1.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/velocity.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery.mCustomScrollbar.concat.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/fan.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/canvas_bg.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/utils.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/scroll.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/sidebar.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/copy.js"></script><!--script(src=url)--></body></html>
